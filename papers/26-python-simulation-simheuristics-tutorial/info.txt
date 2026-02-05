@@ -1,0 +1,15 @@
+========================================
+TITLE: Tutorial: Connect Python with Simulation Software for Intelligent Simheuristics
+========================================
+YEAR: 2021
+TYPE: Conference
+VENUE: Winter Simulation Conference (WSC)
+AUTHORS: M. Peyman, M. Dehghanimohammadabadi, et al.
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides: slides.pptx ✓
+- Code:
+
+LINKS:
+- DOI:

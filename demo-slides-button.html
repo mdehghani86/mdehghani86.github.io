@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { font-family: -apple-system, sans-serif; padding: 20px; background: #f9f9f9; }
+.grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.cell { background: white; padding: 12px; border-radius: 8px; border: 1px solid #e5e7eb; text-align: center; }
+.cell span { display: block; font-size: 10px; color: #888; margin-bottom: 8px; }
+a { display: inline-flex; align-items: center; gap: 4px; font-size: 0.8rem; text-decoration: none; padding: 4px 8px; border-radius: 4px; }
+svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+a { transition: all 0.2s; }
+
+.s1 { color: #16a34a; border-bottom: 2px solid #16a34a; }
+.s1:hover { color: #15803d; background: #f0fdf4; }
+
+.s2 { color: #16a34a; background: #f0fdf4; }
+.s2:hover { background: #dcfce7; color: #15803d; }
+
+.s3 { color: #16a34a; background: linear-gradient(135deg, #f0fdf4, #dcfce7); }
+.s3:hover { background: linear-gradient(135deg, #dcfce7, #bbf7d0); }
+
+.s4 { color: #fff; background: #16a34a; }
+.s4:hover { background: #15803d; transform: translateY(-1px); }
+
+.s5 { color: #fff; background: linear-gradient(135deg, #22c55e, #16a34a); }
+.s5:hover { background: linear-gradient(135deg, #16a34a, #166534); transform: translateY(-1px); }
+
+.s6 { color: #16a34a; border: 1px solid #16a34a; }
+.s6:hover { background: #16a34a; color: #fff; }
+
+.s7 { color: #16a34a; border: 1px dashed #86efac; background: #f0fdf4; }
+.s7:hover { border-style: solid; border-color: #16a34a; background: #dcfce7; }
+
+.s8 { color: #16a34a; background: linear-gradient(to bottom, #dcfce7 0%, transparent 100%); }
+.s8:hover { background: linear-gradient(to bottom, #bbf7d0 0%, #f0fdf4 100%); }
+
+.s9 { color: #15803d; background: #bbf7d0; border-radius: 12px; }
+.s9:hover { background: #86efac; color: #166534; }
+
+.s10 { color: #fff; background: #15803d; border-radius: 12px; }
+.s10:hover { background: #166534; transform: scale(1.05); }
+
+.s11 { color: #16a34a; border-left: 3px solid #16a34a; border-radius: 0; padding-left: 6px; }
+.s11:hover { background: #f0fdf4; border-left-width: 5px; }
+
+.s12 { color: #166534; background: linear-gradient(to right, #bbf7d0, transparent); }
+.s12:hover { background: linear-gradient(to right, #86efac, #dcfce7); }
+
+.s13 { color: #16a34a; box-shadow: 0 2px 8px rgba(22,163,74,0.2); }
+.s13:hover { box-shadow: 0 4px 14px rgba(22,163,74,0.35); transform: translateY(-1px); }
+
+.s14 { color: #16a34a; box-shadow: inset 0 -2px 0 #16a34a; }
+.s14:hover { box-shadow: inset 0 -20px 0 rgba(22,163,74,0.1); }
+
+.s15 { color: #065f46; background: linear-gradient(to bottom, rgba(16,185,129,0.15), transparent 60%); border: 1px solid rgba(16,185,129,0.3); }
+.s15:hover { background: linear-gradient(to bottom, rgba(16,185,129,0.25), transparent 80%); border-color: rgba(16,185,129,0.6); }
+
+.s16 { color: #16a34a; background: transparent; border-bottom: 2px dotted #86efac; border-radius: 0; }
+.s16:hover { border-bottom-style: solid; border-bottom-color: #16a34a; }
+
+.s17 { color: #fff; background: linear-gradient(135deg, #34d399, #059669); border-radius: 12px; font-size: 0.7rem; }
+.s17:hover { background: linear-gradient(135deg, #059669, #047857); transform: scale(1.05); }
+
+.s18 { color: #16a34a; background: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(22,163,74,0.05) 3px, rgba(22,163,74,0.05) 6px); border: 1px solid #dcfce7; }
+.s18:hover { background: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(22,163,74,0.12) 3px, rgba(22,163,74,0.12) 6px); border-color: #86efac; }
+
+.s19 { color: #15803d; border: 1.5px solid #86efac; background: linear-gradient(to bottom, #f0fdf4, white); }
+.s19:hover { border-color: #22c55e; background: linear-gradient(to bottom, #dcfce7, #f0fdf4); }
+
+.s20 { color: #16a34a; background: #f0fdf4; border-radius: 0; border-bottom: 2px solid #22c55e; }
+.s20:hover { background: #dcfce7; border-bottom-width: 3px; }
+
+.s21 { color: #166534; background: linear-gradient(to bottom, #dcfce7 0%, #f0fdf4 50%, white 100%); border: 1px solid #bbf7d0; }
+.s21:hover { background: linear-gradient(to bottom, #bbf7d0 0%, #dcfce7 50%, #f0fdf4 100%); }
+
+.s22 { color: #fff; background: #059669; border-radius: 2px; font-weight: 600; }
+.s22:hover { background: #047857; transform: translateY(-1px); box-shadow: 0 2px 6px rgba(5,150,105,0.3); }
+
+.s23 { color: #16a34a; background: white; border: 1.5px solid #22c55e; box-shadow: 2px 2px 0 #dcfce7; }
+.s23:hover { box-shadow: 3px 3px 0 #bbf7d0; transform: translate(-1px, -1px); }
+
+.s24 { color: #065f46; background: linear-gradient(180deg, rgba(187,247,208,0.5) 0%, transparent 40%); }
+.s24:hover { background: linear-gradient(180deg, rgba(187,247,208,0.8) 0%, rgba(187,247,208,0.2) 60%); }
+
+.s25 { color: #16a34a; border: 1px solid #bbf7d0; border-top: 3px solid #22c55e; }
+.s25:hover { background: #f0fdf4; border-color: #22c55e; }
+
+.s26 { color: #15803d; background: #ecfdf5; border-left: 2px solid #34d399; border-radius: 0 4px 4px 0; }
+.s26:hover { background: #d1fae5; border-left-width: 4px; }
+
+.s27 { color: #fff; background: linear-gradient(to right, #16a34a, #22c55e); }
+.s27:hover { background: linear-gradient(to right, #15803d, #16a34a); transform: translateY(-1px); }
+
+.s28 { color: #16a34a; background: radial-gradient(ellipse at top, rgba(34,197,94,0.12), transparent 70%); border: 1px solid #dcfce7; }
+.s28:hover { background: radial-gradient(ellipse at top, rgba(34,197,94,0.25), transparent 80%); border-color: #86efac; }
+
+.s29 { color: #166534; background: #d1fae5; border-bottom: 2px solid #059669; border-radius: 4px 4px 0 0; }
+.s29:hover { background: #a7f3d0; border-bottom-width: 3px; }
+
+.s30 { color: #16a34a; background: white; outline: 2px solid #86efac; outline-offset: -2px; }
+.s30:hover { outline-color: #22c55e; background: #f0fdf4; }
+</style>
+</head>
+<body>
+<h3 style="margin:0 0 15px">30 Slides Button Styles - Pick a Number</h3>
+<div class="grid">
+<div class="cell"><span>1</span><a class="s1" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>2</span><a class="s2" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>3</span><a class="s3" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>4</span><a class="s4" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>5</span><a class="s5" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>6</span><a class="s6" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>7</span><a class="s7" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>8</span><a class="s8" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>9</span><a class="s9" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>10</span><a class="s10" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>11</span><a class="s11" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>12</span><a class="s12" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>13</span><a class="s13" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>14</span><a class="s14" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>15</span><a class="s15" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>16</span><a class="s16" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>17</span><a class="s17" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>18</span><a class="s18" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>19</span><a class="s19" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>20</span><a class="s20" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>21</span><a class="s21" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>22</span><a class="s22" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>23</span><a class="s23" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>24</span><a class="s24" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>25</span><a class="s25" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>26</span><a class="s26" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>27</span><a class="s27" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>28</span><a class="s28" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>29</span><a class="s29" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+<div class="cell"><span>30</span><a class="s30" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Slides</a></div>
+</div>
+</body>
+</html>

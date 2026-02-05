@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Card Design Options - Jahangir & Aashutosh</title>
+    <style>
+        :root {
+            --neu-red: #C41230;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a1a2e;
+        }
+
+        .option-label {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--neu-red);
+            margin: 40px 0 15px;
+            padding: 10px 20px;
+            background: white;
+            display: inline-block;
+            border-radius: 8px;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        /* ============================================ */
+        /* OPTION 1: Side by Side Simple */
+        /* ============================================ */
+        .option1 {
+            width: 580px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: flex;
+        }
+
+        .option1 .member {
+            flex: 1;
+            display: flex;
+            padding: 15px;
+            gap: 12px;
+        }
+
+        .option1 .member:first-child {
+            border-right: 1px solid #eee;
+        }
+
+        .option1 .photo {
+            width: 70px;
+            height: 85px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .option1 .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .option1 .info {
+            flex: 1;
+        }
+
+        .option1 .name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #1a1a2e;
+            margin-bottom: 3px;
+        }
+
+        .option1 .major {
+            font-size: 0.65rem;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .option1 .links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .option1 .links a {
+            color: #0077b5;
+            font-size: 0.6rem;
+        }
+
+        .option1 .links a svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ============================================ */
+        /* OPTION 2: With Header Image */
+        /* ============================================ */
+        .option2 {
+            width: 400px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .option2 .header-img {
+            width: 100%;
+            height: 60px;
+            object-fit: cover;
+            object-position: center 70%;
+        }
+
+        .option2 .members {
+            display: flex;
+            padding: 12px;
+            gap: 12px;
+        }
+
+        .option2 .member {
+            flex: 1;
+            text-align: center;
+        }
+
+        .option2 .photo {
+            width: 50px;
+            height: 60px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            overflow: hidden;
+            margin: 0 auto 8px;
+        }
+
+        .option2 .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .option2 .name {
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: #1a1a2e;
+        }
+
+        .option2 .major {
+            font-size: 0.55rem;
+            color: #64748b;
+        }
+
+        .option2 .learn-more {
+            text-align: center;
+            padding: 8px;
+            border-top: 1px solid #eee;
+            font-size: 0.6rem;
+            color: var(--neu-red);
+            cursor: pointer;
+        }
+
+        /* ============================================ */
+        /* OPTION 3: Compact Horizontal */
+        /* ============================================ */
+        .option3 {
+            width: 350px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            gap: 10px;
+        }
+
+        .option3 .photos {
+            display: flex;
+            gap: -10px;
+        }
+
+        .option3 .photo {
+            width: 45px;
+            height: 55px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            overflow: hidden;
+            border: 2px solid white;
+        }
+
+        .option3 .photo:last-child {
+            margin-left: -15px;
+        }
+
+        .option3 .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .option3 .info {
+            flex: 1;
+        }
+
+        .option3 .names {
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: #1a1a2e;
+            margin-bottom: 2px;
+        }
+
+        .option3 .project {
+            font-size: 0.6rem;
+            color: #64748b;
+            margin-bottom: 5px;
+        }
+
+        .option3 .learn-more {
+            font-size: 0.55rem;
+            color: var(--neu-red);
+            cursor: pointer;
+        }
+
+        /* ============================================ */
+        /* OPTION 4: Card with Project Focus */
+        /* ============================================ */
+        .option4 {
+            width: 320px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .option4 .header-img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            object-position: center 70%;
+        }
+
+        .option4 .content {
+            padding: 12px;
+        }
+
+        .option4 .project-title {
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .option4 .team {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .option4 .photo {
+            width: 35px;
+            height: 42px;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            overflow: hidden;
+        }
+
+        .option4 .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .option4 .team-names {
+            flex: 1;
+            font-size: 0.65rem;
+            color: #64748b;
+        }
+
+        .option4 .learn-more {
+            font-size: 0.55rem;
+            color: var(--neu-red);
+            cursor: pointer;
+        }
+
+        /* ============================================ */
+        /* OPTION 5: Vertical Stack */
+        /* ============================================ */
+        .option5 {
+            width: 180px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .option5 .header-img {
+            width: 100%;
+            height: 50px;
+            object-fit: cover;
+            object-position: center 70%;
+        }
+
+        .option5 .members {
+            padding: 10px;
+        }
+
+        .option5 .member {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            padding: 6px 0;
+        }
+
+        .option5 .member:first-child {
+            border-bottom: 1px solid #eee;
+        }
+
+        .option5 .photo {
+            width: 35px;
+            height: 42px;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .option5 .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .option5 .name {
+            font-weight: 600;
+            font-size: 0.65rem;
+            color: #1a1a2e;
+        }
+
+        .option5 .major {
+            font-size: 0.5rem;
+            color: #64748b;
+        }
+
+        .option5 .learn-more {
+            text-align: center;
+            padding: 8px;
+            font-size: 0.55rem;
+            color: var(--neu-red);
+            cursor: pointer;
+            border-top: 1px solid #eee;
+        }
+
+        /* ============================================ */
+        /* OPTION 6: Symmetric with Photos Outside */
+        /* ============================================ */
+        .option6 {
+            width: 400px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .option6 .header-img {
+            width: 100%;
+            height: 55px;
+            object-fit: cover;
+            object-position: center 70%;
+        }
+
+        .option6 .members {
+            display: flex;
+        }
+
+        .option6 .member {
+            flex: 1;
+            display: flex;
+        }
+
+        .option6 .member.left {
+            flex-direction: row;
+        }
+
+        .option6 .member.right {
+            flex-direction: row-reverse;
+            border-left: 1px solid #eee;
+        }
+
+        .option6 .photo {
+            width: 60px;
+            background: linear-gradient(135deg, #f8f8f8, #e8e8e8);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .option6 .photo img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .option6 .info {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .option6 .name {
+            font-weight: 700;
+            font-size: 0.7rem;
+            color: #1a1a2e;
+        }
+
+        .option6 .major {
+            font-size: 0.5rem;
+            color: #64748b;
+            margin-bottom: 5px;
+        }
+
+        .option6 .linkedin {
+            color: #0077b5;
+        }
+
+        .option6 .linkedin svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .option6 .learn-more {
+            text-align: center;
+            padding: 8px;
+            font-size: 0.55rem;
+            color: var(--neu-red);
+            cursor: pointer;
+            border-top: 1px solid #eee;
+        }
+
+        /* ============================================ */
+        /* OPTION 7: Minimal Cards Side by Side */
+        /* ============================================ */
+        .option7-container {
+            display: flex;
+            gap: 15px;
+        }
+
+        .option7 {
+            width: 160px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .option7 .header-img {
+            width: 100%;
+            height: 45px;
+            object-fit: cover;
+            object-position: center 70%;
+        }
+
+        .option7 .content {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .option7 .photo {
+            width: 45px;
+            height: 55px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            overflow: hidden;
+            margin: -30px auto 8px;
+            border: 3px solid white;
+        }
+
+        .option7 .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .option7 .name {
+            font-weight: 700;
+            font-size: 0.7rem;
+            color: #1a1a2e;
+        }
+
+        .option7 .major {
+            font-size: 0.5rem;
+            color: #64748b;
+        }
+
+        /* ============================================ */
+        /* OPTION 8: Dark Theme Card */
+        /* ============================================ */
+        .option8 {
+            width: 380px;
+            background: linear-gradient(135deg, #1a1a2e, #2d2d44);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        .option8 .header {
+            display: flex;
+            padding: 15px;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .option8 .header-img {
+            width: 60px;
+            height: 45px;
+            object-fit: cover;
+            object-position: center 70%;
+            border-radius: 8px;
+        }
+
+        .option8 .project-title {
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+
+        .option8 .project-desc {
+            font-size: 0.55rem;
+            opacity: 0.7;
+        }
+
+        .option8 .members {
+            display: flex;
+            background: white;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .option8 .member {
+            flex: 1;
+            display: flex;
+            padding: 10px;
+            gap: 8px;
+            color: #1a1a2e;
+        }
+
+        .option8 .member:first-child {
+            border-right: 1px solid #eee;
+        }
+
+        .option8 .photo {
+            width: 45px;
+            height: 55px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .option8 .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .option8 .name {
+            font-weight: 700;
+            font-size: 0.7rem;
+        }
+
+        .option8 .major {
+            font-size: 0.5rem;
+            color: #64748b;
+        }
+
+        /* ============================================ */
+        /* OPTION 9: Overlapping Photos */
+        /* ============================================ */
+        .option9 {
+            width: 290px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .option9 .header-img {
+            width: 100%;
+            height: 70px;
+            object-fit: cover;
+            object-position: center 70%;
+        }
+
+        .option9 .photos {
+            display: flex;
+            justify-content: center;
+            margin-top: -25px;
+            gap: 0;
+        }
+
+        .option9 .photo {
+            width: 50px;
+            height: 60px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            overflow: hidden;
+            border: 3px solid white;
+        }
+
+        .option9 .photo:last-child {
+            margin-left: -10px;
+        }
+
+        .option9 .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .option9 .content {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .option9 .names {
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: #1a1a2e;
+        }
+
+        .option9 .project {
+            font-size: 0.55rem;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .option9 .learn-more {
+            font-size: 0.55rem;
+            color: var(--neu-red);
+            cursor: pointer;
+        }
+
+        /* ============================================ */
+        /* OPTION 10: Same as Alumni Card Style */
+        /* ============================================ */
+        .option10-container {
+            display: flex;
+            gap: 15px;
+        }
+
+        .option10 {
+            width: 290px;
+            height: 130px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            display: flex;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .option10 .photo-area {
+            width: 100px;
+            background: radial-gradient(ellipse at center, #ffffff 0%, #e4e8ec 60%, #d0d6dc 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .option10 .photo-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .option10 .info {
+            padding: 14px;
+            flex: 1;
+        }
+
+        .option10 .name {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+        }
+
+        .option10 .major {
+            font-size: 0.6rem;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+
+        .option10 .project {
+            font-size: 0.55rem;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+
+        .option10 .job-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .option10 .job-row .logo {
+            height: 16px;
+        }
+
+        .option10 .job-row .job-title {
+            font-size: 0.55rem;
+            color: #64748b;
+        }
+
+        .option10 .learn-more {
+            font-size: 0.55rem;
+            color: var(--neu-red);
+            cursor: pointer;
+        }
+
+        .option10 .linkedin {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            color: #0077b5;
+        }
+
+        .option10 .linkedin svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* LinkedIn SVG */
+        .linkedin-svg {
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+    <h1>Team Card Design Options for Jahangir & Aashutosh</h1>
+    <p style="text-align:center;color:#64748b;margin-bottom:40px;">Pick one design that you like best</p>
+
+    <!-- OPTION 1 -->
+    <div class="option-label">Option 1: Side by Side Simple</div>
+    <div class="option1">
+        <div class="member">
+            <div class="photo"><img src="../assets/students/Jahangir_nobg.png" alt="Jahangir"></div>
+            <div class="info">
+                <div class="name">Jahangir Babar</div>
+                <div class="major">M.S. Engineering Management</div>
+                <div class="links">
+                    <a href="#"><svg class="linkedin-svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                </div>
+            </div>
+        </div>
+        <div class="member">
+            <div class="photo"><img src="../assets/students/Aashutosh_nobg.png" alt="Aashutosh"></div>
+            <div class="info">
+                <div class="name">Aashutosh Agrawal</div>
+                <div class="major">M.S. Industrial Engineering</div>
+                <div class="links">
+                    <a href="#"><svg class="linkedin-svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPTION 2 -->
+    <div class="option-label">Option 2: With Header Image (Compact)</div>
+    <div class="option2">
+        <img src="../assets/images/AI_NN.jpeg" alt="AI" class="header-img">
+        <div class="members">
+            <div class="member">
+                <div class="photo"><img src="../assets/students/Jahangir_nobg.png" alt="Jahangir"></div>
+                <div class="name">Jahangir Babar</div>
+                <div class="major">M.S. Eng. Management</div>
+            </div>
+            <div class="member">
+                <div class="photo"><img src="../assets/students/Aashutosh_nobg.png" alt="Aashutosh"></div>
+                <div class="name">Aashutosh Agrawal</div>
+                <div class="major">M.S. Industrial Eng.</div>
+            </div>
+        </div>
+        <div class="learn-more">Learn More &rarr;</div>
+    </div>
+
+    <!-- OPTION 3 -->
+    <div class="option-label">Option 3: Compact Horizontal</div>
+    <div class="option3">
+        <div class="photos">
+            <div class="photo"><img src="../assets/students/Jahangir_nobg.png" alt="Jahangir"></div>
+            <div class="photo"><img src="../assets/students/Aashutosh_nobg.png" alt="Aashutosh"></div>
+        </div>
+        <div class="info">
+            <div class="names">Jahangir & Aashutosh</div>
+            <div class="project">AI Agent-Based Requirements Elicitation</div>
+            <div class="learn-more">Learn More &rarr;</div>
+        </div>
+    </div>
+
+    <!-- OPTION 4 -->
+    <div class="option-label">Option 4: Project Focus Card</div>
+    <div class="option4">
+        <img src="../assets/images/AI_NN.jpeg" alt="AI" class="header-img">
+        <div class="content">
+            <div class="project-title">Elicitron: AI Agent-Based Requirements Elicitation</div>
+            <div class="team">
+                <div class="photo"><img src="../assets/students/Jahangir_nobg.png" alt="Jahangir"></div>
+                <div class="photo"><img src="../assets/students/Aashutosh_nobg.png" alt="Aashutosh"></div>
+                <div class="team-names">Jahangir Babar & Aashutosh Agrawal</div>
+                <div class="learn-more">Learn More &rarr;</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPTION 5 -->
+    <div class="option-label">Option 5: Vertical Stack</div>
+    <div class="option5">
+        <img src="../assets/images/AI_NN.jpeg" alt="AI" class="header-img">
+        <div class="members">
+            <div class="member">
+                <div class="photo"><img src="../assets/students/Jahangir_nobg.png" alt="Jahangir"></div>
+                <div class="info">
+                    <div class="name">Jahangir Babar</div>
+                    <div class="major">M.S. Eng. Mgmt</div>
+                </div>
+            </div>
+            <div class="member">
+                <div class="photo"><img src="../assets/students/Aashutosh_nobg.png" alt="Aashutosh"></div>
+                <div class="info">
+                    <div class="name">Aashutosh Agrawal</div>
+                    <div class="major">M.S. Industrial Eng.</div>
+                </div>
+            </div>
+        </div>
+        <div class="learn-more">Learn More &rarr;</div>
+    </div>
+
+    <!-- OPTION 6 -->
+    <div class="option-label">Option 6: Symmetric (Photos Outside)</div>
+    <div class="option6">
+        <img src="../assets/images/AI_NN.jpeg" alt="AI" class="header-img">
+        <div class="members">
+            <div class="member left">
+                <div class="photo"><img src="../assets/students/Jahangir_nobg.png" alt="Jahangir"></div>
+                <div class="info">
+                    <div class="name">Jahangir Babar</div>
+                    <div class="major">M.S. Eng. Management</div>
+                    <a href="#" class="linkedin"><svg class="linkedin-svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                </div>
+            </div>
+            <div class="member right">
+                <div class="photo"><img src="../assets/students/Aashutosh_nobg.png" alt="Aashutosh"></div>
+                <div class="info">
+                    <div class="name">Aashutosh Agrawal</div>
+                    <div class="major">M.S. Industrial Eng.</div>
+                    <a href="#" class="linkedin"><svg class="linkedin-svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                </div>
+            </div>
+        </div>
+        <div class="learn-more">Learn More &rarr;</div>
+    </div>
+
+    <!-- OPTION 7 -->
+    <div class="option-label">Option 7: Two Separate Mini Cards</div>
+    <div class="option7-container">
+        <div class="option7">
+            <img src="../assets/images/AI_NN.jpeg" alt="AI" class="header-img">
+            <div class="content">
+                <div class="photo"><img src="../assets/students/Jahangir_nobg.png" alt="Jahangir"></div>
+                <div class="name">Jahangir Babar</div>
+                <div class="major">M.S. Eng. Management</div>
+            </div>
+        </div>
+        <div class="option7">
+            <img src="../assets/images/AI_NN.jpeg" alt="AI" class="header-img">
+            <div class="content">
+                <div class="photo"><img src="../assets/students/Aashutosh_nobg.png" alt="Aashutosh"></div>
+                <div class="name">Aashutosh Agrawal</div>
+                <div class="major">M.S. Industrial Eng.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPTION 8 -->
+    <div class="option-label">Option 8: Dark Theme Card</div>
+    <div class="option8">
+        <div class="header">
+            <img src="../assets/images/AI_NN.jpeg" alt="AI" class="header-img">
+            <div>
+                <div class="project-title">Elicitron</div>
+                <div class="project-desc">AI Agent-Based Requirements Elicitation</div>
+            </div>
+        </div>
+        <div class="members">
+            <div class="member">
+                <div class="photo"><img src="../assets/students/Jahangir_nobg.png" alt="Jahangir"></div>
+                <div class="info">
+                    <div class="name">Jahangir Babar</div>
+                    <div class="major">M.S. Eng. Management</div>
+                </div>
+            </div>
+            <div class="member">
+                <div class="photo"><img src="../assets/students/Aashutosh_nobg.png" alt="Aashutosh"></div>
+                <div class="info">
+                    <div class="name">Aashutosh Agrawal</div>
+                    <div class="major">M.S. Industrial Eng.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPTION 9 -->
+    <div class="option-label">Option 9: Overlapping Photos</div>
+    <div class="option9">
+        <img src="../assets/images/AI_NN.jpeg" alt="AI" class="header-img">
+        <div class="photos">
+            <div class="photo"><img src="../assets/students/Jahangir_nobg.png" alt="Jahangir"></div>
+            <div class="photo"><img src="../assets/students/Aashutosh_nobg.png" alt="Aashutosh"></div>
+        </div>
+        <div class="content">
+            <div class="names">Jahangir & Aashutosh</div>
+            <div class="project">Elicitron: AI Agent-Based Requirements Elicitation</div>
+            <div class="learn-more">Learn More &rarr;</div>
+        </div>
+    </div>
+
+    <!-- OPTION 10 -->
+    <div class="option-label">Option 10: Same as Alumni Cards (Two Separate)</div>
+    <div class="option10-container">
+        <div class="option10">
+            <div class="photo-area"><img src="../assets/students/Jahangir_nobg.png" alt="Jahangir"></div>
+            <div class="info">
+                <div class="name">Jahangir Babar</div>
+                <div class="major">M.S. Engineering Management</div>
+                <div class="project">Elicitron: AI Requirements</div>
+                <div class="job-row">
+                    <img src="../assets/logos/NU_MonoLVX_RGB_RB.png" alt="NEU" class="logo">
+                    <span class="job-title">MS Student</span>
+                    <span class="learn-more">Learn More &rarr;</span>
+                </div>
+            </div>
+            <a href="#" class="linkedin"><svg class="linkedin-svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+        <div class="option10">
+            <div class="photo-area"><img src="../assets/students/Aashutosh_nobg.png" alt="Aashutosh"></div>
+            <div class="info">
+                <div class="name">Aashutosh Agrawal</div>
+                <div class="major">M.S. Industrial Engineering</div>
+                <div class="project">Elicitron: AI Requirements</div>
+                <div class="job-row">
+                    <img src="../assets/logos/NU_MonoLVX_RGB_RB.png" alt="NEU" class="logo">
+                    <span class="job-title">MS Student</span>
+                    <span class="learn-more">Learn More &rarr;</span>
+                </div>
+            </div>
+            <a href="#" class="linkedin"><svg class="linkedin-svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+    </div>
+
+</body>
+</html>

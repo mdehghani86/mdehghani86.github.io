@@ -1,0 +1,16 @@
+========================================
+TITLE: Highlighting Main Factors of Internet Banking via MCDA
+========================================
+YEAR: 2016
+TYPE: Conference
+VENUE: IISE Annual Conference
+AUTHORS: M. Demirtas, N. Ahmadi, M. Dehghanimohammadabadi
+AWARD: Best Paper Award + SEMS Award
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides:
+- Code:
+
+LINKS:
+- DOI:

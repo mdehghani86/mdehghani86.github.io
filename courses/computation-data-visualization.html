@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IE6600 - Computation and Data Visualization | Prof. Mohammad Dehghani</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --neu-red: #c41230;
+            --text-primary: #1a1a2e;
+            --text-secondary: #64748b;
+            --bg-light: #f8fafc;
+            --border-color: #e2e8f0;
+            --gold: #d4a84b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--neu-red);
+        }
+
+        .back-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .neu-logo {
+            height: 40px;
+        }
+
+        .course-hero {
+            background: linear-gradient(135deg, var(--text-primary) 0%, #2d2d44 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(196, 18, 48, 0.1) 0%, rgba(212, 168, 75, 0.1) 100%);
+            clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badges-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .course-badge {
+            display: inline-block;
+            background: rgba(220, 252, 231, 0.9);
+            color: #166534;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .award-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, rgba(212, 168, 75, 0.2) 0%, rgba(212, 168, 75, 0.1) 100%);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .award-badge svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--gold);
+        }
+
+        .course-code {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .course-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .course-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .meta-item svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--gold);
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--neu-red);
+        }
+
+        .description-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .topic-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px 15px;
+            background: var(--bg-light);
+            border-radius: 10px;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+
+        .topic-item svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--neu-red);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .objectives-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .objective-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(196, 18, 48, 0.03) 0%, rgba(212, 168, 75, 0.03) 100%);
+            border-radius: 10px;
+            border-left: 3px solid var(--neu-red);
+        }
+
+        .objective-num {
+            width: 26px;
+            height: 26px;
+            background: var(--neu-red);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .objective-text {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        /* Award Highlight */
+        .award-section {
+            background: linear-gradient(135deg, rgba(212, 168, 75, 0.08) 0%, rgba(212, 168, 75, 0.03) 100%);
+            border: 1px solid rgba(212, 168, 75, 0.3);
+        }
+
+        .award-highlight {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(212, 168, 75, 0.1) 0%, transparent 100%);
+            border-radius: 12px;
+        }
+
+        .award-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold) 0%, #b8963f 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .award-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        .award-details h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+        }
+
+        .award-details p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .sidebar-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .sidebar-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .syllabus-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px 20px;
+            background: var(--neu-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .syllabus-btn:hover {
+            background: #a00020;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(196, 18, 48, 0.3);
+        }
+
+        .syllabus-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .info-value {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .prereq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .prereq-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .prereq-item svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--gold);
+        }
+
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tool-tag {
+            padding: 8px 14px;
+            background: var(--bg-light);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+            .course-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="../index.html#courses" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to Courses
+            </a>
+            <img src="../assets/logos/NU_MonoLVX_RGB_RB.png" alt="Northeastern University" class="neu-logo">
+        </div>
+    </header>
+
+    <section class="course-hero">
+        <div class="hero-content">
+            <div class="badges-row">
+                <span class="course-badge">New Course</span>
+                <span class="award-badge">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                    DAIS Teaching Award 2025
+                </span>
+            </div>
+            <div class="course-code">IE6600</div>
+            <h1 class="course-title">Computation and Data Visualization</h1>
+            <p class="course-subtitle">Transform complex data into compelling visual narratives using R and Python, mastering the art and science of data storytelling.</p>
+            <div class="hero-meta">
+                <div class="meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Fall & Spring
+                </div>
+                <div class="meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    4 Credits
+                </div>
+                <div class="meta-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    Graduate Level
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="content-area">
+            <div class="content-section award-section">
+                <div class="award-highlight">
+                    <div class="award-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                    </div>
+                    <div class="award-details">
+                        <h3>DAIS Teaching Award 2025</h3>
+                        <p>Recognized by the Institute of Industrial and Systems Engineers (IISE) Data Analytics and Information Systems (DAIS) Division for excellence in teaching data analytics.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    Course Overview
+                </h2>
+                <p class="description-text">
+                    This course provides a comprehensive foundation in data visualization and computational techniques for data analysis. Students will learn to create effective visualizations that communicate insights clearly and persuasively, using both R and Python programming languages.
+                </p>
+                <br>
+                <p class="description-text">
+                    The curriculum covers principles of visual perception, grammar of graphics, interactive visualizations, and dashboard development. Students will work on real-world datasets and develop a portfolio of data visualization projects demonstrating their ability to turn data into actionable insights.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    Learning Objectives
+                </h2>
+                <div class="objectives-list">
+                    <div class="objective-item">
+                        <div class="objective-num">1</div>
+                        <div class="objective-text">Understand principles of effective data visualization and visual perception</div>
+                    </div>
+                    <div class="objective-item">
+                        <div class="objective-num">2</div>
+                        <div class="objective-text">Master the grammar of graphics using ggplot2 and matplotlib/seaborn</div>
+                    </div>
+                    <div class="objective-item">
+                        <div class="objective-num">3</div>
+                        <div class="objective-text">Create interactive visualizations and web-based dashboards</div>
+                    </div>
+                    <div class="objective-item">
+                        <div class="objective-num">4</div>
+                        <div class="objective-text">Apply data wrangling techniques to prepare data for visualization</div>
+                    </div>
+                    <div class="objective-item">
+                        <div class="objective-num">5</div>
+                        <div class="objective-text">Develop compelling data stories that drive business decisions</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="section-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    Topics Covered
+                </h2>
+                <div class="topics-grid">
+                    <div class="topic-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        Principles of Data Visualization
+                    </div>
+                    <div class="topic-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        Grammar of Graphics (ggplot2)
+                    </div>
+                    <div class="topic-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        Data Wrangling with tidyverse
+                    </div>
+                    <div class="topic-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        Python Visualization (matplotlib, seaborn)
+                    </div>
+                    <div class="topic-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        Interactive Visualizations (Plotly)
+                    </div>
+                    <div class="topic-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        Dashboard Development (Shiny, Dash)
+                    </div>
+                    <div class="topic-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        Geospatial Visualization
+                    </div>
+                    <div class="topic-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        Time Series Visualization
+                    </div>
+                    <div class="topic-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        Network Visualization
+                    </div>
+                    <div class="topic-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        Data Storytelling
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <div class="sidebar-card">
+                <a href="https://www.dropbox.com/scl/fi/x1ttfnbae5owre7tq8jyr/IE600_Computation_and_Data_Visualization.pdf?rlkey=zkhbgvqi8ky41vshd77u1dn10&dl=0" target="_blank" class="syllabus-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Download Syllabus
+                </a>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="sidebar-title">Course Information</div>
+                <div class="info-list">
+                    <div class="info-item">
+                        <span class="info-label">Course Number</span>
+                        <span class="info-value">IE6600</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Credits</span>
+                        <span class="info-value">4 Credits</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Level</span>
+                        <span class="info-value">Graduate</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Department</span>
+                        <span class="info-value">MGEN</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Format</span>
+                        <span class="info-value">In-Person</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="sidebar-title">Prerequisites</div>
+                <div class="prereq-list">
+                    <div class="prereq-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        Basic programming skills
+                    </div>
+                    <div class="prereq-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        Statistics fundamentals
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="sidebar-title">Tools & Technologies</div>
+                <div class="tools-grid">
+                    <span class="tool-tag">R</span>
+                    <span class="tool-tag">Python</span>
+                    <span class="tool-tag">ggplot2</span>
+                    <span class="tool-tag">tidyverse</span>
+                    <span class="tool-tag">matplotlib</span>
+                    <span class="tool-tag">Plotly</span>
+                    <span class="tool-tag">Shiny</span>
+                    <span class="tool-tag">Dash</span>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Prof. Mohammad Dehghani | AI&sup2; Lab | Northeastern University</p>
+    </footer>
+</body>
+</html>

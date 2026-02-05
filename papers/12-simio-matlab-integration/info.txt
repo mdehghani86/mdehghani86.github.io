@@ -1,0 +1,15 @@
+========================================
+TITLE: Intelligent Simulation: Integration of SIMIO and MATLAB
+========================================
+YEAR: 2017
+TYPE: Journal
+VENUE: Simulation Modelling Practice and Theory
+AUTHORS: M. Dehghanimohammadabadi, T. Keyser
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides:
+- Code: code/ ✓ (Simio)
+
+LINKS:
+- DOI: https://doi.org/10.1016/j.simpat.2016.08.007

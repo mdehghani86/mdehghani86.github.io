@@ -1,0 +1,15 @@
+========================================
+TITLE: AI-Driven Multi-Objective UAV Route Optimization
+========================================
+YEAR: 2024
+TYPE: Conference
+VENUE: Winter Simulation Conference (WSC)
+AUTHORS: S. Belsare, A. Devanga, M. Dehghanimohammadabadi
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides: slides.pptx ✓
+- Code:
+
+LINKS:
+- IEEE: https://ieeexplore.ieee.org/document/10838894

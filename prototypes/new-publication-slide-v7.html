@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSC 2025 - Better Logo Placement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wsc-blue: #1a5a8a;
+            --wsc-gold: #c9a227;
+            --wsc-dark: #0d3251;
+            --wsc-light: #2a7ab8;
+            --wsc-bg: #1565a0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 40px;
+            font-size: 0.85rem;
+        }
+
+        .designs-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .design-section {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .design-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--wsc-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .slide-preview {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* ============ DESIGN 1: Logo in header bar ============ */
+        .slide-header-logo {
+            display: flex;
+            flex-direction: column;
+            background: var(--wsc-dark);
+        }
+
+        .slide-header-logo .header-bar {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, var(--wsc-bg), var(--wsc-dark));
+            gap: 16px;
+            border-bottom: 3px solid var(--wsc-gold);
+        }
+
+        .slide-header-logo .logo-box {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 12px;
+            padding: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            flex-shrink: 0;
+        }
+
+        .slide-header-logo .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .slide-header-logo .header-text {
+            flex: 1;
+        }
+
+        .slide-header-logo .header-text h3 {
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .slide-header-logo .header-text span {
+            color: var(--wsc-gold);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .slide-header-logo .papers-section {
+            flex: 1;
+            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .slide-header-logo .paper-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-left: 3px solid var(--wsc-gold);
+        }
+
+        .slide-header-logo .paper-row:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .slide-header-logo .paper-num {
+            width: 28px;
+            height: 28px;
+            background: var(--wsc-gold);
+            color: var(--wsc-dark);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .slide-header-logo .paper-title {
+            flex: 1;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .slide-header-logo .paper-arrow {
+            color: var(--wsc-gold);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* ============ DESIGN 2: Floating logo corner ============ */
+        .slide-float-logo {
+            background: linear-gradient(135deg, var(--wsc-dark) 0%, #0a2840 100%);
+            padding: 20px;
+            position: relative;
+        }
+
+        .slide-float-logo .floating-logo {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 90px;
+            height: 90px;
+            background: white;
+            border-radius: 14px;
+            padding: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .slide-float-logo .floating-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .slide-float-logo .content {
+            padding-top: 10px;
+        }
+
+        .slide-float-logo .badge {
+            display: inline-block;
+            background: var(--wsc-gold);
+            color: var(--wsc-dark);
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .slide-float-logo .title {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            max-width: 280px;
+        }
+
+        .slide-float-logo .subtitle-text {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.7rem;
+            margin-bottom: 20px;
+        }
+
+        .slide-float-logo .papers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .slide-float-logo .paper-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .slide-float-logo .paper-row:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .slide-float-logo .paper-num {
+            width: 26px;
+            height: 26px;
+            background: var(--wsc-gold);
+            color: var(--wsc-dark);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .slide-float-logo .paper-title {
+            flex: 1;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .slide-float-logo .paper-arrow {
+            color: var(--wsc-gold);
+            font-size: 0.7rem;
+        }
+
+        /* ============ DESIGN 3: Center logo small ============ */
+        .slide-center-logo {
+            background: linear-gradient(180deg, var(--wsc-bg) 0%, var(--wsc-dark) 40%, var(--wsc-dark) 100%);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-center-logo .logo-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            gap: 8px;
+        }
+
+        .slide-center-logo .logo-circle {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 50%;
+            padding: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+        }
+
+        .slide-center-logo .logo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .slide-center-logo .logo-text {
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .slide-center-logo .section-title {
+            color: var(--wsc-gold);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0 20px;
+            margin-bottom: 8px;
+        }
+
+        .slide-center-logo .papers-section {
+            flex: 1;
+            padding: 0 20px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .slide-center-logo .paper-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-left: 3px solid var(--wsc-gold);
+        }
+
+        .slide-center-logo .paper-row:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .slide-center-logo .paper-num {
+            width: 26px;
+            height: 26px;
+            background: var(--wsc-gold);
+            color: var(--wsc-dark);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .slide-center-logo .paper-title {
+            flex: 1;
+            color: white;
+            font-size: 0.78rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .slide-center-logo .paper-arrow {
+            color: var(--wsc-gold);
+            font-size: 0.7rem;
+        }
+
+        /* ============ DESIGN 4: Badge style logo ============ */
+        .slide-badge-logo {
+            background: var(--wsc-dark);
+            padding: 20px;
+        }
+
+        .slide-badge-logo .top-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .slide-badge-logo .text-side h3 {
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .slide-badge-logo .text-side .sub {
+            color: var(--wsc-gold);
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .slide-badge-logo .logo-badge {
+            width: 100px;
+            height: 60px;
+            background: white;
+            border-radius: 10px;
+            padding: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .slide-badge-logo .logo-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .slide-badge-logo .divider {
+            height: 2px;
+            background: linear-gradient(90deg, var(--wsc-gold), transparent);
+            margin-bottom: 16px;
+        }
+
+        .slide-badge-logo .papers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .slide-badge-logo .paper-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .slide-badge-logo .paper-row:hover {
+            background: rgba(255,255,255,0.12);
+        }
+
+        .slide-badge-logo .paper-num {
+            width: 30px;
+            height: 30px;
+            background: var(--wsc-gold);
+            color: var(--wsc-dark);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .slide-badge-logo .paper-info {
+            flex: 1;
+        }
+
+        .slide-badge-logo .paper-title {
+            color: white;
+            font-size: 0.82rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .slide-badge-logo .paper-authors {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.65rem;
+            margin-top: 3px;
+        }
+
+        .slide-badge-logo .paper-arrow {
+            color: var(--wsc-gold);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <h1>WSC 2025 - Smaller Logo Options</h1>
+    <p class="subtitle">Logo properly sized and positioned</p>
+
+    <div class="designs-container">
+
+        <!-- DESIGN 1: Logo in header bar -->
+        <div class="design-section">
+            <div class="design-label">Design 1: Logo in Header Bar</div>
+            <div class="slide-preview slide-header-logo">
+                <div class="header-bar">
+                    <div class="logo-box">
+                        <img src="../assets/logos/WSC_logo.Jpeg" alt="WSC 2025">
+                    </div>
+                    <div class="header-text">
+                        <h3>Winter Simulation Conference</h3>
+                        <span>Just Published • Seattle 2025</span>
+                    </div>
+                </div>
+                <div class="papers-section">
+                    <a href="https://www.informs-sim.org/wsc25papers/inv172.pdf" target="_blank" class="paper-row">
+                        <div class="paper-num">1</div>
+                        <span class="paper-title">Look to the Future! Simulation by 2050 and Beyond</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv205.pdf" target="_blank" class="paper-row">
+                        <div class="paper-num">2</div>
+                        <span class="paper-title">A Tutorial on Generative AI and Simulation Modeling</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv209.pdf" target="_blank" class="paper-row">
+                        <div class="paper-num">3</div>
+                        <span class="paper-title">Simulation-Based Optimization for CAR T-Cell Therapy</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESIGN 2: Floating logo corner -->
+        <div class="design-section">
+            <div class="design-label">Design 2: Floating Logo Corner</div>
+            <div class="slide-preview slide-float-logo">
+                <div class="floating-logo">
+                    <img src="../assets/logos/WSC_logo.Jpeg" alt="WSC 2025">
+                </div>
+                <div class="content">
+                    <span class="badge">Just Published</span>
+                    <h3 class="title">Our WSC 2025 Contributions</h3>
+                    <p class="subtitle-text">Winter Simulation Conference • Seattle</p>
+                    <div class="papers-list">
+                        <a href="https://www.informs-sim.org/wsc25papers/inv172.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">1</div>
+                            <span class="paper-title">Look to the Future! Simulation by 2050 and Beyond</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                        <a href="https://www.informs-sim.org/wsc25papers/inv205.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">2</div>
+                            <span class="paper-title">A Tutorial on Generative AI and Simulation Modeling</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                        <a href="https://www.informs-sim.org/wsc25papers/inv209.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">3</div>
+                            <span class="paper-title">Simulation-Based Optimization for CAR T-Cell Therapy</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESIGN 3: Center logo small -->
+        <div class="design-section">
+            <div class="design-label">Design 3: Centered Circle Logo</div>
+            <div class="slide-preview slide-center-logo">
+                <div class="logo-area">
+                    <div class="logo-circle">
+                        <img src="../assets/logos/WSC_logo.Jpeg" alt="WSC 2025">
+                    </div>
+                    <span class="logo-text">Seattle 2025</span>
+                </div>
+                <div class="section-title">Our Contributions</div>
+                <div class="papers-section">
+                    <a href="https://www.informs-sim.org/wsc25papers/inv172.pdf" target="_blank" class="paper-row">
+                        <div class="paper-num">1</div>
+                        <span class="paper-title">Look to the Future! Simulation by 2050 and Beyond</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv205.pdf" target="_blank" class="paper-row">
+                        <div class="paper-num">2</div>
+                        <span class="paper-title">A Tutorial on Generative AI and Simulation Modeling</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv209.pdf" target="_blank" class="paper-row">
+                        <div class="paper-num">3</div>
+                        <span class="paper-title">Simulation-Based Optimization for CAR T-Cell Therapy</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESIGN 4: Badge style (Recommended) -->
+        <div class="design-section">
+            <div class="design-label">Design 4: Badge Style (Recommended)</div>
+            <div class="slide-preview slide-badge-logo">
+                <div class="top-row">
+                    <div class="text-side">
+                        <h3>Fresh from WSC 2025</h3>
+                        <span class="sub">Winter Simulation Conference • Seattle</span>
+                    </div>
+                    <div class="logo-badge">
+                        <img src="../assets/logos/WSC_logo.Jpeg" alt="WSC 2025">
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="papers-list">
+                    <a href="https://www.informs-sim.org/wsc25papers/inv172.pdf" target="_blank" class="paper-row">
+                        <div class="paper-num">1</div>
+                        <div class="paper-info">
+                            <div class="paper-title">Look to the Future! Simulation by 2050</div>
+                            <div class="paper-authors">Ehm, Pegden, Sarjoughian, Tolk, Hua, Dehghani</div>
+                        </div>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv205.pdf" target="_blank" class="paper-row">
+                        <div class="paper-num">2</div>
+                        <div class="paper-info">
+                            <div class="paper-title">GenAI and Simulation Modeling Tutorial</div>
+                            <div class="paper-authors">Dehghani, Belsare, Sadeghi</div>
+                        </div>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv209.pdf" target="_blank" class="paper-row">
+                        <div class="paper-num">3</div>
+                        <div class="paper-info">
+                            <div class="paper-title">CAR T-Cell Therapy Logistics Optimization</div>
+                            <div class="paper-authors">Sadeghi, Dehghani</div>
+                        </div>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

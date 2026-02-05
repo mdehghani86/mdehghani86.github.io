@@ -1,0 +1,15 @@
+========================================
+TITLE: Concrete Construction: Environmental and Economic Sustainability in Cold Climates
+========================================
+YEAR: 2020
+TYPE: Journal
+VENUE: Sustainability
+AUTHORS: S. Chen, W. Lu, T. Olofsson, M. Dehghanimohammadabadi, et al.
+
+FILES:
+- PDF:
+- Slides:
+- Code:
+
+LINKS:
+- DOI: https://doi.org/10.3390/su12093809

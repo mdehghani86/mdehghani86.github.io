@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Section - 20 Background Designs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neu-red: #C41230;
+            --gold: #d4a843;
+            --dark: #1a1a2e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #f5f5f7;
+            color: #1a1a2e;
+            padding: 30px;
+            line-height: 1.5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 40px;
+            font-size: 13px;
+        }
+
+        .design-label {
+            background: var(--neu-red);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .design-section {
+            margin-bottom: 50px;
+        }
+
+        /* Common card styles */
+        .demo-container {
+            border-radius: 20px;
+            padding: 25px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .demo-header h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .demo-header .count {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .demo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .demo-card {
+            width: 120px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 15px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .demo-card .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at center, #ffffff 0%, #e4e8ec 60%, #d0d6dc 100%);
+            margin: 0 auto 8px;
+        }
+
+        .demo-card .name {
+            font-size: 0.65rem;
+            font-weight: 700;
+        }
+
+        .demo-card .year {
+            font-size: 0.55rem;
+            color: #64748b;
+        }
+
+        /* ============================================ */
+        /* DESIGN 1: Diagonal Glowing Lines            */
+        /* ============================================ */
+        .bg1 {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+        }
+        .bg1::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 60%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 30px,
+                rgba(196,18,48,0.1) 30px,
+                rgba(196,18,48,0.1) 31px
+            );
+        }
+        .bg1::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neu-red), transparent);
+            box-shadow: 0 0 20px var(--neu-red), 0 0 40px var(--neu-red);
+            transform: rotate(-45deg);
+            animation: glow1 2s ease-in-out infinite;
+        }
+        @keyframes glow1 {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        .bg1 .demo-header h3 { color: white; }
+        .bg1 .demo-header .count { background: var(--neu-red); color: white; }
+
+        /* ============================================ */
+        /* DESIGN 2: Circuit Board Pattern             */
+        /* ============================================ */
+        .bg2 {
+            background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 100%);
+        }
+        .bg2::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(196,18,48,0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(196,18,48,0.3) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: linear-gradient(to right, transparent 30%, black 70%);
+        }
+        .bg2::after {
+            content: '';
+            position: absolute;
+            right: 15%;
+            top: 30%;
+            width: 8px;
+            height: 8px;
+            background: var(--neu-red);
+            border-radius: 50%;
+            box-shadow:
+                0 0 10px var(--neu-red),
+                50px 20px 0 var(--gold),
+                50px 20px 10px var(--gold),
+                -30px 60px 0 var(--neu-red),
+                -30px 60px 10px var(--neu-red);
+        }
+        .bg2 .demo-header h3 { color: white; }
+        .bg2 .demo-header .count { background: var(--gold); color: black; }
+
+        /* ============================================ */
+        /* DESIGN 3: Geometric Triangles               */
+        /* ============================================ */
+        .bg3 {
+            background: linear-gradient(135deg, #1e1e30 0%, #2a2a42 100%);
+        }
+        .bg3::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background:
+                linear-gradient(135deg, transparent 50%, rgba(196,18,48,0.15) 50%),
+                linear-gradient(-135deg, transparent 70%, rgba(212,168,67,0.1) 70%);
+        }
+        .bg3::after {
+            content: '';
+            position: absolute;
+            right: 10%;
+            top: 20%;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-bottom: 100px solid rgba(196,18,48,0.2);
+            filter: drop-shadow(0 0 20px rgba(196,18,48,0.5));
+        }
+        .bg3 .demo-header h3 { color: white; }
+        .bg3 .demo-header .count { background: var(--neu-red); color: white; }
+
+        /* ============================================ */
+        /* DESIGN 4: Neon Horizontal Lines             */
+        /* ============================================ */
+        .bg4 {
+            background: #0a0a14;
+        }
+        .bg4::before {
+            content: '';
+            position: absolute;
+            right: 5%;
+            top: 20%;
+            width: 40%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00f0ff);
+            box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 40px #00f0ff;
+        }
+        .bg4::after {
+            content: '';
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            width: 30%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neu-red));
+            box-shadow: 0 0 10px var(--neu-red), 0 0 20px var(--neu-red);
+        }
+        .bg4 .extra-line {
+            position: absolute;
+            right: 8%;
+            top: 80%;
+            width: 25%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold));
+            box-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold);
+        }
+        .bg4 .demo-header h3 { color: white; }
+        .bg4 .demo-header .count { background: #00f0ff; color: black; }
+
+        /* ============================================ */
+        /* DESIGN 5: Hexagon Pattern                   */
+        /* ============================================ */
+        .bg5 {
+            background: linear-gradient(135deg, #1a1a2e 0%, #252538 100%);
+        }
+        .bg5::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5L55 17.5V42.5L30 55L5 42.5V17.5L30 5z' fill='none' stroke='%23C41230' stroke-opacity='0.15' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 60px 60px;
+            mask-image: linear-gradient(to right, transparent 20%, black 80%);
+        }
+        .bg5::after {
+            content: '';
+            position: absolute;
+            right: 12%;
+            top: 25%;
+            width: 80px;
+            height: 90px;
+            background: rgba(196,18,48,0.2);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            box-shadow: 0 0 30px rgba(196,18,48,0.4);
+        }
+        .bg5 .demo-header h3 { color: white; }
+        .bg5 .demo-header .count { background: var(--neu-red); color: white; }
+
+        /* ============================================ */
+        /* DESIGN 6: Dotted Wave Pattern               */
+        /* ============================================ */
+        .bg6 {
+            background: linear-gradient(180deg, #12121f 0%, #1d1d30 100%);
+        }
+        .bg6::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(196,18,48,0.4) 2px, transparent 2px);
+            background-size: 20px 20px;
+            mask-image: radial-gradient(ellipse at right, black 0%, transparent 70%);
+        }
+        .bg6 .demo-header h3 { color: white; }
+        .bg6 .demo-header .count { background: var(--gold); color: black; }
+
+        /* ============================================ */
+        /* DESIGN 7: Curved Glowing Arcs               */
+        /* ============================================ */
+        .bg7 {
+            background: #0d0d18;
+        }
+        .bg7::before {
+            content: '';
+            position: absolute;
+            right: -20%;
+            top: -50%;
+            width: 80%;
+            height: 200%;
+            border: 2px solid transparent;
+            border-right-color: rgba(196,18,48,0.5);
+            border-radius: 50%;
+            box-shadow: inset -5px 0 20px rgba(196,18,48,0.3);
+        }
+        .bg7::after {
+            content: '';
+            position: absolute;
+            right: -10%;
+            top: -30%;
+            width: 60%;
+            height: 160%;
+            border: 1px solid transparent;
+            border-right-color: rgba(212,168,67,0.3);
+            border-radius: 50%;
+        }
+        .bg7 .demo-header h3 { color: white; }
+        .bg7 .demo-header .count { background: var(--neu-red); color: white; }
+
+        /* ============================================ */
+        /* DESIGN 8: Binary/Matrix Rain                */
+        /* ============================================ */
+        .bg8 {
+            background: #0a0f0a;
+        }
+        .bg8::before {
+            content: '01001 10110 01101 00101 11001 01010 10101 01100';
+            position: absolute;
+            right: 5%;
+            top: 10%;
+            width: 40%;
+            height: 80%;
+            font-family: monospace;
+            font-size: 12px;
+            color: rgba(0,255,100,0.15);
+            word-break: break-all;
+            line-height: 1.8;
+            writing-mode: vertical-rl;
+            overflow: hidden;
+        }
+        .bg8::after {
+            content: '';
+            position: absolute;
+            right: 15%;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #00ff64, transparent);
+            box-shadow: 0 0 10px #00ff64;
+            animation: matrix 2s linear infinite;
+        }
+        @keyframes matrix {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .bg8 .demo-header h3 { color: #00ff64; }
+        .bg8 .demo-header .count { background: #00ff64; color: black; }
+
+        /* ============================================ */
+        /* DESIGN 9: Layered Rectangles                */
+        /* ============================================ */
+        .bg9 {
+            background: linear-gradient(135deg, #1a1a2e 0%, #252540 100%);
+        }
+        .bg9::before {
+            content: '';
+            position: absolute;
+            right: 8%;
+            top: 15%;
+            width: 120px;
+            height: 80px;
+            border: 2px solid rgba(196,18,48,0.4);
+            transform: rotate(-10deg);
+        }
+        .bg9::after {
+            content: '';
+            position: absolute;
+            right: 12%;
+            top: 25%;
+            width: 100px;
+            height: 70px;
+            border: 2px solid rgba(212,168,67,0.4);
+            transform: rotate(5deg);
+        }
+        .bg9 .extra {
+            position: absolute;
+            right: 5%;
+            top: 35%;
+            width: 80px;
+            height: 60px;
+            background: rgba(196,18,48,0.15);
+            transform: rotate(-5deg);
+        }
+        .bg9 .demo-header h3 { color: white; }
+        .bg9 .demo-header .count { background: var(--neu-red); color: white; }
+
+        /* ============================================ */
+        /* DESIGN 10: Spotlight Effect                 */
+        /* ============================================ */
+        .bg10 {
+            background: #0f0f1a;
+        }
+        .bg10::before {
+            content: '';
+            position: absolute;
+            right: -10%;
+            top: -20%;
+            width: 50%;
+            height: 140%;
+            background: radial-gradient(ellipse, rgba(196,18,48,0.2) 0%, transparent 60%);
+        }
+        .bg10::after {
+            content: '';
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            width: 100px;
+            height: 2px;
+            background: var(--neu-red);
+            box-shadow: 0 0 20px var(--neu-red), 0 0 40px var(--neu-red), 0 0 60px var(--neu-red);
+        }
+        .bg10 .demo-header h3 { color: white; }
+        .bg10 .demo-header .count { background: var(--neu-red); color: white; }
+
+        /* ============================================ */
+        /* DESIGN 11: Vertical Stripes                 */
+        /* ============================================ */
+        .bg11 {
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+        }
+        .bg11::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 15px,
+                rgba(196,18,48,0.08) 15px,
+                rgba(196,18,48,0.08) 17px
+            );
+        }
+        .bg11::after {
+            content: '';
+            position: absolute;
+            right: 15%;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, var(--neu-red), transparent);
+            box-shadow: 0 0 15px var(--neu-red);
+        }
+        .bg11 .demo-header h3 { color: white; }
+        .bg11 .demo-header .count { background: var(--gold); color: black; }
+
+        /* ============================================ */
+        /* DESIGN 12: Diamond Grid                     */
+        /* ============================================ */
+        .bg12 {
+            background: #151525;
+        }
+        .bg12::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background-image:
+                linear-gradient(45deg, rgba(196,18,48,0.1) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(196,18,48,0.1) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(196,18,48,0.1) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(196,18,48,0.1) 75%);
+            background-size: 40px 40px;
+            mask-image: linear-gradient(to right, transparent 0%, black 100%);
+        }
+        .bg12 .demo-header h3 { color: white; }
+        .bg12 .demo-header .count { background: var(--neu-red); color: white; }
+
+        /* ============================================ */
+        /* DESIGN 13: Concentric Circles               */
+        /* ============================================ */
+        .bg13 {
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+        }
+        .bg13::before {
+            content: '';
+            position: absolute;
+            right: -20%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(196,18,48,0.3);
+            border-radius: 50%;
+            box-shadow:
+                inset 0 0 0 30px transparent,
+                inset 0 0 0 31px rgba(196,18,48,0.2),
+                inset 0 0 0 60px transparent,
+                inset 0 0 0 61px rgba(196,18,48,0.15),
+                inset 0 0 0 90px transparent,
+                inset 0 0 0 91px rgba(196,18,48,0.1);
+        }
+        .bg13 .demo-header h3 { color: white; }
+        .bg13 .demo-header .count { background: var(--neu-red); color: white; }
+
+        /* ============================================ */
+        /* DESIGN 14: Lightning Bolt                   */
+        /* ============================================ */
+        .bg14 {
+            background: linear-gradient(180deg, #0a0a14 0%, #151528 100%);
+        }
+        .bg14::before {
+            content: '';
+            position: absolute;
+            right: 15%;
+            top: 10%;
+            width: 4px;
+            height: 30%;
+            background: linear-gradient(180deg, var(--gold), transparent);
+            box-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold);
+            transform: skewX(-20deg);
+        }
+        .bg14::after {
+            content: '';
+            position: absolute;
+            right: 12%;
+            top: 35%;
+            width: 4px;
+            height: 40%;
+            background: linear-gradient(180deg, var(--gold), transparent);
+            box-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold);
+            transform: skewX(20deg);
+        }
+        .bg14 .demo-header h3 { color: white; }
+        .bg14 .demo-header .count { background: var(--gold); color: black; }
+
+        /* ============================================ */
+        /* DESIGN 15: Mesh Gradient                    */
+        /* ============================================ */
+        .bg15 {
+            background:
+                radial-gradient(at 80% 20%, rgba(196,18,48,0.3) 0%, transparent 50%),
+                radial-gradient(at 90% 80%, rgba(212,168,67,0.2) 0%, transparent 40%),
+                linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+        }
+        .bg15::after {
+            content: '';
+            position: absolute;
+            right: 10%;
+            top: 30%;
+            width: 150px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, white, transparent);
+            opacity: 0.3;
+        }
+        .bg15 .demo-header h3 { color: white; }
+        .bg15 .demo-header .count { background: var(--neu-red); color: white; }
+
+        /* ============================================ */
+        /* DESIGN 16: Starburst                        */
+        /* ============================================ */
+        .bg16 {
+            background: #0d0d18;
+        }
+        .bg16::before {
+            content: '';
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 200px;
+            height: 200px;
+            background:
+                conic-gradient(from 0deg,
+                    transparent 0deg, rgba(196,18,48,0.2) 10deg, transparent 20deg,
+                    transparent 40deg, rgba(196,18,48,0.15) 50deg, transparent 60deg,
+                    transparent 80deg, rgba(196,18,48,0.1) 90deg, transparent 100deg,
+                    transparent 120deg, rgba(196,18,48,0.15) 130deg, transparent 140deg,
+                    transparent 160deg, rgba(196,18,48,0.2) 170deg, transparent 180deg,
+                    transparent 200deg, rgba(196,18,48,0.15) 210deg, transparent 220deg,
+                    transparent 240deg, rgba(196,18,48,0.1) 250deg, transparent 260deg,
+                    transparent 280deg, rgba(196,18,48,0.15) 290deg, transparent 300deg,
+                    transparent 320deg, rgba(196,18,48,0.2) 330deg, transparent 340deg
+                );
+        }
+        .bg16 .demo-header h3 { color: white; }
+        .bg16 .demo-header .count { background: var(--neu-red); color: white; }
+
+        /* ============================================ */
+        /* DESIGN 17: Gradient Border Glow             */
+        /* ============================================ */
+        .bg17 {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+            border-right: 3px solid transparent;
+            border-image: linear-gradient(180deg, var(--neu-red), var(--gold), var(--neu-red)) 1;
+            box-shadow: inset -10px 0 30px rgba(196,18,48,0.2);
+        }
+        .bg17::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--neu-red), var(--gold), var(--neu-red));
+            box-shadow: 0 0 20px var(--neu-red), 0 0 40px var(--gold);
+        }
+        .bg17 .demo-header h3 { color: white; }
+        .bg17 .demo-header .count { background: var(--gold); color: black; }
+
+        /* ============================================ */
+        /* DESIGN 18: Floating Particles               */
+        /* ============================================ */
+        .bg18 {
+            background: linear-gradient(180deg, #0a0a14 0%, #151525 100%);
+        }
+        .bg18::before {
+            content: '';
+            position: absolute;
+            right: 10%;
+            top: 20%;
+            width: 6px;
+            height: 6px;
+            background: var(--neu-red);
+            border-radius: 50%;
+            box-shadow:
+                30px 20px 0 4px rgba(196,18,48,0.6),
+                60px -10px 0 2px var(--gold),
+                -20px 50px 0 3px rgba(196,18,48,0.4),
+                80px 60px 0 5px rgba(212,168,67,0.5),
+                40px 80px 0 2px var(--neu-red),
+                100px 30px 0 4px rgba(196,18,48,0.3),
+                10px 100px 0 3px var(--gold);
+            filter: blur(1px);
+        }
+        .bg18 .demo-header h3 { color: white; }
+        .bg18 .demo-header .count { background: var(--neu-red); color: white; }
+
+        /* ============================================ */
+        /* DESIGN 19: Tech Corner                      */
+        /* ============================================ */
+        .bg19 {
+            background: linear-gradient(135deg, #12121f 0%, #1e1e32 100%);
+        }
+        .bg19::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 200px 200px 0;
+            border-color: transparent rgba(196,18,48,0.15) transparent transparent;
+        }
+        .bg19::after {
+            content: '';
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--neu-red);
+            border-left: none;
+            border-bottom: none;
+            box-shadow: 5px -5px 15px rgba(196,18,48,0.4);
+        }
+        .bg19 .demo-header h3 { color: white; }
+        .bg19 .demo-header .count { background: var(--neu-red); color: white; }
+
+        /* ============================================ */
+        /* DESIGN 20: Pulse Rings                      */
+        /* ============================================ */
+        .bg20 {
+            background: #0d0d18;
+        }
+        .bg20::before {
+            content: '';
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 150px;
+            height: 150px;
+            border: 2px solid rgba(196,18,48,0.5);
+            border-radius: 50%;
+            animation: pulse20 2s ease-out infinite;
+        }
+        .bg20::after {
+            content: '';
+            position: absolute;
+            right: calc(5% + 25px);
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgba(212,168,67,0.5);
+            border-radius: 50%;
+            animation: pulse20 2s ease-out infinite 0.5s;
+        }
+        @keyframes pulse20 {
+            0% { transform: translateY(-50%) scale(0.8); opacity: 1; }
+            100% { transform: translateY(-50%) scale(1.5); opacity: 0; }
+        }
+        .bg20 .demo-header h3 { color: white; }
+        .bg20 .demo-header .count { background: var(--gold); color: black; }
+
+    </style>
+</head>
+<body>
+    <h1>Alumni Section - 20 Background Designs</h1>
+    <p class="subtitle">Dark stylish designs with glowing lines and graphical patterns</p>
+
+    <!-- Design 1 -->
+    <div class="design-section">
+        <span class="design-label">1. Diagonal Glowing Lines</span>
+        <div class="demo-container bg1">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 2 -->
+    <div class="design-section">
+        <span class="design-label">2. Circuit Board Pattern</span>
+        <div class="demo-container bg2">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 3 -->
+    <div class="design-section">
+        <span class="design-label">3. Geometric Triangles</span>
+        <div class="demo-container bg3">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 4 -->
+    <div class="design-section">
+        <span class="design-label">4. Neon Horizontal Lines</span>
+        <div class="demo-container bg4">
+            <div class="extra-line"></div>
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 5 -->
+    <div class="design-section">
+        <span class="design-label">5. Hexagon Pattern</span>
+        <div class="demo-container bg5">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 6 -->
+    <div class="design-section">
+        <span class="design-label">6. Dotted Wave Pattern</span>
+        <div class="demo-container bg6">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 7 -->
+    <div class="design-section">
+        <span class="design-label">7. Curved Glowing Arcs</span>
+        <div class="demo-container bg7">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 8 -->
+    <div class="design-section">
+        <span class="design-label">8. Binary/Matrix Rain</span>
+        <div class="demo-container bg8">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 9 -->
+    <div class="design-section">
+        <span class="design-label">9. Layered Rectangles</span>
+        <div class="demo-container bg9">
+            <div class="extra"></div>
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 10 -->
+    <div class="design-section">
+        <span class="design-label">10. Spotlight Effect</span>
+        <div class="demo-container bg10">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 11 -->
+    <div class="design-section">
+        <span class="design-label">11. Vertical Stripes</span>
+        <div class="demo-container bg11">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 12 -->
+    <div class="design-section">
+        <span class="design-label">12. Diamond Grid</span>
+        <div class="demo-container bg12">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 13 -->
+    <div class="design-section">
+        <span class="design-label">13. Concentric Circles</span>
+        <div class="demo-container bg13">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 14 -->
+    <div class="design-section">
+        <span class="design-label">14. Lightning Bolt</span>
+        <div class="demo-container bg14">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 15 -->
+    <div class="design-section">
+        <span class="design-label">15. Mesh Gradient</span>
+        <div class="demo-container bg15">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 16 -->
+    <div class="design-section">
+        <span class="design-label">16. Starburst</span>
+        <div class="demo-container bg16">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 17 -->
+    <div class="design-section">
+        <span class="design-label">17. Gradient Border Glow</span>
+        <div class="demo-container bg17">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 18 -->
+    <div class="design-section">
+        <span class="design-label">18. Floating Particles</span>
+        <div class="demo-container bg18">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 19 -->
+    <div class="design-section">
+        <span class="design-label">19. Tech Corner</span>
+        <div class="demo-container bg19">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Design 20 -->
+    <div class="design-section">
+        <span class="design-label">20. Pulse Rings</span>
+        <div class="demo-container bg20">
+            <div class="demo-header">
+                <h3>Alumni</h3>
+                <span class="count">12</span>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

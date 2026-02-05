@@ -1,0 +1,15 @@
+========================================
+TITLE: Applied RL for Decision Making in Industrial Simulation Environments
+========================================
+YEAR: 2022
+TYPE: Conference
+VENUE: Winter Simulation Conference (WSC)
+AUTHORS: S. Belsare, E. Diaz Badilla, M. Dehghanimohammadabadi
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides:
+- Code: code/ ✓ (Python RL + Simio)
+
+LINKS:
+- DOI:

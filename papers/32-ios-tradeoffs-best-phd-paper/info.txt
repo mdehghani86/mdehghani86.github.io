@@ -1,0 +1,16 @@
+========================================
+TITLE: Tradeoffs Between Objective Measures and Execution Speed in IOS
+========================================
+YEAR: 2015
+TYPE: Conference
+VENUE: Winter Simulation Conference (WSC)
+AUTHORS: M. Dehghanimohammadabadi, T. Keyser
+AWARD: Best PhD Paper Award
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides:
+- Code: code/ ✓ (Simio)
+
+LINKS:
+- IEEE: https://ieeexplore.ieee.org/document/7408369

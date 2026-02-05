@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSC 2025 - Final Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wsc-blue: #1a5a8a;
+            --wsc-gold: #c9a227;
+            --wsc-dark: #0d3251;
+            --wsc-light: #2a7ab8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 40px;
+            font-size: 0.85rem;
+        }
+
+        .designs-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .design-section {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .design-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--wsc-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        /* ============ SLIDE CONTAINER ============ */
+        .slide-preview {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* ============ FINAL DESIGN: 2/3 Logo, 1/3 Papers ============ */
+        .slide-final {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-final .logo-section {
+            height: 33%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-final .logo-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .slide-final .papers-section {
+            height: 67%;
+            background: var(--wsc-dark);
+            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .slide-final .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+
+        .slide-final .section-title {
+            color: var(--wsc-gold);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .slide-final .paper-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 16px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-left: 3px solid var(--wsc-gold);
+        }
+
+        .slide-final .paper-row:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .slide-final .paper-title {
+            flex: 1;
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .slide-final .paper-arrow {
+            color: var(--wsc-gold);
+            font-size: 0.6rem;
+            font-weight: 600;
+        }
+
+        /* ============ DESIGN 2: With gradient transition ============ */
+        .slide-gradient .logo-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(to bottom, transparent, var(--wsc-dark));
+        }
+
+        /* ============ DESIGN 3: Gold accent bar ============ */
+        .slide-gold-bar .papers-section {
+            border-top: 3px solid var(--wsc-gold);
+        }
+
+        .slide-gold-bar .paper-row {
+            border-left: none;
+            border-radius: 6px;
+        }
+
+        .slide-gold-bar .paper-num {
+            width: 28px;
+            height: 28px;
+            background: var(--wsc-gold);
+            color: var(--wsc-dark);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* ============ DESIGN 4: Clean minimal ============ */
+        .slide-minimal .papers-section {
+            background: linear-gradient(135deg, var(--wsc-dark), #0a2840);
+            gap: 4px;
+        }
+
+        .slide-minimal .paper-row {
+            background: transparent;
+            border-left: none;
+            padding: 6px 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-radius: 0;
+        }
+
+        .slide-minimal .paper-row:last-child {
+            border-bottom: none;
+        }
+
+        .slide-minimal .paper-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--wsc-gold);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .slide-minimal .paper-title {
+            font-size: 0.6rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>WSC 2025 Slide - Final Options</h1>
+    <p class="subtitle">2/3 logo top, 1/3 papers bottom with matching WSC colors</p>
+
+    <div class="designs-container">
+
+        <!-- DESIGN 1: Gold left border -->
+        <div class="design-section">
+            <div class="design-label">Design 1: Gold Left Border</div>
+            <div class="slide-preview slide-final">
+                <div class="logo-section">
+                    <img src="../assets/logos/WSC_logo.Jpeg" alt="WSC 2025">
+                </div>
+                <div class="papers-section">
+                    <div class="section-header">
+                        <span class="section-title">Fresh from the Conference</span>
+                    </div>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv172.pdf" target="_blank" class="paper-row">
+                        <span class="paper-title">Look to the Future! Simulation by 2050 and Beyond</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv205.pdf" target="_blank" class="paper-row">
+                        <span class="paper-title">A Tutorial on Generative AI and Simulation Modeling</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv209.pdf" target="_blank" class="paper-row">
+                        <span class="paper-title">Simulation-Based Optimization for CAR T-Cell Therapy</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESIGN 2: With gradient transition -->
+        <div class="design-section">
+            <div class="design-label">Design 2: Smooth Gradient Transition</div>
+            <div class="slide-preview slide-final slide-gradient">
+                <div class="logo-section">
+                    <img src="../assets/logos/WSC_logo.Jpeg" alt="WSC 2025">
+                </div>
+                <div class="papers-section">
+                    <div class="section-header">
+                        <span class="section-title">Latest Research</span>
+                    </div>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv172.pdf" target="_blank" class="paper-row">
+                        <span class="paper-title">Look to the Future! Simulation by 2050 and Beyond</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv205.pdf" target="_blank" class="paper-row">
+                        <span class="paper-title">A Tutorial on Generative AI and Simulation Modeling</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv209.pdf" target="_blank" class="paper-row">
+                        <span class="paper-title">Simulation-Based Optimization for CAR T-Cell Therapy</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESIGN 3: Gold bar + numbers -->
+        <div class="design-section">
+            <div class="design-label">Design 3: Gold Top Bar + Numbers</div>
+            <div class="slide-preview slide-final slide-gold-bar">
+                <div class="logo-section">
+                    <img src="../assets/logos/WSC_logo.Jpeg" alt="WSC 2025">
+                </div>
+                <div class="papers-section">
+                    <div class="section-header">
+                        <span class="section-title">Just Published</span>
+                    </div>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv172.pdf" target="_blank" class="paper-row">
+                        <span class="paper-num">1</span>
+                        <span class="paper-title">Look to the Future! Simulation by 2050 and Beyond</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv205.pdf" target="_blank" class="paper-row">
+                        <span class="paper-num">2</span>
+                        <span class="paper-title">A Tutorial on Generative AI and Simulation Modeling</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv209.pdf" target="_blank" class="paper-row">
+                        <span class="paper-num">3</span>
+                        <span class="paper-title">Simulation-Based Optimization for CAR T-Cell Therapy</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESIGN 4: Minimal with dots -->
+        <div class="design-section">
+            <div class="design-label">Design 4: Clean Minimal</div>
+            <div class="slide-preview slide-final slide-minimal">
+                <div class="logo-section">
+                    <img src="../assets/logos/WSC_logo.Jpeg" alt="WSC 2025">
+                </div>
+                <div class="papers-section">
+                    <div class="section-header">
+                        <span class="section-title">Our Contributions</span>
+                    </div>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv172.pdf" target="_blank" class="paper-row">
+                        <span class="paper-dot"></span>
+                        <span class="paper-title">Look to the Future! Simulation by 2050 and Beyond</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv205.pdf" target="_blank" class="paper-row">
+                        <span class="paper-dot"></span>
+                        <span class="paper-title">A Tutorial on Generative AI and Simulation Modeling</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv209.pdf" target="_blank" class="paper-row">
+                        <span class="paper-dot"></span>
+                        <span class="paper-title">Simulation-Based Optimization for CAR T-Cell Therapy</span>
+                        <span class="paper-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

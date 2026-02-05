@@ -1,0 +1,15 @@
+========================================
+TITLE: Multi-Objective Supplier Selection: Simulation-Optimization with MCDM
+========================================
+YEAR: 2022
+TYPE: Journal
+VENUE: Annals of Operations Research
+AUTHORS: N. Kabadayi, M. Dehghanimohammadabadi
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides:
+- Code: code/ ✓ (MATLAB NSGA-II + TOPSIS + Simio)
+
+LINKS:
+- DOI: https://doi.org/10.1007/s10479-021-04424-2

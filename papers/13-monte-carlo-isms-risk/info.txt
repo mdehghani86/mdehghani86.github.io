@@ -1,0 +1,15 @@
+========================================
+TITLE: Weighted Monte Carlo Simulation for Risk Assessment of ISMS
+========================================
+YEAR: 2016
+TYPE: Journal
+VENUE: International Journal of Enterprise Information Systems
+AUTHORS: S.M. Bamakan, M. Dehghanimohammadabadi
+
+FILES:
+- PDF:
+- Slides:
+- Code:
+
+LINKS:
+- DOI: https://doi.org/10.4018/IJEIS.2015100103

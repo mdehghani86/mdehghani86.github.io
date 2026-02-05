@@ -1,0 +1,15 @@
+========================================
+TITLE: Simulation-Optimization of Digital Twin
+========================================
+YEAR: 2021
+TYPE: Conference
+VENUE: Winter Simulation Conference (WSC)
+AUTHORS: M. Dehghanimohammadabadi, S. Belsare, R. Thiesing
+
+FILES:
+- PDF:
+- Slides: slides.pptx ✓
+- Code:
+
+LINKS:
+- IEEE: https://ieeexplore.ieee.org/document/9715312

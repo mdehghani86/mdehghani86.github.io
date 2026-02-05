@@ -1,0 +1,15 @@
+========================================
+TITLE: Integrated Preventive Maintenance and Flow Shop Scheduling Under Uncertainty
+========================================
+YEAR: 2019
+TYPE: Journal
+VENUE: Flexible Services and Manufacturing Journal
+AUTHORS: J. Seif, M. Dehghanimohammadabadi, A. Yu
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides:
+- Code: code/ ✓ (MATLAB GA)
+
+LINKS:
+- DOI: https://doi.org/10.1007/s10696-019-09357-4

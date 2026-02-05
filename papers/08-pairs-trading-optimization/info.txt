@@ -1,0 +1,15 @@
+========================================
+TITLE: Evolutionary Multi-Objective Optimization for Multivariate Pairs Trading
+========================================
+YEAR: 2019
+TYPE: Journal
+VENUE: Expert Systems with Applications
+AUTHORS: J. Goldkamp, M. Dehghanimohammadabadi
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides:
+- Code:
+
+LINKS:
+- DOI: https://doi.org/10.1016/j.eswa.2019.05.046

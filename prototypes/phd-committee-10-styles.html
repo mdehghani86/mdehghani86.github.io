@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhD Committee - 10 Design Styles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neu-red: #C41230;
+            --gold: #d4a843;
+            --dark-bg: #0a0a0a;
+            --card-dark: #141418;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--dark-bg);
+            color: #fff;
+            padding: 40px;
+            line-height: 1.5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 32px;
+            background: linear-gradient(90deg, var(--neu-red), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .instructions {
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 60px;
+            font-size: 14px;
+        }
+
+        .style-section {
+            margin-bottom: 80px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .style-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .style-number {
+            background: linear-gradient(135deg, var(--neu-red), #a00f28);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .style-title {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .style-desc {
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        /* Common Section Header */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .gold-bar {
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(180deg, var(--gold), #b8922e);
+            border-radius: 2px;
+        }
+
+        .section-header h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .count-badge {
+            background: var(--gold);
+            color: #000;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* LinkedIn Icon SVG */
+        .linkedin-svg {
+            width: 16px;
+            height: 16px;
+            fill: #0077b5;
+        }
+
+        /* ================================================ */
+        /* STYLE 1: Minimal Timeline Cards                  */
+        /* ================================================ */
+        .style1-container {
+            background: linear-gradient(135deg, #0f0f14 0%, #0a0a0a 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .style1-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .style1-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--neu-red) 0%, var(--gold) 100%);
+        }
+
+        .style1-card {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .style1-card::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 20px;
+            width: 10px;
+            height: 10px;
+            background: var(--neu-red);
+            border-radius: 50%;
+            border: 2px solid var(--dark-bg);
+        }
+
+        .style1-year {
+            background: rgba(196,18,48,0.2);
+            color: var(--neu-red);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            height: fit-content;
+        }
+
+        .style1-content {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .style1-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .style1-thesis {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 10px;
+        }
+
+        .style1-job {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .style1-job img {
+            height: 16px;
+            filter: brightness(0) invert(1);
+            opacity: 0.7;
+        }
+
+        /* ================================================ */
+        /* STYLE 2: Horizontal Scroll Cards                 */
+        /* ================================================ */
+        .style2-container {
+            background: linear-gradient(135deg, #0f0f14 0%, #0a0a0a 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .style2-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+        }
+
+        .style2-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .style2-scroll::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.05);
+            border-radius: 3px;
+        }
+
+        .style2-scroll::-webkit-scrollbar-thumb {
+            background: var(--neu-red);
+            border-radius: 3px;
+        }
+
+        .style2-card {
+            min-width: 280px;
+            background: linear-gradient(145deg, #1a1a22 0%, #12121a 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .style2-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .style2-photo {
+            height: 180px;
+            background: linear-gradient(135deg, #f5e6c8 0%, #e8d4a8 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+        }
+
+        .style2-photo img {
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .style2-year {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--neu-red);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .style2-info {
+            padding: 20px;
+        }
+
+        .style2-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .style2-thesis {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .style2-job {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .style2-job img {
+            height: 18px;
+            filter: brightness(0) invert(1);
+            opacity: 0.6;
+        }
+
+        /* ================================================ */
+        /* STYLE 3: Glass Morphism Grid                     */
+        /* ================================================ */
+        .style3-container {
+            background: linear-gradient(135deg, rgba(196,18,48,0.1) 0%, rgba(212,168,67,0.05) 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .style3-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .style3-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .style3-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: scale(1.02);
+        }
+
+        .style3-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            background: linear-gradient(135deg, #f5e6c8 0%, #e8d4a8 100%);
+            overflow: hidden;
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+
+        .style3-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .style3-name {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .style3-year {
+            color: var(--neu-red);
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .style3-thesis {
+            font-size: 11px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 12px;
+        }
+
+        .style3-job {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .style3-job img {
+            height: 14px;
+            filter: brightness(0) invert(1);
+            opacity: 0.6;
+        }
+
+        /* ================================================ */
+        /* STYLE 4: Magazine Layout                         */
+        /* ================================================ */
+        .style4-container {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            color: #1a1a2e;
+        }
+
+        .style4-header h3 {
+            color: #1a1a2e;
+        }
+
+        .style4-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .style4-card {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            background: #f8f9fa;
+            transition: all 0.3s;
+        }
+
+        .style4-card:hover {
+            background: #f0f1f3;
+        }
+
+        .style4-photo {
+            width: 70px;
+            height: 70px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f5e6c8 0%, #e8d4a8 100%);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .style4-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .style4-info {
+            flex: 1;
+        }
+
+        .style4-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+
+        .style4-name {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .style4-year {
+            background: var(--neu-red);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .style4-thesis {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .style4-job {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: #94a3b8;
+        }
+
+        .style4-job img {
+            height: 14px;
+            opacity: 0.7;
+        }
+
+        /* ================================================ */
+        /* STYLE 5: Neon Glow Cards                         */
+        /* ================================================ */
+        .style5-container {
+            background: #050508;
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(196,18,48,0.3);
+        }
+
+        .style5-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .style5-card {
+            background: linear-gradient(145deg, #0a0a10 0%, #0f0f18 100%);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid rgba(196,18,48,0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .style5-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neu-red), var(--gold));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .style5-card:hover::before {
+            opacity: 1;
+        }
+
+        .style5-card:hover {
+            box-shadow: 0 0 30px rgba(196,18,48,0.2);
+        }
+
+        .style5-top {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .style5-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f5e6c8 0%, #e8d4a8 100%);
+            overflow: hidden;
+        }
+
+        .style5-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .style5-name {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .style5-year {
+            font-size: 11px;
+            color: var(--neu-red);
+            font-weight: 600;
+        }
+
+        .style5-thesis {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 15px;
+            padding-left: 65px;
+        }
+
+        .style5-job {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-left: 65px;
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .style5-job img {
+            height: 14px;
+            filter: brightness(0) invert(1);
+            opacity: 0.5;
+        }
+
+        /* ================================================ */
+        /* STYLE 6: Masonry Polaroid                        */
+        /* ================================================ */
+        .style6-container {
+            background: linear-gradient(135deg, #1a1815 0%, #0f0e0c 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(212,168,67,0.2);
+        }
+
+        .style6-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .style6-card {
+            background: #fafafa;
+            border-radius: 4px;
+            padding: 12px 12px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transform: rotate(-1deg);
+            transition: all 0.3s;
+        }
+
+        .style6-card:nth-child(2) { transform: rotate(1deg); }
+        .style6-card:nth-child(3) { transform: rotate(-0.5deg); }
+        .style6-card:nth-child(4) { transform: rotate(1.5deg); }
+        .style6-card:nth-child(5) { transform: rotate(-1.5deg); }
+
+        .style6-card:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            z-index: 10;
+        }
+
+        .style6-photo {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #f5e6c8 0%, #e8d4a8 100%);
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .style6-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .style6-name {
+            font-size: 12px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 2px;
+        }
+
+        .style6-year {
+            font-size: 10px;
+            color: var(--neu-red);
+            font-weight: 600;
+        }
+
+        /* ================================================ */
+        /* STYLE 7: Compact List View                       */
+        /* ================================================ */
+        .style7-container {
+            background: linear-gradient(135deg, #0f0f14 0%, #0a0a0a 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .style7-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .style7-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px 20px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.2s;
+        }
+
+        .style7-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(196,18,48,0.3);
+        }
+
+        .style7-photo {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f5e6c8 0%, #e8d4a8 100%);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .style7-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .style7-name {
+            flex: 1;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .style7-thesis {
+            flex: 2;
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .style7-year {
+            background: rgba(196,18,48,0.15);
+            color: var(--neu-red);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .style7-job {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            min-width: 120px;
+        }
+
+        .style7-job img {
+            height: 16px;
+            filter: brightness(0) invert(1);
+            opacity: 0.5;
+        }
+
+        .style7-job span {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* ================================================ */
+        /* STYLE 8: Bento Grid                              */
+        /* ================================================ */
+        .style8-container {
+            background: linear-gradient(135deg, #0f0f14 0%, #0a0a0a 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .style8-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 15px;
+        }
+
+        .style8-card {
+            background: linear-gradient(145deg, #1a1a22 0%, #12121a 100%);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s;
+        }
+
+        .style8-card:hover {
+            border-color: rgba(196,18,48,0.3);
+        }
+
+        .style8-card.featured {
+            grid-column: span 2;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .style8-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #f5e6c8 0%, #e8d4a8 100%);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .style8-card.featured .style8-photo {
+            width: 90px;
+            height: 90px;
+        }
+
+        .style8-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .style8-info {
+            flex: 1;
+        }
+
+        .style8-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .style8-name {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .style8-year {
+            font-size: 10px;
+            color: var(--neu-red);
+            font-weight: 700;
+        }
+
+        .style8-thesis {
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 10px;
+        }
+
+        .style8-job {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .style8-job img {
+            height: 14px;
+            filter: brightness(0) invert(1);
+            opacity: 0.5;
+        }
+
+        .style8-job span {
+            font-size: 10px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* ================================================ */
+        /* STYLE 9: Minimalist Lines                        */
+        /* ================================================ */
+        .style9-container {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            color: #1a1a2e;
+        }
+
+        .style9-header h3 {
+            color: #1a1a2e;
+        }
+
+        .style9-list {
+            border-top: 2px solid #1a1a2e;
+        }
+
+        .style9-card {
+            display: grid;
+            grid-template-columns: 80px 1fr 200px 80px;
+            gap: 30px;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+
+        .style9-card:hover {
+            background: #f8f9fa;
+            padding-left: 15px;
+            padding-right: 15px;
+            margin: 0 -15px;
+        }
+
+        .style9-year {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--neu-red);
+        }
+
+        .style9-main {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .style9-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f5e6c8 0%, #e8d4a8 100%);
+            overflow: hidden;
+        }
+
+        .style9-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .style9-name {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .style9-thesis {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .style9-job {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .style9-job img {
+            height: 20px;
+            opacity: 0.7;
+        }
+
+        .style9-job span {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .style9-linkedin {
+            text-align: right;
+        }
+
+        /* ================================================ */
+        /* STYLE 10: Award/Achievement Style                */
+        /* ================================================ */
+        .style10-container {
+            background: linear-gradient(135deg, #1a1815 0%, #0f0e0c 100%);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(212,168,67,0.3);
+        }
+
+        .style10-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .style10-card {
+            text-align: center;
+            padding: 25px 15px;
+            background: linear-gradient(145deg, rgba(212,168,67,0.1) 0%, rgba(212,168,67,0.02) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(212,168,67,0.2);
+            transition: all 0.3s;
+        }
+
+        .style10-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 30px rgba(212,168,67,0.15);
+        }
+
+        .style10-photo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            background: linear-gradient(135deg, var(--gold) 0%, #b8922e 100%);
+            padding: 3px;
+            overflow: hidden;
+        }
+
+        .style10-photo-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f5e6c8 0%, #e8d4a8 100%);
+            overflow: hidden;
+        }
+
+        .style10-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .style10-year {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--gold), #b8922e);
+            color: #000;
+            padding: 3px 12px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .style10-name {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .style10-thesis {
+            font-size: 10px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .style10-job {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .style10-job img {
+            height: 14px;
+            filter: brightness(0) invert(1);
+            opacity: 0.6;
+        }
+
+        .style10-job span {
+            font-size: 10px;
+            color: rgba(255,255,255,0.4);
+        }
+    </style>
+</head>
+<body>
+    <h1>PhD Committee Section - 10 Design Styles</h1>
+    <p class="instructions">Scroll down to view all 10 styles. Pick your favorite and let me know!</p>
+
+    <!-- STYLE 1: Minimal Timeline -->
+    <div class="style-section">
+        <div class="style-header">
+            <div class="style-number">1</div>
+            <div>
+                <div class="style-title">Minimal Timeline</div>
+                <div class="style-desc">Clean vertical timeline with connected dots</div>
+            </div>
+        </div>
+        <div class="style1-container">
+            <div class="section-header">
+                <div class="gold-bar"></div>
+                <h3>PhD Dissertation Committee</h3>
+                <span class="count-badge">5</span>
+            </div>
+            <div class="style1-timeline">
+                <div class="style1-card">
+                    <div class="style1-year">2021</div>
+                    <div class="style1-content">
+                        <div class="style1-name">Xiaoli Duan</div>
+                        <div class="style1-thesis">Likelihood-Based Methods for Detecting Changes in Epidemic Rates</div>
+                        <div class="style1-job"><img src="../assets/logos/AstraZeneca_logo.svg" alt=""> Data Scientist</div>
+                    </div>
+                </div>
+                <div class="style1-card">
+                    <div class="style1-year">2022</div>
+                    <div class="style1-content">
+                        <div class="style1-name">Basma Bargal</div>
+                        <div class="style1-thesis">Workforce Burnout from a Systems Science Perspective</div>
+                        <div class="style1-job"><img src="../assets/logos/Lifespan-logo.png" alt=""> Data Scientist</div>
+                    </div>
+                </div>
+                <div class="style1-card">
+                    <div class="style1-year">2023</div>
+                    <div class="style1-content">
+                        <div class="style1-name">Leren Qian</div>
+                        <div class="style1-thesis">Neural Combinatorial Approach for School Bus Routing Optimization</div>
+                        <div class="style1-job"><img src="../assets/logos/Amazon-Logo-2000.png" alt=""> Data Scientist</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STYLE 2: Horizontal Scroll -->
+    <div class="style-section">
+        <div class="style-header">
+            <div class="style-number">2</div>
+            <div>
+                <div class="style-title">Horizontal Scroll Cards</div>
+                <div class="style-desc">Swipeable cards with large photos</div>
+            </div>
+        </div>
+        <div class="style2-container">
+            <div class="section-header">
+                <div class="gold-bar"></div>
+                <h3>PhD Dissertation Committee</h3>
+                <span class="count-badge">5</span>
+            </div>
+            <div class="style2-scroll">
+                <div class="style2-card">
+                    <div class="style2-photo">
+                        <img src="../assets/students/Xiali_nobg.png" alt="">
+                        <div class="style2-year">2021</div>
+                    </div>
+                    <div class="style2-info">
+                        <div class="style2-name">Xiaoli Duan</div>
+                        <div class="style2-thesis">Likelihood-Based Methods for Detecting Changes in Epidemic Rates</div>
+                        <div class="style2-job">
+                            <img src="../assets/logos/AstraZeneca_logo.svg" alt="">
+                            <svg class="linkedin-svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="style2-card">
+                    <div class="style2-photo">
+                        <img src="../assets/students/Basma_nobg.png" alt="">
+                        <div class="style2-year">2022</div>
+                    </div>
+                    <div class="style2-info">
+                        <div class="style2-name">Basma Bargal</div>
+                        <div class="style2-thesis">Workforce Burnout from a Systems Science Perspective</div>
+                        <div class="style2-job">
+                            <img src="../assets/logos/Lifespan-logo.png" alt="">
+                            <svg class="linkedin-svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="style2-card">
+                    <div class="style2-photo">
+                        <img src="../assets/students/Leren_nobg.png" alt="">
+                        <div class="style2-year">2023</div>
+                    </div>
+                    <div class="style2-info">
+                        <div class="style2-name">Leren Qian</div>
+                        <div class="style2-thesis">Neural Combinatorial Approach for School Bus Routing Optimization</div>
+                        <div class="style2-job">
+                            <img src="../assets/logos/Amazon-Logo-2000.png" alt="">
+                            <svg class="linkedin-svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="style2-card">
+                    <div class="style2-photo">
+                        <img src="../assets/students/Nathan_nobg.png" alt="">
+                        <div class="style2-year">2024</div>
+                    </div>
+                    <div class="style2-info">
+                        <div class="style2-name">Nathan Adeyemi</div>
+                        <div class="style2-thesis">Policy & Tactics to Improve Access to Inpatient Mental Healthcare</div>
+                        <div class="style2-job">
+                            <img src="../assets/logos/Amazon-Logo-2000.png" alt="">
+                            <svg class="linkedin-svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="style2-card">
+                    <div class="style2-photo">
+                        <img src="../assets/students/Peiqi_nobg.png" alt="">
+                        <div class="style2-year">2024</div>
+                    </div>
+                    <div class="style2-info">
+                        <div class="style2-name">Peiqi Wang</div>
+                        <div class="style2-thesis">Application of Geometric Optimization in Solving Logistics Problems</div>
+                        <div class="style2-job">
+                            <img src="../assets/logos/CSX-logo.svg" alt="">
+                            <svg class="linkedin-svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STYLE 3: Glass Morphism -->
+    <div class="style-section">
+        <div class="style-header">
+            <div class="style-number">3</div>
+            <div>
+                <div class="style-title">Glass Morphism Grid</div>
+                <div class="style-desc">Frosted glass effect with circular photos</div>
+            </div>
+        </div>
+        <div class="style3-container">
+            <div class="section-header">
+                <div class="gold-bar"></div>
+                <h3>PhD Dissertation Committee</h3>
+                <span class="count-badge">5</span>
+            </div>
+            <div class="style3-grid">
+                <div class="style3-card">
+                    <div class="style3-photo"><img src="../assets/students/Xiali_nobg.png" alt=""></div>
+                    <div class="style3-name">Xiaoli Duan</div>
+                    <div class="style3-year">Class of 2021</div>
+                    <div class="style3-thesis">Likelihood-Based Methods for Detecting Changes in Epidemic Rates</div>
+                    <div class="style3-job"><img src="../assets/logos/AstraZeneca_logo.svg" alt=""> Data Scientist</div>
+                </div>
+                <div class="style3-card">
+                    <div class="style3-photo"><img src="../assets/students/Basma_nobg.png" alt=""></div>
+                    <div class="style3-name">Basma Bargal</div>
+                    <div class="style3-year">Class of 2022</div>
+                    <div class="style3-thesis">Workforce Burnout from a Systems Science Perspective</div>
+                    <div class="style3-job"><img src="../assets/logos/Lifespan-logo.png" alt=""> Data Scientist</div>
+                </div>
+                <div class="style3-card">
+                    <div class="style3-photo"><img src="../assets/students/Leren_nobg.png" alt=""></div>
+                    <div class="style3-name">Leren Qian</div>
+                    <div class="style3-year">Class of 2023</div>
+                    <div class="style3-thesis">Neural Combinatorial Approach for School Bus Routing</div>
+                    <div class="style3-job"><img src="../assets/logos/Amazon-Logo-2000.png" alt=""> Data Scientist</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STYLE 4: Magazine Layout -->
+    <div class="style-section">
+        <div class="style-header">
+            <div class="style-number">4</div>
+            <div>
+                <div class="style-title">Magazine Layout (Light)</div>
+                <div class="style-desc">Clean white design with 2-column grid</div>
+            </div>
+        </div>
+        <div class="style4-container">
+            <div class="section-header style4-header">
+                <div class="gold-bar"></div>
+                <h3>PhD Dissertation Committee</h3>
+                <span class="count-badge">5</span>
+            </div>
+            <div class="style4-grid">
+                <div class="style4-card">
+                    <div class="style4-photo"><img src="../assets/students/Xiali_nobg.png" alt=""></div>
+                    <div class="style4-info">
+                        <div class="style4-top">
+                            <div class="style4-name">Xiaoli Duan</div>
+                            <div class="style4-year">2021</div>
+                        </div>
+                        <div class="style4-thesis">Likelihood-Based Methods for Detecting Changes in Epidemic Rates</div>
+                        <div class="style4-job"><img src="../assets/logos/AstraZeneca_logo.svg" alt=""> Data Scientist</div>
+                    </div>
+                </div>
+                <div class="style4-card">
+                    <div class="style4-photo"><img src="../assets/students/Basma_nobg.png" alt=""></div>
+                    <div class="style4-info">
+                        <div class="style4-top">
+                            <div class="style4-name">Basma Bargal</div>
+                            <div class="style4-year">2022</div>
+                        </div>
+                        <div class="style4-thesis">Workforce Burnout from a Systems Science Perspective</div>
+                        <div class="style4-job"><img src="../assets/logos/Lifespan-logo.png" alt=""> Data Scientist</div>
+                    </div>
+                </div>
+                <div class="style4-card">
+                    <div class="style4-photo"><img src="../assets/students/Leren_nobg.png" alt=""></div>
+                    <div class="style4-info">
+                        <div class="style4-top">
+                            <div class="style4-name">Leren Qian</div>
+                            <div class="style4-year">2023</div>
+                        </div>
+                        <div class="style4-thesis">Neural Combinatorial Approach for School Bus Routing</div>
+                        <div class="style4-job"><img src="../assets/logos/Amazon-Logo-2000.png" alt=""> Data Scientist</div>
+                    </div>
+                </div>
+                <div class="style4-card">
+                    <div class="style4-photo"><img src="../assets/students/Nathan_nobg.png" alt=""></div>
+                    <div class="style4-info">
+                        <div class="style4-top">
+                            <div class="style4-name">Nathan Adeyemi</div>
+                            <div class="style4-year">2024</div>
+                        </div>
+                        <div class="style4-thesis">Policy & Tactics to Improve Access to Inpatient Mental Healthcare</div>
+                        <div class="style4-job"><img src="../assets/logos/Amazon-Logo-2000.png" alt=""> Applied Scientist</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STYLE 5: Neon Glow -->
+    <div class="style-section">
+        <div class="style-header">
+            <div class="style-number">5</div>
+            <div>
+                <div class="style-title">Neon Glow Cards</div>
+                <div class="style-desc">Dark cards with subtle red glow on hover</div>
+            </div>
+        </div>
+        <div class="style5-container">
+            <div class="section-header">
+                <div class="gold-bar"></div>
+                <h3>PhD Dissertation Committee</h3>
+                <span class="count-badge">5</span>
+            </div>
+            <div class="style5-grid">
+                <div class="style5-card">
+                    <div class="style5-top">
+                        <div class="style5-photo"><img src="../assets/students/Xiali_nobg.png" alt=""></div>
+                        <div>
+                            <div class="style5-name">Xiaoli Duan</div>
+                            <div class="style5-year">2021</div>
+                        </div>
+                    </div>
+                    <div class="style5-thesis">Likelihood-Based Methods for Detecting Changes in Epidemic Rates</div>
+                    <div class="style5-job"><img src="../assets/logos/AstraZeneca_logo.svg" alt=""> Data Scientist</div>
+                </div>
+                <div class="style5-card">
+                    <div class="style5-top">
+                        <div class="style5-photo"><img src="../assets/students/Basma_nobg.png" alt=""></div>
+                        <div>
+                            <div class="style5-name">Basma Bargal</div>
+                            <div class="style5-year">2022</div>
+                        </div>
+                    </div>
+                    <div class="style5-thesis">Workforce Burnout from a Systems Science Perspective</div>
+                    <div class="style5-job"><img src="../assets/logos/Lifespan-logo.png" alt=""> Data Scientist</div>
+                </div>
+                <div class="style5-card">
+                    <div class="style5-top">
+                        <div class="style5-photo"><img src="../assets/students/Leren_nobg.png" alt=""></div>
+                        <div>
+                            <div class="style5-name">Leren Qian</div>
+                            <div class="style5-year">2023</div>
+                        </div>
+                    </div>
+                    <div class="style5-thesis">Neural Combinatorial Approach for School Bus Routing</div>
+                    <div class="style5-job"><img src="../assets/logos/Amazon-Logo-2000.png" alt=""> Data Scientist</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STYLE 6: Polaroid -->
+    <div class="style-section">
+        <div class="style-header">
+            <div class="style-number">6</div>
+            <div>
+                <div class="style-title">Polaroid Masonry</div>
+                <div class="style-desc">Vintage polaroid-style photos with slight rotation</div>
+            </div>
+        </div>
+        <div class="style6-container">
+            <div class="section-header">
+                <div class="gold-bar"></div>
+                <h3>PhD Dissertation Committee</h3>
+                <span class="count-badge">5</span>
+            </div>
+            <div class="style6-grid">
+                <div class="style6-card">
+                    <div class="style6-photo"><img src="../assets/students/Xiali_nobg.png" alt=""></div>
+                    <div class="style6-name">Xiaoli Duan</div>
+                    <div class="style6-year">2021</div>
+                </div>
+                <div class="style6-card">
+                    <div class="style6-photo"><img src="../assets/students/Basma_nobg.png" alt=""></div>
+                    <div class="style6-name">Basma Bargal</div>
+                    <div class="style6-year">2022</div>
+                </div>
+                <div class="style6-card">
+                    <div class="style6-photo"><img src="../assets/students/Leren_nobg.png" alt=""></div>
+                    <div class="style6-name">Leren Qian</div>
+                    <div class="style6-year">2023</div>
+                </div>
+                <div class="style6-card">
+                    <div class="style6-photo"><img src="../assets/students/Nathan_nobg.png" alt=""></div>
+                    <div class="style6-name">Nathan Adeyemi</div>
+                    <div class="style6-year">2024</div>
+                </div>
+                <div class="style6-card">
+                    <div class="style6-photo"><img src="../assets/students/Peiqi_nobg.png" alt=""></div>
+                    <div class="style6-name">Peiqi Wang</div>
+                    <div class="style6-year">2024</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STYLE 7: Compact List -->
+    <div class="style-section">
+        <div class="style-header">
+            <div class="style-number">7</div>
+            <div>
+                <div class="style-title">Compact List View</div>
+                <div class="style-desc">Space-efficient horizontal list with all info visible</div>
+            </div>
+        </div>
+        <div class="style7-container">
+            <div class="section-header">
+                <div class="gold-bar"></div>
+                <h3>PhD Dissertation Committee</h3>
+                <span class="count-badge">5</span>
+            </div>
+            <div class="style7-list">
+                <div class="style7-card">
+                    <div class="style7-photo"><img src="../assets/students/Xiali_nobg.png" alt=""></div>
+                    <div class="style7-name">Xiaoli Duan</div>
+                    <div class="style7-thesis">Likelihood-Based Methods for Detecting Changes in Epidemic Rates</div>
+                    <div class="style7-year">2021</div>
+                    <div class="style7-job"><img src="../assets/logos/AstraZeneca_logo.svg" alt=""><span>Data Scientist</span></div>
+                </div>
+                <div class="style7-card">
+                    <div class="style7-photo"><img src="../assets/students/Basma_nobg.png" alt=""></div>
+                    <div class="style7-name">Basma Bargal</div>
+                    <div class="style7-thesis">Workforce Burnout from a Systems Science Perspective</div>
+                    <div class="style7-year">2022</div>
+                    <div class="style7-job"><img src="../assets/logos/Lifespan-logo.png" alt=""><span>Data Scientist</span></div>
+                </div>
+                <div class="style7-card">
+                    <div class="style7-photo"><img src="../assets/students/Leren_nobg.png" alt=""></div>
+                    <div class="style7-name">Leren Qian</div>
+                    <div class="style7-thesis">Neural Combinatorial Approach for School Bus Routing Optimization</div>
+                    <div class="style7-year">2023</div>
+                    <div class="style7-job"><img src="../assets/logos/Amazon-Logo-2000.png" alt=""><span>Data Scientist</span></div>
+                </div>
+                <div class="style7-card">
+                    <div class="style7-photo"><img src="../assets/students/Nathan_nobg.png" alt=""></div>
+                    <div class="style7-name">Nathan Adeyemi</div>
+                    <div class="style7-thesis">Policy & Tactics to Improve Access to Inpatient Mental Healthcare</div>
+                    <div class="style7-year">2024</div>
+                    <div class="style7-job"><img src="../assets/logos/Amazon-Logo-2000.png" alt=""><span>Applied Scientist</span></div>
+                </div>
+                <div class="style7-card">
+                    <div class="style7-photo"><img src="../assets/students/Peiqi_nobg.png" alt=""></div>
+                    <div class="style7-name">Peiqi Wang</div>
+                    <div class="style7-thesis">Application of Geometric Optimization in Solving Logistics Problems</div>
+                    <div class="style7-year">2024</div>
+                    <div class="style7-job"><img src="../assets/logos/CSX-logo.svg" alt=""><span>Sr. OR Scientist</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STYLE 8: Bento Grid -->
+    <div class="style-section">
+        <div class="style-header">
+            <div class="style-number">8</div>
+            <div>
+                <div class="style-title">Bento Grid</div>
+                <div class="style-desc">Apple-style bento box layout with featured cards</div>
+            </div>
+        </div>
+        <div class="style8-container">
+            <div class="section-header">
+                <div class="gold-bar"></div>
+                <h3>PhD Dissertation Committee</h3>
+                <span class="count-badge">5</span>
+            </div>
+            <div class="style8-grid">
+                <div class="style8-card featured">
+                    <div class="style8-photo"><img src="../assets/students/Xiali_nobg.png" alt=""></div>
+                    <div class="style8-info">
+                        <div class="style8-top">
+                            <div class="style8-name">Xiaoli Duan</div>
+                            <div class="style8-year">2021</div>
+                        </div>
+                        <div class="style8-thesis">Likelihood-Based Methods for Detecting Changes in Epidemic Rates</div>
+                        <div class="style8-job"><img src="../assets/logos/AstraZeneca_logo.svg" alt=""><span>Data Scientist</span></div>
+                    </div>
+                </div>
+                <div class="style8-card">
+                    <div class="style8-photo"><img src="../assets/students/Basma_nobg.png" alt=""></div>
+                    <div class="style8-info">
+                        <div class="style8-top">
+                            <div class="style8-name">Basma Bargal</div>
+                            <div class="style8-year">2022</div>
+                        </div>
+                        <div class="style8-thesis">Workforce Burnout from a Systems Science Perspective</div>
+                        <div class="style8-job"><img src="../assets/logos/Lifespan-logo.png" alt=""><span>Data Scientist</span></div>
+                    </div>
+                </div>
+                <div class="style8-card">
+                    <div class="style8-photo"><img src="../assets/students/Leren_nobg.png" alt=""></div>
+                    <div class="style8-info">
+                        <div class="style8-top">
+                            <div class="style8-name">Leren Qian</div>
+                            <div class="style8-year">2023</div>
+                        </div>
+                        <div class="style8-thesis">Neural Combinatorial Approach for School Bus Routing</div>
+                        <div class="style8-job"><img src="../assets/logos/Amazon-Logo-2000.png" alt=""><span>Data Scientist</span></div>
+                    </div>
+                </div>
+                <div class="style8-card">
+                    <div class="style8-photo"><img src="../assets/students/Nathan_nobg.png" alt=""></div>
+                    <div class="style8-info">
+                        <div class="style8-top">
+                            <div class="style8-name">Nathan Adeyemi</div>
+                            <div class="style8-year">2024</div>
+                        </div>
+                        <div class="style8-thesis">Policy & Tactics to Improve Access to Inpatient Mental Healthcare</div>
+                        <div class="style8-job"><img src="../assets/logos/Amazon-Logo-2000.png" alt=""><span>Applied Scientist</span></div>
+                    </div>
+                </div>
+                <div class="style8-card featured">
+                    <div class="style8-photo"><img src="../assets/students/Peiqi_nobg.png" alt=""></div>
+                    <div class="style8-info">
+                        <div class="style8-top">
+                            <div class="style8-name">Peiqi Wang</div>
+                            <div class="style8-year">2024</div>
+                        </div>
+                        <div class="style8-thesis">Application of Geometric Optimization in Solving Logistics Problems</div>
+                        <div class="style8-job"><img src="../assets/logos/CSX-logo.svg" alt=""><span>Sr. OR Scientist</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STYLE 9: Minimalist Lines -->
+    <div class="style-section">
+        <div class="style-header">
+            <div class="style-number">9</div>
+            <div>
+                <div class="style-title">Minimalist Lines (Light)</div>
+                <div class="style-desc">Ultra-clean table-style layout with emphasis on year</div>
+            </div>
+        </div>
+        <div class="style9-container">
+            <div class="section-header style9-header">
+                <div class="gold-bar"></div>
+                <h3>PhD Dissertation Committee</h3>
+                <span class="count-badge">5</span>
+            </div>
+            <div class="style9-list">
+                <div class="style9-card">
+                    <div class="style9-year">2021</div>
+                    <div class="style9-main">
+                        <div class="style9-photo"><img src="../assets/students/Xiali_nobg.png" alt=""></div>
+                        <div>
+                            <div class="style9-name">Xiaoli Duan</div>
+                            <div class="style9-thesis">Likelihood-Based Methods for Detecting Changes in Epidemic Rates</div>
+                        </div>
+                    </div>
+                    <div class="style9-job"><img src="../assets/logos/AstraZeneca_logo.svg" alt=""><span>Data Scientist</span></div>
+                    <div class="style9-linkedin"><svg class="linkedin-svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+                </div>
+                <div class="style9-card">
+                    <div class="style9-year">2022</div>
+                    <div class="style9-main">
+                        <div class="style9-photo"><img src="../assets/students/Basma_nobg.png" alt=""></div>
+                        <div>
+                            <div class="style9-name">Basma Bargal</div>
+                            <div class="style9-thesis">Workforce Burnout from a Systems Science Perspective</div>
+                        </div>
+                    </div>
+                    <div class="style9-job"><img src="../assets/logos/Lifespan-logo.png" alt=""><span>Data Scientist</span></div>
+                    <div class="style9-linkedin"><svg class="linkedin-svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+                </div>
+                <div class="style9-card">
+                    <div class="style9-year">2023</div>
+                    <div class="style9-main">
+                        <div class="style9-photo"><img src="../assets/students/Leren_nobg.png" alt=""></div>
+                        <div>
+                            <div class="style9-name">Leren Qian</div>
+                            <div class="style9-thesis">Neural Combinatorial Approach for School Bus Routing Optimization</div>
+                        </div>
+                    </div>
+                    <div class="style9-job"><img src="../assets/logos/Amazon-Logo-2000.png" alt=""><span>Data Scientist</span></div>
+                    <div class="style9-linkedin"><svg class="linkedin-svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+                </div>
+                <div class="style9-card">
+                    <div class="style9-year">2024</div>
+                    <div class="style9-main">
+                        <div class="style9-photo"><img src="../assets/students/Nathan_nobg.png" alt=""></div>
+                        <div>
+                            <div class="style9-name">Nathan Adeyemi</div>
+                            <div class="style9-thesis">Policy & Tactics to Improve Access to Inpatient Mental Healthcare</div>
+                        </div>
+                    </div>
+                    <div class="style9-job"><img src="../assets/logos/Amazon-Logo-2000.png" alt=""><span>Applied Scientist</span></div>
+                    <div class="style9-linkedin"><svg class="linkedin-svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+                </div>
+                <div class="style9-card">
+                    <div class="style9-year">2024</div>
+                    <div class="style9-main">
+                        <div class="style9-photo"><img src="../assets/students/Peiqi_nobg.png" alt=""></div>
+                        <div>
+                            <div class="style9-name">Peiqi Wang</div>
+                            <div class="style9-thesis">Application of Geometric Optimization in Solving Logistics Problems</div>
+                        </div>
+                    </div>
+                    <div class="style9-job"><img src="../assets/logos/CSX-logo.svg" alt=""><span>Sr. OR Scientist</span></div>
+                    <div class="style9-linkedin"><svg class="linkedin-svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STYLE 10: Award Style -->
+    <div class="style-section">
+        <div class="style-header">
+            <div class="style-number">10</div>
+            <div>
+                <div class="style-title">Award / Achievement Style</div>
+                <div class="style-desc">Gold-accented celebratory design</div>
+            </div>
+        </div>
+        <div class="style10-container">
+            <div class="section-header">
+                <div class="gold-bar"></div>
+                <h3>PhD Dissertation Committee</h3>
+                <span class="count-badge">5</span>
+            </div>
+            <div class="style10-grid">
+                <div class="style10-card">
+                    <div class="style10-photo">
+                        <div class="style10-photo-inner"><img src="../assets/students/Xiali_nobg.png" alt=""></div>
+                    </div>
+                    <div class="style10-year">2021</div>
+                    <div class="style10-name">Xiaoli Duan</div>
+                    <div class="style10-thesis">Likelihood-Based Methods for Detecting Changes in Epidemic Rates</div>
+                    <div class="style10-job"><img src="../assets/logos/AstraZeneca_logo.svg" alt=""><span>Data Scientist</span></div>
+                </div>
+                <div class="style10-card">
+                    <div class="style10-photo">
+                        <div class="style10-photo-inner"><img src="../assets/students/Basma_nobg.png" alt=""></div>
+                    </div>
+                    <div class="style10-year">2022</div>
+                    <div class="style10-name">Basma Bargal</div>
+                    <div class="style10-thesis">Workforce Burnout from a Systems Science Perspective</div>
+                    <div class="style10-job"><img src="../assets/logos/Lifespan-logo.png" alt=""><span>Data Scientist</span></div>
+                </div>
+                <div class="style10-card">
+                    <div class="style10-photo">
+                        <div class="style10-photo-inner"><img src="../assets/students/Leren_nobg.png" alt=""></div>
+                    </div>
+                    <div class="style10-year">2023</div>
+                    <div class="style10-name">Leren Qian</div>
+                    <div class="style10-thesis">Neural Combinatorial Approach for School Bus Routing</div>
+                    <div class="style10-job"><img src="../assets/logos/Amazon-Logo-2000.png" alt=""><span>Data Scientist</span></div>
+                </div>
+                <div class="style10-card">
+                    <div class="style10-photo">
+                        <div class="style10-photo-inner"><img src="../assets/students/Nathan_nobg.png" alt=""></div>
+                    </div>
+                    <div class="style10-year">2024</div>
+                    <div class="style10-name">Nathan Adeyemi</div>
+                    <div class="style10-thesis">Policy & Tactics to Improve Access to Inpatient Mental Healthcare</div>
+                    <div class="style10-job"><img src="../assets/logos/Amazon-Logo-2000.png" alt=""><span>Applied Scientist</span></div>
+                </div>
+                <div class="style10-card">
+                    <div class="style10-photo">
+                        <div class="style10-photo-inner"><img src="../assets/students/Peiqi_nobg.png" alt=""></div>
+                    </div>
+                    <div class="style10-year">2024</div>
+                    <div class="style10-name">Peiqi Wang</div>
+                    <div class="style10-thesis">Application of Geometric Optimization in Solving Logistics Problems</div>
+                    <div class="style10-job"><img src="../assets/logos/CSX-logo.svg" alt=""><span>Sr. OR Scientist</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

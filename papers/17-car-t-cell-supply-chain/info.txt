@@ -1,0 +1,15 @@
+========================================
+TITLE: Simulation-Based Optimization of CAR T-cell Therapy Supply Chain
+========================================
+YEAR: 2025
+TYPE: Conference
+VENUE: 39th ECMS International Conference
+AUTHORS: N. Sadeghi, M. Dehghanimohammadabadi
+
+FILES:
+- PDF:
+- Slides:
+- Code:
+
+LINKS:
+- DOI:

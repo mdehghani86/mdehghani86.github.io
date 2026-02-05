@@ -1,0 +1,15 @@
+========================================
+TITLE: Simheuristic of Patient Scheduling Using Table-Experiment Approach
+========================================
+YEAR: 2017
+TYPE: Conference
+VENUE: Winter Simulation Conference (WSC)
+AUTHORS: M. Dehghanimohammadabadi, M. Rezaeiahari, T. Keyser
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides: slides.pptx ✓
+- Code: code/ ✓ (MATLAB SA/TS + Simio)
+
+LINKS:
+- DOI:

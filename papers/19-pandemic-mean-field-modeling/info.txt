@@ -1,0 +1,15 @@
+========================================
+TITLE: Enhancing Pandemic Preparedness Using Mean Field and Simulation Modeling
+========================================
+YEAR: 2023
+TYPE: Conference
+VENUE: Winter Simulation Conference (WSC)
+AUTHORS: M. Dehghanimohammadabadi, G. Dayanikli
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides: slides.pptx ✓
+- Code:
+
+LINKS:
+- DOI:

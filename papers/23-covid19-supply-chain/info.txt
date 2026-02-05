@@ -1,0 +1,15 @@
+========================================
+TITLE: Covid-19 Supply Chain Planning: A Simulation-Optimization Approach
+========================================
+YEAR: 2022
+TYPE: Conference
+VENUE: Winter Simulation Conference (WSC)
+AUTHORS: S. Maghoulan, H. Musdal Ondemi, M. Dehghanimohammadabadi
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides: slides.pptx ✓
+- Code:
+
+LINKS:
+- DOI:

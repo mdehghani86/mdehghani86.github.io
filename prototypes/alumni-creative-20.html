@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Section - 20 Creative Designs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neu-red: #C41230;
+            --gold: #d4a843;
+            --dark: #1a1a2e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #0a0a12;
+            color: white;
+            padding: 30px;
+            line-height: 1.5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 40px;
+            font-size: 13px;
+        }
+
+        .design-label {
+            background: linear-gradient(90deg, var(--neu-red), var(--gold));
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .design-section {
+            margin-bottom: 50px;
+        }
+
+        .demo-container {
+            border-radius: 20px;
+            padding: 25px 20px;
+            position: relative;
+            overflow: hidden;
+            min-height: 180px;
+        }
+
+        .demo-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .demo-header h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: white;
+        }
+
+        .demo-header .count {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            background: var(--neu-red);
+            color: white;
+        }
+
+        .demo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .demo-card {
+            width: 120px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 15px 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            color: #1a1a2e;
+        }
+
+        .demo-card .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at center, #ffffff 0%, #e4e8ec 60%, #d0d6dc 100%);
+            margin: 0 auto 8px;
+        }
+
+        .demo-card .name {
+            font-size: 0.65rem;
+            font-weight: 700;
+        }
+
+        .demo-card .year {
+            font-size: 0.55rem;
+            color: #64748b;
+        }
+
+        /* ============================================ */
+        /* 1. AURORA BOREALIS                          */
+        /* ============================================ */
+        .bg1 {
+            background: #0a0a14;
+        }
+        .bg1::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(0,255,150,0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 60% 30%, rgba(0,200,255,0.15) 0%, transparent 35%),
+                radial-gradient(ellipse at 80% 70%, rgba(150,0,255,0.1) 0%, transparent 30%);
+            animation: aurora 8s ease-in-out infinite;
+            filter: blur(40px);
+        }
+        @keyframes aurora {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* ============================================ */
+        /* 2. TORN PAPER REVEAL                        */
+        /* ============================================ */
+        .bg2 {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+        }
+        .bg2::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 35%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--neu-red) 0%, #8b0a20 100%);
+            clip-path: polygon(30% 0, 100% 0, 100% 100%, 20% 100%, 25% 85%, 15% 70%, 28% 55%, 18% 40%, 30% 25%, 22% 10%);
+        }
+        .bg2::after {
+            content: '';
+            position: absolute;
+            right: 32%;
+            top: 0;
+            width: 20px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.3));
+        }
+
+        /* ============================================ */
+        /* 3. LIQUID METAL BLOB                        */
+        /* ============================================ */
+        .bg3 {
+            background: #0f0f1a;
+        }
+        .bg3::before {
+            content: '';
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #c0c0c0, #808080, #c0c0c0);
+            border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+            animation: blob 6s ease-in-out infinite;
+            box-shadow:
+                inset -20px -20px 40px rgba(0,0,0,0.4),
+                inset 20px 20px 40px rgba(255,255,255,0.2),
+                0 0 60px rgba(192,192,192,0.3);
+        }
+        @keyframes blob {
+            0%, 100% { border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; }
+            50% { border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%; }
+        }
+
+        /* ============================================ */
+        /* 4. FOLDED CORNER WITH DEPTH                 */
+        /* ============================================ */
+        .bg4 {
+            background: linear-gradient(180deg, #1e1e30 0%, #12121f 100%);
+        }
+        .bg4::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 120px 120px 0;
+            border-color: transparent var(--neu-red) transparent transparent;
+            filter: drop-shadow(-5px 5px 10px rgba(0,0,0,0.5));
+        }
+        .bg4::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 120px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 30px 30px;
+            border-color: transparent transparent #1e1e30 transparent;
+            transform: rotate(45deg) translateX(-21px) translateY(-21px);
+        }
+
+        /* ============================================ */
+        /* 5. GLITCH EFFECT                            */
+        /* ============================================ */
+        .bg5 {
+            background: #0a0a14;
+        }
+        .bg5::before {
+            content: 'ALUMNI';
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 80px;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(196,18,48,0.3);
+            animation: glitch 3s infinite;
+        }
+        .bg5::after {
+            content: 'ALUMNI';
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 80px;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(0,255,255,0.2);
+            animation: glitch2 3s infinite;
+        }
+        @keyframes glitch {
+            0%, 90%, 100% { transform: translateY(-50%); }
+            92% { transform: translateY(-50%) translateX(5px); }
+            94% { transform: translateY(-50%) translateX(-5px); }
+        }
+        @keyframes glitch2 {
+            0%, 90%, 100% { transform: translateY(-50%); }
+            91% { transform: translateY(-50%) translateX(-3px); }
+            93% { transform: translateY(-50%) translateX(3px); }
+        }
+
+        /* ============================================ */
+        /* 6. HOLOGRAPHIC SHIMMER                      */
+        /* ============================================ */
+        .bg6 {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+        }
+        .bg6::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(255,0,128,0.1) 0%,
+                rgba(0,255,255,0.1) 25%,
+                rgba(255,255,0,0.1) 50%,
+                rgba(0,255,128,0.1) 75%,
+                rgba(255,0,128,0.1) 100%
+            );
+            background-size: 400% 400%;
+            animation: holo 5s ease infinite;
+            mask-image: linear-gradient(to right, transparent 0%, black 100%);
+        }
+        @keyframes holo {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ============================================ */
+        /* 7. TOPOGRAPHIC MAP                          */
+        /* ============================================ */
+        .bg7 {
+            background: #0d1117;
+        }
+        .bg7::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 200 Q100 150 200 200 T400 200' fill='none' stroke='%23C41230' stroke-opacity='0.1'/%3E%3Cpath d='M0 220 Q100 170 200 220 T400 220' fill='none' stroke='%23C41230' stroke-opacity='0.15'/%3E%3Cpath d='M0 240 Q100 190 200 240 T400 240' fill='none' stroke='%23C41230' stroke-opacity='0.2'/%3E%3Cpath d='M0 260 Q100 210 200 260 T400 260' fill='none' stroke='%23C41230' stroke-opacity='0.15'/%3E%3Cpath d='M0 280 Q100 230 200 280 T400 280' fill='none' stroke='%23C41230' stroke-opacity='0.1'/%3E%3C/svg%3E");
+            background-size: 100% 100%;
+            opacity: 0.8;
+        }
+
+        /* ============================================ */
+        /* 8. SPLIT DIAGONAL                           */
+        /* ============================================ */
+        .bg8 {
+            background: linear-gradient(135deg, #1a1a2e 50%, var(--neu-red) 50%);
+        }
+        .bg8::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 49%, rgba(255,255,255,0.1) 49%, rgba(255,255,255,0.1) 51%, transparent 51%);
+        }
+
+        /* ============================================ */
+        /* 9. SMOKE/MIST EFFECT                        */
+        /* ============================================ */
+        .bg9 {
+            background: #0a0a14;
+        }
+        .bg9::before {
+            content: '';
+            position: absolute;
+            right: -10%;
+            top: -20%;
+            width: 60%;
+            height: 140%;
+            background:
+                radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 60%, rgba(255,255,255,0.06) 0%, transparent 40%),
+                radial-gradient(ellipse at 40% 80%, rgba(255,255,255,0.04) 0%, transparent 45%);
+            filter: blur(30px);
+            animation: smoke 10s ease-in-out infinite;
+        }
+        @keyframes smoke {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
+            50% { transform: translateY(-20px) scale(1.1); opacity: 1; }
+        }
+
+        /* ============================================ */
+        /* 10. GEOMETRIC ORIGAMI                       */
+        /* ============================================ */
+        .bg10 {
+            background: #12121f;
+        }
+        .bg10::before {
+            content: '';
+            position: absolute;
+            right: 10%;
+            top: 20%;
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 80px solid rgba(196,18,48,0.3);
+        }
+        .bg10::after {
+            content: '';
+            position: absolute;
+            right: 8%;
+            top: 25%;
+            width: 0;
+            height: 0;
+            border-left: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-bottom: 65px solid rgba(212,168,67,0.25);
+            transform: rotate(180deg);
+        }
+        .bg10 .extra1 {
+            position: absolute;
+            right: 18%;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border-left: 35px solid transparent;
+            border-right: 35px solid transparent;
+            border-bottom: 55px solid rgba(100,100,150,0.2);
+            transform: rotate(30deg);
+        }
+
+        /* ============================================ */
+        /* 11. NEON SIGN                               */
+        /* ============================================ */
+        .bg11 {
+            background: #0a0a10;
+        }
+        .bg11::before {
+            content: '>';
+            position: absolute;
+            right: 15%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 120px;
+            font-weight: 100;
+            color: var(--neu-red);
+            text-shadow:
+                0 0 10px var(--neu-red),
+                0 0 20px var(--neu-red),
+                0 0 40px var(--neu-red),
+                0 0 80px var(--neu-red);
+            animation: neonFlicker 2s infinite;
+        }
+        @keyframes neonFlicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+            20%, 24%, 55% { opacity: 0.6; }
+        }
+
+        /* ============================================ */
+        /* 12. WATERCOLOR SPLASH                       */
+        /* ============================================ */
+        .bg12 {
+            background: #f8f9fa;
+        }
+        .bg12::before {
+            content: '';
+            position: absolute;
+            right: 5%;
+            top: 10%;
+            width: 180px;
+            height: 160px;
+            background: radial-gradient(ellipse at center, rgba(196,18,48,0.4) 0%, rgba(196,18,48,0.1) 50%, transparent 70%);
+            border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+            filter: blur(20px);
+        }
+        .bg12::after {
+            content: '';
+            position: absolute;
+            right: 15%;
+            top: 40%;
+            width: 120px;
+            height: 100px;
+            background: radial-gradient(ellipse at center, rgba(212,168,67,0.3) 0%, rgba(212,168,67,0.1) 50%, transparent 70%);
+            border-radius: 40% 60% 50% 50% / 60% 40% 60% 40%;
+            filter: blur(15px);
+        }
+        .bg12 .demo-header h3 { color: #1a1a2e; }
+        .bg12 .demo-card { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+
+        /* ============================================ */
+        /* 13. BLUEPRINT GRID                          */
+        /* ============================================ */
+        .bg13 {
+            background: #0a2540;
+        }
+        .bg13::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .bg13::after {
+            content: '';
+            position: absolute;
+            right: 10%;
+            top: 20%;
+            width: 100px;
+            height: 80px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: transparent;
+        }
+        .bg13 .extra {
+            position: absolute;
+            right: 12%;
+            top: 22%;
+            width: 60px;
+            height: 2px;
+            background: rgba(255,255,255,0.5);
+        }
+        .bg13 .demo-header .count { background: #fff; color: #0a2540; }
+
+        /* ============================================ */
+        /* 14. COSMIC GRADIENT                         */
+        /* ============================================ */
+        .bg14 {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+        }
+        .bg14::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(white 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+        .bg14::after {
+            content: '';
+            position: absolute;
+            right: 10%;
+            top: 30%;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255,200,100,0.8) 0%, rgba(255,100,50,0.4) 30%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(10px);
+        }
+
+        /* ============================================ */
+        /* 15. NEWSPAPER CLIPPING                      */
+        /* ============================================ */
+        .bg15 {
+            background: #f5f0e6;
+            border: 1px solid #d4c5a9;
+        }
+        .bg15::before {
+            content: '';
+            position: absolute;
+            right: 5%;
+            top: 10%;
+            width: 30%;
+            height: 80%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 12px,
+                rgba(0,0,0,0.03) 12px,
+                rgba(0,0,0,0.03) 13px
+            );
+        }
+        .bg15::after {
+            content: '"';
+            position: absolute;
+            right: 8%;
+            top: 15%;
+            font-size: 150px;
+            font-family: Georgia, serif;
+            color: rgba(196,18,48,0.15);
+            line-height: 1;
+        }
+        .bg15 .demo-header h3 { color: #1a1a2e; }
+        .bg15 .demo-header .count { background: #1a1a2e; }
+
+        /* ============================================ */
+        /* 16. CIRCUIT TRACE                           */
+        /* ============================================ */
+        .bg16 {
+            background: #0a0f0a;
+        }
+        .bg16::before {
+            content: '';
+            position: absolute;
+            right: 20%;
+            top: 30%;
+            width: 4px;
+            height: 40%;
+            background: linear-gradient(180deg, transparent, #00ff88, #00ff88, transparent);
+            box-shadow: 0 0 10px #00ff88;
+        }
+        .bg16::after {
+            content: '';
+            position: absolute;
+            right: 20%;
+            top: 70%;
+            width: 80px;
+            height: 4px;
+            background: #00ff88;
+            box-shadow: 0 0 10px #00ff88;
+        }
+        .bg16 .node1 {
+            position: absolute;
+            right: calc(20% - 6px);
+            top: 70%;
+            width: 16px;
+            height: 16px;
+            background: #00ff88;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #00ff88;
+            transform: translateY(-50%);
+        }
+        .bg16 .demo-header .count { background: #00ff88; color: black; }
+
+        /* ============================================ */
+        /* 17. GLASS MORPHISM PANEL                    */
+        /* ============================================ */
+        .bg17 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .bg17::before {
+            content: '';
+            position: absolute;
+            right: 5%;
+            top: 10%;
+            width: 40%;
+            height: 80%;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .bg17::after {
+            content: '';
+            position: absolute;
+            right: 8%;
+            top: 15%;
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+        }
+
+        /* ============================================ */
+        /* 18. BRUSH STROKE                            */
+        /* ============================================ */
+        .bg18 {
+            background: #1a1a2e;
+        }
+        .bg18::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, var(--neu-red) 30%, var(--neu-red) 70%, transparent 100%);
+            clip-path: polygon(40% 0, 100% 0, 100% 100%, 20% 100%, 25% 80%, 15% 60%, 30% 40%, 20% 20%);
+            opacity: 0.8;
+        }
+        .bg18::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+            clip-path: polygon(40% 0, 100% 0, 100% 100%, 20% 100%, 25% 80%, 15% 60%, 30% 40%, 20% 20%);
+        }
+
+        /* ============================================ */
+        /* 19. RETRO SUNSET                            */
+        /* ============================================ */
+        .bg19 {
+            background: linear-gradient(180deg, #0a0a14 0%, #1a0a20 50%, #2a1a30 100%);
+        }
+        .bg19::before {
+            content: '';
+            position: absolute;
+            right: 10%;
+            bottom: 20%;
+            width: 150px;
+            height: 75px;
+            background: linear-gradient(180deg, #ff6b6b 0%, #feca57 50%, #ff9ff3 100%);
+            border-radius: 150px 150px 0 0;
+        }
+        .bg19::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 40%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 8px,
+                rgba(0,0,0,0.3) 8px,
+                rgba(0,0,0,0.3) 10px
+            );
+            mask-image: linear-gradient(to top, black 0%, transparent 100%);
+        }
+
+        /* ============================================ */
+        /* 20. LAYERED PAPER                           */
+        /* ============================================ */
+        .bg20 {
+            background: #e8e8e8;
+        }
+        .bg20::before {
+            content: '';
+            position: absolute;
+            right: 5%;
+            top: 10%;
+            width: 35%;
+            height: 80%;
+            background: white;
+            box-shadow: -5px 5px 15px rgba(0,0,0,0.1);
+            transform: rotate(3deg);
+        }
+        .bg20::after {
+            content: '';
+            position: absolute;
+            right: 8%;
+            top: 15%;
+            width: 30%;
+            height: 70%;
+            background: #f5f5f5;
+            box-shadow: -3px 3px 10px rgba(0,0,0,0.08);
+            transform: rotate(-2deg);
+        }
+        .bg20 .paper3 {
+            position: absolute;
+            right: 10%;
+            top: 20%;
+            width: 25%;
+            height: 60%;
+            background: var(--neu-red);
+            box-shadow: -2px 2px 8px rgba(0,0,0,0.15);
+            transform: rotate(1deg);
+            opacity: 0.9;
+        }
+        .bg20 .demo-header h3 { color: #1a1a2e; }
+        .bg20 .demo-card { box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+
+    </style>
+</head>
+<body>
+    <h1>Alumni Section - 20 Creative Designs</h1>
+    <p class="subtitle">Thinking outside the box - unique artistic backgrounds</p>
+
+    <!-- 1 -->
+    <div class="design-section">
+        <span class="design-label">1. Aurora Borealis</span>
+        <div class="demo-container bg1">
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="design-section">
+        <span class="design-label">2. Torn Paper Reveal</span>
+        <div class="demo-container bg2">
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="design-section">
+        <span class="design-label">3. Liquid Metal Blob</span>
+        <div class="demo-container bg3">
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="design-section">
+        <span class="design-label">4. Folded Corner</span>
+        <div class="demo-container bg4">
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="design-section">
+        <span class="design-label">5. Glitch Text Effect</span>
+        <div class="demo-container bg5">
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="design-section">
+        <span class="design-label">6. Holographic Shimmer</span>
+        <div class="demo-container bg6">
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="design-section">
+        <span class="design-label">7. Topographic Map</span>
+        <div class="demo-container bg7">
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="design-section">
+        <span class="design-label">8. Split Diagonal</span>
+        <div class="demo-container bg8">
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="design-section">
+        <span class="design-label">9. Smoke/Mist Effect</span>
+        <div class="demo-container bg9">
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="design-section">
+        <span class="design-label">10. Geometric Origami</span>
+        <div class="demo-container bg10">
+            <div class="extra1"></div>
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="design-section">
+        <span class="design-label">11. Neon Sign</span>
+        <div class="demo-container bg11">
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="design-section">
+        <span class="design-label">12. Watercolor Splash</span>
+        <div class="demo-container bg12">
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 13 -->
+    <div class="design-section">
+        <span class="design-label">13. Blueprint Grid</span>
+        <div class="demo-container bg13">
+            <div class="extra"></div>
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 14 -->
+    <div class="design-section">
+        <span class="design-label">14. Cosmic Gradient</span>
+        <div class="demo-container bg14">
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="design-section">
+        <span class="design-label">15. Newspaper Clipping</span>
+        <div class="demo-container bg15">
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 16 -->
+    <div class="design-section">
+        <span class="design-label">16. Circuit Trace</span>
+        <div class="demo-container bg16">
+            <div class="node1"></div>
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 17 -->
+    <div class="design-section">
+        <span class="design-label">17. Glass Morphism Panel</span>
+        <div class="demo-container bg17">
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 18 -->
+    <div class="design-section">
+        <span class="design-label">18. Brush Stroke</span>
+        <div class="demo-container bg18">
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 19 -->
+    <div class="design-section">
+        <span class="design-label">19. Retro Sunset</span>
+        <div class="demo-container bg19">
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 20 -->
+    <div class="design-section">
+        <span class="design-label">20. Layered Paper</span>
+        <div class="demo-container bg20">
+            <div class="paper3"></div>
+            <div class="demo-header"><h3>Alumni</h3><span class="count">12</span></div>
+            <div class="demo-grid">
+                <div class="demo-card"><div class="avatar"></div><div class="name">Jeff Goldkamp</div><div class="year">2018</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Mohit Bansal</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Tong Zhang</div><div class="year">2019</div></div>
+                <div class="demo-card"><div class="avatar"></div><div class="name">Samuel Benford</div><div class="year">2020</div></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

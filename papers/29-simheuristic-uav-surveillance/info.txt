@@ -1,0 +1,15 @@
+========================================
+TITLE: Simheuristic for UAV Surveillance-Routing with Stochastic Travel Times
+========================================
+YEAR: 2019
+TYPE: Conference
+VENUE: Winter Simulation Conference (WSC)
+AUTHORS: J. Panadero, A. Juan, et al., M. Dehghanimohammadabadi
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides:
+- Code:
+
+LINKS:
+- DOI:

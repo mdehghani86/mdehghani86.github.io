@@ -1,0 +1,15 @@
+========================================
+TITLE: Optimizing Supply Chain Configuration and Production-Sales Policies
+========================================
+YEAR: 2018
+TYPE: Journal
+VENUE: International Journal of Production Economics
+AUTHORS: A. Negahban, M. Dehghanimohammadabadi
+
+FILES:
+- PDF:
+- Slides:
+- Code:
+
+LINKS:
+- DOI: https://doi.org/10.1016/j.ijpe.2017.11.019

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSC 2025 - Side by Side Layout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wsc-blue: #1a5a8a;
+            --wsc-gold: #c9a227;
+            --wsc-dark: #0d3251;
+            --wsc-light: #2a7ab8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 40px;
+            font-size: 0.85rem;
+        }
+
+        .designs-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .design-section {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .design-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--wsc-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        /* ============ SLIDE CONTAINER ============ */
+        .slide-preview {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* ============ DESIGN 1: Left Logo, Right Papers ============ */
+        .slide-side {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .slide-side .logo-section {
+            width: 40%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-side .logo-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .slide-side .papers-section {
+            width: 60%;
+            background: var(--wsc-dark);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-side .section-header {
+            margin-bottom: 12px;
+        }
+
+        .slide-side .section-title {
+            color: var(--wsc-gold);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .slide-side .section-subtitle {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.65rem;
+        }
+
+        .slide-side .papers-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .slide-side .paper-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-left: 3px solid var(--wsc-gold);
+        }
+
+        .slide-side .paper-row:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .slide-side .paper-num {
+            width: 26px;
+            height: 26px;
+            background: var(--wsc-gold);
+            color: var(--wsc-dark);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .slide-side .paper-title {
+            flex: 1;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .slide-side .paper-arrow {
+            color: var(--wsc-gold);
+            font-size: 0.7rem;
+            font-weight: 600;
+            opacity: 0.7;
+        }
+
+        .slide-side .paper-row:hover .paper-arrow {
+            opacity: 1;
+        }
+
+        /* ============ DESIGN 2: With gradient blend ============ */
+        .slide-blend .logo-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 100%;
+            background: linear-gradient(to right, transparent, var(--wsc-dark));
+        }
+
+        /* ============ DESIGN 3: Gold accent divider ============ */
+        .slide-gold-divider .logo-section {
+            border-right: 4px solid var(--wsc-gold);
+        }
+
+        .slide-gold-divider .paper-row {
+            border-left: none;
+        }
+
+        /* ============ DESIGN 4: Wider logo ============ */
+        .slide-wide-logo .logo-section {
+            width: 45%;
+        }
+
+        .slide-wide-logo .papers-section {
+            width: 55%;
+            padding: 18px;
+        }
+
+        .slide-wide-logo .paper-row {
+            padding: 12px;
+        }
+
+        .slide-wide-logo .paper-title {
+            font-size: 0.7rem;
+        }
+
+        /* ============ DESIGN 5: Overlay style ============ */
+        .slide-overlay-style {
+            position: relative;
+        }
+
+        .slide-overlay-style .bg-full {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-overlay-style .content-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(to right, transparent 0%, var(--wsc-dark) 20%, var(--wsc-dark) 100%);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-overlay-style .section-header {
+            margin-bottom: 12px;
+        }
+
+        .slide-overlay-style .section-title {
+            color: var(--wsc-gold);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .slide-overlay-style .papers-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .slide-overlay-style .paper-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-left: 3px solid var(--wsc-gold);
+        }
+
+        .slide-overlay-style .paper-row:hover {
+            background: rgba(255,255,255,0.18);
+        }
+
+        .slide-overlay-style .paper-num {
+            width: 26px;
+            height: 26px;
+            background: var(--wsc-gold);
+            color: var(--wsc-dark);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .slide-overlay-style .paper-title {
+            flex: 1;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .slide-overlay-style .paper-arrow {
+            color: var(--wsc-gold);
+            font-size: 0.7rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>WSC 2025 - Side by Side Layouts</h1>
+    <p class="subtitle">Logo on left, papers on right - logo stays visible!</p>
+
+    <div class="designs-container">
+
+        <!-- DESIGN 1: Basic side by side -->
+        <div class="design-section">
+            <div class="design-label">Design 1: Clean Split</div>
+            <div class="slide-preview slide-side">
+                <div class="logo-section">
+                    <img src="../assets/logos/WSC_logo.Jpeg" alt="WSC 2025">
+                </div>
+                <div class="papers-section">
+                    <div class="section-header">
+                        <div class="section-title">Just Published</div>
+                        <div class="section-subtitle">Winter Simulation Conference 2025</div>
+                    </div>
+                    <div class="papers-list">
+                        <a href="https://www.informs-sim.org/wsc25papers/inv172.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">1</div>
+                            <span class="paper-title">Look to the Future! Simulation by 2050 and Beyond</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                        <a href="https://www.informs-sim.org/wsc25papers/inv205.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">2</div>
+                            <span class="paper-title">A Tutorial on Generative AI and Simulation Modeling</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                        <a href="https://www.informs-sim.org/wsc25papers/inv209.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">3</div>
+                            <span class="paper-title">Simulation-Based Optimization for CAR T-Cell Therapy</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESIGN 2: With gradient blend -->
+        <div class="design-section">
+            <div class="design-label">Design 2: Smooth Gradient Blend</div>
+            <div class="slide-preview slide-side slide-blend">
+                <div class="logo-section">
+                    <img src="../assets/logos/WSC_logo.Jpeg" alt="WSC 2025">
+                </div>
+                <div class="papers-section">
+                    <div class="section-header">
+                        <div class="section-title">Fresh from Seattle</div>
+                        <div class="section-subtitle">WSC 2025 Publications</div>
+                    </div>
+                    <div class="papers-list">
+                        <a href="https://www.informs-sim.org/wsc25papers/inv172.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">1</div>
+                            <span class="paper-title">Look to the Future! Simulation by 2050 and Beyond</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                        <a href="https://www.informs-sim.org/wsc25papers/inv205.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">2</div>
+                            <span class="paper-title">A Tutorial on Generative AI and Simulation Modeling</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                        <a href="https://www.informs-sim.org/wsc25papers/inv209.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">3</div>
+                            <span class="paper-title">Simulation-Based Optimization for CAR T-Cell Therapy</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESIGN 3: Gold divider -->
+        <div class="design-section">
+            <div class="design-label">Design 3: Gold Divider (Recommended)</div>
+            <div class="slide-preview slide-side slide-gold-divider">
+                <div class="logo-section">
+                    <img src="../assets/logos/WSC_logo.Jpeg" alt="WSC 2025">
+                </div>
+                <div class="papers-section">
+                    <div class="section-header">
+                        <div class="section-title">Our Contributions</div>
+                        <div class="section-subtitle">3 Papers at WSC 2025</div>
+                    </div>
+                    <div class="papers-list">
+                        <a href="https://www.informs-sim.org/wsc25papers/inv172.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">1</div>
+                            <span class="paper-title">Look to the Future! Simulation by 2050 and Beyond</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                        <a href="https://www.informs-sim.org/wsc25papers/inv205.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">2</div>
+                            <span class="paper-title">A Tutorial on Generative AI and Simulation Modeling</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                        <a href="https://www.informs-sim.org/wsc25papers/inv209.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">3</div>
+                            <span class="paper-title">Simulation-Based Optimization for CAR T-Cell Therapy</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESIGN 4: Wider logo -->
+        <div class="design-section">
+            <div class="design-label">Design 4: Wider Logo (45%)</div>
+            <div class="slide-preview slide-side slide-wide-logo">
+                <div class="logo-section">
+                    <img src="../assets/logos/WSC_logo.Jpeg" alt="WSC 2025">
+                </div>
+                <div class="papers-section">
+                    <div class="section-header">
+                        <div class="section-title">Latest Research</div>
+                        <div class="section-subtitle">WSC Seattle 2025</div>
+                    </div>
+                    <div class="papers-list">
+                        <a href="https://www.informs-sim.org/wsc25papers/inv172.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">1</div>
+                            <span class="paper-title">Look to the Future! Simulation by 2050 and Beyond</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                        <a href="https://www.informs-sim.org/wsc25papers/inv205.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">2</div>
+                            <span class="paper-title">A Tutorial on Generative AI and Simulation Modeling</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                        <a href="https://www.informs-sim.org/wsc25papers/inv209.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">3</div>
+                            <span class="paper-title">Simulation-Based Optimization for CAR T-Cell Therapy</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESIGN 5: Full background with overlay -->
+        <div class="design-section">
+            <div class="design-label">Design 5: Full BG with Fade Overlay</div>
+            <div class="slide-preview slide-overlay-style">
+                <img src="../assets/logos/WSC_logo.Jpeg" alt="WSC 2025" class="bg-full">
+                <div class="content-overlay">
+                    <div class="section-header">
+                        <div class="section-title">Just Published</div>
+                    </div>
+                    <div class="papers-list">
+                        <a href="https://www.informs-sim.org/wsc25papers/inv172.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">1</div>
+                            <span class="paper-title">Look to the Future! Simulation by 2050 and Beyond</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                        <a href="https://www.informs-sim.org/wsc25papers/inv205.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">2</div>
+                            <span class="paper-title">A Tutorial on Generative AI and Simulation Modeling</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                        <a href="https://www.informs-sim.org/wsc25papers/inv209.pdf" target="_blank" class="paper-row">
+                            <div class="paper-num">3</div>
+                            <span class="paper-title">Simulation-Based Optimization for CAR T-Cell Therapy</span>
+                            <span class="paper-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+========================================
+TITLE: Agile Simheuristic for Stochastic Team Task Assignment: UAV Applications
+========================================
+YEAR: 2020
+TYPE: Conference
+VENUE: Winter Simulation Conference (WSC)
+AUTHORS: J. Panadero, A. Juan, et al., M. Dehghanimohammadabadi
+
+FILES:
+- PDF:
+- Slides:
+- Code:
+
+LINKS:
+- DOI:

@@ -1,0 +1,15 @@
+========================================
+TITLE: Data-Driven Simulation-Optimization (DSO): An Efficient Approach
+========================================
+YEAR: 2022
+TYPE: Book Chapter
+VENUE: International Conference on Optimization and Learning (Springer, pp. 117-132)
+AUTHORS:
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides: slides.pptx ✓
+- Code: code/ ✓ (MATLAB + Simio)
+
+LINKS:
+- DOI:

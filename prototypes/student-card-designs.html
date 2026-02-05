@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Card - Design #3 with Year</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 40px;
+            font-size: 0.85rem;
+        }
+
+        .cards-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .card-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-number {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #C41230;
+            background: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(196,18,48,0.2);
+        }
+
+        .card-label {
+            font-size: 0.7rem;
+            color: #64748b;
+            text-align: center;
+        }
+
+        :root {
+            --neu-red: #C41230;
+            --neu-dark: #1a1a2e;
+        }
+
+        /* ==================== DESIGN #3: No Line, Shadow Separation ==================== */
+        .alumni-card {
+            width: 260px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            display: flex;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .alumni-card .photo-area {
+            width: 100px;
+            background: linear-gradient(135deg, #e8f4fc 0%, #f0f4f8 50%, #e8eef5 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            box-shadow: 4px 0 12px rgba(0,0,0,0.04);
+            flex-shrink: 0;
+        }
+
+        .alumni-card .photo {
+            height: 110px;
+            object-fit: contain;
+        }
+
+        .alumni-card .info {
+            padding: 14px;
+            flex: 1;
+        }
+
+        .alumni-card .name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 3px;
+        }
+
+        .alumni-card .major {
+            font-size: 0.6rem;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .alumni-card .thesis {
+            font-size: 0.55rem;
+            color: #475569;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .alumni-card .thesis strong {
+            color: var(--neu-red);
+        }
+
+        .alumni-card .job-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .alumni-card .job-row .logo {
+            height: 13px;
+            opacity: 0.8;
+        }
+
+        .alumni-card .job-row .job-title {
+            font-size: 0.55rem;
+            color: #64748b;
+        }
+
+        /* Year badge variations */
+        .alumni-card .year-badge {
+            font-size: 0.5rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+            display: inline-block;
+        }
+
+        .year-badge.style-1 {
+            background: var(--neu-red);
+            color: white;
+        }
+
+        .year-badge.style-2 {
+            background: #f0f0f0;
+            color: #64748b;
+        }
+
+        .year-badge.style-3 {
+            background: transparent;
+            color: var(--neu-red);
+            border: 1px solid var(--neu-red);
+        }
+
+        .year-badge.style-4 {
+            background: linear-gradient(135deg, var(--neu-red), var(--neu-dark));
+            color: white;
+        }
+
+        /* Year in name row */
+        .name-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 3px;
+        }
+
+        .name-row .year-inline {
+            font-size: 0.6rem;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        .name-row .year-inline.red {
+            color: var(--neu-red);
+        }
+    </style>
+</head>
+<body>
+    <h1>Design #3 - Year Placement Options</h1>
+    <p class="subtitle">Pick where and how to show the year</p>
+
+    <div class="cards-row">
+        <!-- Option 1: Year badge on top (red) -->
+        <div class="card-wrapper">
+            <div class="card-number">1</div>
+            <div class="alumni-card">
+                <div class="photo-area">
+                    <img src="../assets/students/Sahil_Belsare_nobg.png" alt="Sahil Belsare" class="photo">
+                </div>
+                <div class="info">
+                    <div class="year-badge style-1">2021</div>
+                    <div class="name">Sahil Belsare</div>
+                    <div class="major">M.S. Industrial Engineering</div>
+                    <div class="thesis"><strong>M.S. Thesis:</strong> Integrated RL & DES</div>
+                    <div class="job-row">
+                        <img src="../assets/logos/Walmart_logo_(2008).svg" alt="Walmart" class="logo">
+                        <div class="job-title">Data Scientist</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-label">Year badge top (red)</div>
+        </div>
+
+        <!-- Option 2: Year badge on top (gray) -->
+        <div class="card-wrapper">
+            <div class="card-number">2</div>
+            <div class="alumni-card">
+                <div class="photo-area">
+                    <img src="../assets/students/Sahil_Belsare_nobg.png" alt="Sahil Belsare" class="photo">
+                </div>
+                <div class="info">
+                    <div class="year-badge style-2">2021</div>
+                    <div class="name">Sahil Belsare</div>
+                    <div class="major">M.S. Industrial Engineering</div>
+                    <div class="thesis"><strong>M.S. Thesis:</strong> Integrated RL & DES</div>
+                    <div class="job-row">
+                        <img src="../assets/logos/Walmart_logo_(2008).svg" alt="Walmart" class="logo">
+                        <div class="job-title">Data Scientist</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-label">Year badge top (gray)</div>
+        </div>
+
+        <!-- Option 3: Year badge outline -->
+        <div class="card-wrapper">
+            <div class="card-number">3</div>
+            <div class="alumni-card">
+                <div class="photo-area">
+                    <img src="../assets/students/Sahil_Belsare_nobg.png" alt="Sahil Belsare" class="photo">
+                </div>
+                <div class="info">
+                    <div class="year-badge style-3">2021</div>
+                    <div class="name">Sahil Belsare</div>
+                    <div class="major">M.S. Industrial Engineering</div>
+                    <div class="thesis"><strong>M.S. Thesis:</strong> Integrated RL & DES</div>
+                    <div class="job-row">
+                        <img src="../assets/logos/Walmart_logo_(2008).svg" alt="Walmart" class="logo">
+                        <div class="job-title">Data Scientist</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-label">Year badge outline</div>
+        </div>
+
+        <!-- Option 4: Year next to name (gray) -->
+        <div class="card-wrapper">
+            <div class="card-number">4</div>
+            <div class="alumni-card">
+                <div class="photo-area">
+                    <img src="../assets/students/Sahil_Belsare_nobg.png" alt="Sahil Belsare" class="photo">
+                </div>
+                <div class="info">
+                    <div class="name-row">
+                        <div class="name" style="margin-bottom:0">Sahil Belsare</div>
+                        <div class="year-inline">2021</div>
+                    </div>
+                    <div class="major">M.S. Industrial Engineering</div>
+                    <div class="thesis"><strong>M.S. Thesis:</strong> Integrated RL & DES</div>
+                    <div class="job-row">
+                        <img src="../assets/logos/Walmart_logo_(2008).svg" alt="Walmart" class="logo">
+                        <div class="job-title">Data Scientist</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-label">Year next to name (gray)</div>
+        </div>
+
+        <!-- Option 5: Year next to name (red) -->
+        <div class="card-wrapper">
+            <div class="card-number">5</div>
+            <div class="alumni-card">
+                <div class="photo-area">
+                    <img src="../assets/students/Sahil_Belsare_nobg.png" alt="Sahil Belsare" class="photo">
+                </div>
+                <div class="info">
+                    <div class="name-row">
+                        <div class="name" style="margin-bottom:0">Sahil Belsare</div>
+                        <div class="year-inline red">2021</div>
+                    </div>
+                    <div class="major">M.S. Industrial Engineering</div>
+                    <div class="thesis"><strong>M.S. Thesis:</strong> Integrated RL & DES</div>
+                    <div class="job-row">
+                        <img src="../assets/logos/Walmart_logo_(2008).svg" alt="Walmart" class="logo">
+                        <div class="job-title">Data Scientist</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-label">Year next to name (red)</div>
+        </div>
+
+        <!-- Option 6: No year on card -->
+        <div class="card-wrapper">
+            <div class="card-number">6</div>
+            <div class="alumni-card">
+                <div class="photo-area">
+                    <img src="../assets/students/Sahil_Belsare_nobg.png" alt="Sahil Belsare" class="photo">
+                </div>
+                <div class="info">
+                    <div class="name">Sahil Belsare</div>
+                    <div class="major">M.S. Industrial Engineering</div>
+                    <div class="thesis"><strong>M.S. Thesis:</strong> Integrated RL & DES</div>
+                    <div class="job-row">
+                        <img src="../assets/logos/Walmart_logo_(2008).svg" alt="Walmart" class="logo">
+                        <div class="job-title">Data Scientist</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-label">No year (use timeline)</div>
+        </div>
+    </div>
+
+</body>
+</html>

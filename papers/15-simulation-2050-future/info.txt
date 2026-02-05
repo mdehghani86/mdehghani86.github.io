@@ -1,0 +1,16 @@
+========================================
+TITLE: Look to the Future! Simulation by 2050 and Beyond
+========================================
+YEAR: 2025
+TYPE: Conference
+VENUE: Winter Simulation Conference (WSC)
+AUTHORS: H. Ehm, D. Pegden, H. Sarjoughian, A. Tolk, E. Hua, M. Dehghanimohammadabadi
+STATUS: Accepted
+
+FILES:
+- PDF:
+- Slides:
+- Code:
+
+LINKS:
+- DOI:

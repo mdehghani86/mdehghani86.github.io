@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Publication Alert - Slide Design V2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            padding: 40px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 40px;
+            font-size: 0.85rem;
+        }
+
+        .designs-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .design-section {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .design-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #C41230;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        /* ============ SLIDE CONTAINER ============ */
+        .slide-preview {
+            width: 100%;
+            max-width: 420px;
+            height: 280px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        /* ============ DESIGN A: NEU Red Theme ============ */
+        .slide-neu-red {
+            background: linear-gradient(145deg, #1a1a2e 0%, #2d2d44 100%);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-neu-red .top-bar {
+            background: #C41230;
+            padding: 10px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .slide-neu-red .top-bar .bell {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+
+        .slide-neu-red .top-bar .title {
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
+            flex: 1;
+        }
+
+        .slide-neu-red .top-bar .logo-placeholder {
+            height: 28px;
+            padding: 4px 10px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.55rem;
+            font-weight: 600;
+        }
+
+        .slide-neu-red .top-bar .logo-placeholder img {
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .slide-neu-red .content {
+            padding: 14px 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .slide-neu-red .paper-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            padding: 12px 14px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .slide-neu-red .paper-row:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(196,18,48,0.3);
+        }
+
+        .slide-neu-red .paper-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .slide-neu-red .paper-icon svg {
+            width: 16px;
+            height: 16px;
+            color: white;
+        }
+
+        .slide-neu-red .paper-icon.future { background: #3b82f6; }
+        .slide-neu-red .paper-icon.genai { background: #8b5cf6; }
+        .slide-neu-red .paper-icon.health { background: #C41230; }
+
+        .slide-neu-red .paper-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .slide-neu-red .paper-title {
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .slide-neu-red .paper-authors {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.55rem;
+            margin-top: 3px;
+        }
+
+        .slide-neu-red .paper-arrow {
+            color: rgba(255,255,255,0.3);
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .slide-neu-red .paper-row:hover .paper-arrow {
+            color: #C41230;
+            transform: translateX(3px);
+        }
+
+        /* ============ DESIGN B: Clean Dark with Accent ============ */
+        .slide-clean-dark {
+            background: #0f172a;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-clean-dark .header {
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .slide-clean-dark .header .icon-box {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #C41230, #e11d48);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-clean-dark .header .icon-box svg {
+            width: 18px;
+            height: 18px;
+            color: white;
+        }
+
+        .slide-clean-dark .header .text-group {
+            flex: 1;
+        }
+
+        .slide-clean-dark .header .text-group h3 {
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .slide-clean-dark .header .text-group span {
+            color: #64748b;
+            font-size: 0.6rem;
+        }
+
+        .slide-clean-dark .header .logo-box {
+            height: 32px;
+            padding: 0 12px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-clean-dark .header .logo-box img {
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .slide-clean-dark .header .logo-box span {
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .slide-clean-dark .content {
+            padding: 14px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .slide-clean-dark .paper-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 12px 14px;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+        }
+
+        .slide-clean-dark .paper-row:hover {
+            background: #334155;
+            border-left-color: #C41230;
+        }
+
+        .slide-clean-dark .paper-num {
+            width: 24px;
+            height: 24px;
+            background: rgba(196,18,48,0.15);
+            color: #C41230;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .slide-clean-dark .paper-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .slide-clean-dark .paper-title {
+            color: white;
+            font-size: 0.68rem;
+            font-weight: 600;
+        }
+
+        .slide-clean-dark .paper-meta {
+            color: #64748b;
+            font-size: 0.55rem;
+            margin-top: 2px;
+        }
+
+        .slide-clean-dark .paper-link {
+            color: #94a3b8;
+            font-size: 0.55rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-shrink: 0;
+        }
+
+        .slide-clean-dark .paper-link svg {
+            width: 12px;
+            height: 12px;
+        }
+
+        .slide-clean-dark .paper-row:hover .paper-link {
+            color: #C41230;
+        }
+
+        /* ============ DESIGN C: Minimal White Accent ============ */
+        .slide-minimal {
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f172a 100%);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-minimal .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .slide-minimal .header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .slide-minimal .new-badge {
+            background: #C41230;
+            color: white;
+            font-size: 0.5rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .slide-minimal .header-title {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .slide-minimal .wsc-logo {
+            height: 30px;
+            background: white;
+            border-radius: 6px;
+            padding: 4px 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .slide-minimal .wsc-logo img {
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .slide-minimal .wsc-logo span {
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .slide-minimal .papers-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .slide-minimal .paper-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .slide-minimal .paper-item:hover {
+            background: rgba(255,255,255,0.08);
+        }
+
+        .slide-minimal .paper-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .slide-minimal .paper-dot.d1 { background: #3b82f6; }
+        .slide-minimal .paper-dot.d2 { background: #8b5cf6; }
+        .slide-minimal .paper-dot.d3 { background: #C41230; }
+
+        .slide-minimal .paper-text {
+            flex: 1;
+        }
+
+        .slide-minimal .paper-title {
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .slide-minimal .paper-sub {
+            color: #64748b;
+            font-size: 0.55rem;
+            margin-top: 2px;
+        }
+
+        .slide-minimal .paper-btn {
+            background: rgba(196,18,48,0.1);
+            color: #C41230;
+            font-size: 0.55rem;
+            font-weight: 600;
+            padding: 6px 10px;
+            border-radius: 6px;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .slide-minimal .paper-item:hover .paper-btn {
+            background: #C41230;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>New Publication Alert - V2 Designs</h1>
+    <p class="subtitle">Better colors + WSC logo placeholder</p>
+
+    <div class="designs-container">
+
+        <!-- DESIGN A: NEU Red Theme -->
+        <div class="design-section">
+            <div class="design-label">Design A: NEU Red Bar</div>
+            <div class="slide-preview slide-neu-red">
+                <div class="top-bar">
+                    <svg class="bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                    </svg>
+                    <span class="title">New Publication Alert</span>
+                    <div class="logo-placeholder">
+                        <!-- Replace with: <img src="../assets/logos/wsc2025-logo.png" alt="WSC 2025"> -->
+                        WSC 2025
+                    </div>
+                </div>
+                <div class="content">
+                    <a href="https://www.informs-sim.org/wsc25papers/inv172.pdf" target="_blank" class="paper-row">
+                        <div class="paper-icon future">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <div class="paper-info">
+                            <div class="paper-title">Look to the Future! Simulation by 2050 and Beyond</div>
+                            <div class="paper-authors">Ehm, Pegden, Sarjoughian, Tolk, Hua, Dehghani</div>
+                        </div>
+                        <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv205.pdf" target="_blank" class="paper-row">
+                        <div class="paper-icon genai">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="paper-info">
+                            <div class="paper-title">A Tutorial on Generative AI and Simulation Modeling</div>
+                            <div class="paper-authors">Dehghani, Belsare, Sadeghi</div>
+                        </div>
+                        <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv209.pdf" target="_blank" class="paper-row">
+                        <div class="paper-icon health">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <div class="paper-info">
+                            <div class="paper-title">Simulation-Based Optimization for CAR T-Cell Therapy</div>
+                            <div class="paper-authors">Sadeghi, Dehghani</div>
+                        </div>
+                        <svg class="paper-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESIGN B: Clean Dark -->
+        <div class="design-section">
+            <div class="design-label">Design B: Clean Dark with Numbers</div>
+            <div class="slide-preview slide-clean-dark">
+                <div class="header">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                        </svg>
+                    </div>
+                    <div class="text-group">
+                        <h3>New Publications</h3>
+                        <span>Winter Simulation Conference 2025</span>
+                    </div>
+                    <div class="logo-box">
+                        <!-- Replace with: <img src="../assets/logos/wsc2025-logo.png" alt="WSC"> -->
+                        <span>WSC 2025</span>
+                    </div>
+                </div>
+                <div class="content">
+                    <a href="https://www.informs-sim.org/wsc25papers/inv172.pdf" target="_blank" class="paper-row">
+                        <div class="paper-num">1</div>
+                        <div class="paper-info">
+                            <div class="paper-title">Look to the Future! Simulation by 2050 and Beyond</div>
+                            <div class="paper-meta">Ehm, Pegden, Sarjoughian, Tolk, Hua, Dehghani</div>
+                        </div>
+                        <div class="paper-link">
+                            PDF
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </div>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv205.pdf" target="_blank" class="paper-row">
+                        <div class="paper-num">2</div>
+                        <div class="paper-info">
+                            <div class="paper-title">A Tutorial on Generative AI and Simulation Modeling</div>
+                            <div class="paper-meta">Dehghani, Belsare, Sadeghi</div>
+                        </div>
+                        <div class="paper-link">
+                            PDF
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </div>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv209.pdf" target="_blank" class="paper-row">
+                        <div class="paper-num">3</div>
+                        <div class="paper-info">
+                            <div class="paper-title">Simulation-Based Optimization for CAR T-Cell Therapy</div>
+                            <div class="paper-meta">Sadeghi, Dehghani</div>
+                        </div>
+                        <div class="paper-link">
+                            PDF
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESIGN C: Minimal -->
+        <div class="design-section">
+            <div class="design-label">Design C: Minimal with Dots</div>
+            <div class="slide-preview slide-minimal">
+                <div class="header">
+                    <div class="header-left">
+                        <span class="new-badge">New</span>
+                        <span class="header-title">WSC 2025 Papers</span>
+                    </div>
+                    <div class="wsc-logo">
+                        <!-- Replace with: <img src="../assets/logos/wsc2025-logo.png" alt="WSC"> -->
+                        <span>WSC 2025</span>
+                    </div>
+                </div>
+                <div class="papers-list">
+                    <a href="https://www.informs-sim.org/wsc25papers/inv172.pdf" target="_blank" class="paper-item">
+                        <div class="paper-dot d1"></div>
+                        <div class="paper-text">
+                            <div class="paper-title">Look to the Future! Simulation by 2050 and Beyond</div>
+                            <div class="paper-sub">Ehm, Pegden, Sarjoughian, Tolk, Hua, Dehghani</div>
+                        </div>
+                        <span class="paper-btn">Read</span>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv205.pdf" target="_blank" class="paper-item">
+                        <div class="paper-dot d2"></div>
+                        <div class="paper-text">
+                            <div class="paper-title">A Tutorial on Generative AI and Simulation Modeling</div>
+                            <div class="paper-sub">Dehghani, Belsare, Sadeghi</div>
+                        </div>
+                        <span class="paper-btn">Read</span>
+                    </a>
+                    <a href="https://www.informs-sim.org/wsc25papers/inv209.pdf" target="_blank" class="paper-item">
+                        <div class="paper-dot d3"></div>
+                        <div class="paper-text">
+                            <div class="paper-title">Simulation-Based Optimization for CAR T-Cell Therapy</div>
+                            <div class="paper-sub">Sadeghi, Dehghani</div>
+                        </div>
+                        <span class="paper-btn">Read</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

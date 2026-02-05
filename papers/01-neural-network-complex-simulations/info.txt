@@ -1,0 +1,16 @@
+========================================
+TITLE: Advancing Neural Network Models for Complex Simulations
+========================================
+YEAR: 2025
+TYPE: Book Chapter
+VENUE: Simio and Simulation: Modeling, Analysis, Applications
+AUTHORS: M. Dehghanimohammadabadi, J. Smith, R. Carney
+STATUS: In-press
+
+FILES:
+- PDF:
+- Slides:
+- Code:
+
+LINKS:
+- DOI:

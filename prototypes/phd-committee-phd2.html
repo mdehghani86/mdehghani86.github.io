@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhD Committee - Golden Graduation Design</title>
+    <style>
+        :root {
+            --neu-red: #c8102e;
+            --gold: #d4a843;
+            --warm-gold: #e8b84a;
+            --sunset-orange: #f5a623;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #1a1a2e;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 50px;
+        }
+
+        .option-section {
+            margin-bottom: 80px;
+        }
+
+        .option-title {
+            font-size: 18px;
+            margin-bottom: 25px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #1a1a2e, #2d2d44);
+            border-radius: 10px;
+            display: inline-block;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .option-title span {
+            color: var(--gold);
+        }
+
+        /* ============================================ */
+        /* OPTION 1: Full Width Banner - Overlay Cards */
+        /* ============================================ */
+        .opt1-wrapper {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            min-height: 420px;
+        }
+
+        .opt1-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .opt1-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .opt1-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                rgba(26,26,46,0.95) 0%,
+                rgba(26,26,46,0.85) 40%,
+                rgba(26,26,46,0.4) 70%,
+                transparent 100%);
+        }
+
+        .opt1-content {
+            position: relative;
+            z-index: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .opt1-header {
+            margin-bottom: 30px;
+        }
+
+        .opt1-header h3 {
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .opt1-header p {
+            color: var(--warm-gold);
+            font-size: 14px;
+        }
+
+        .opt1-cards {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .opt1-card {
+            width: 160px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: all 0.3s;
+        }
+
+        .opt1-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .opt1-card .photo {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--warm-gold);
+            margin: 0 auto 10px;
+        }
+
+        .opt1-card .name {
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+
+        .opt1-card .year {
+            font-size: 11px;
+            color: var(--warm-gold);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .opt1-card .logo {
+            height: 14px;
+            width: auto;
+            max-width: 50px;
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+        }
+
+        /* ============================================ */
+        /* OPTION 2: Split Design - Cards Left         */
+        /* ============================================ */
+        .opt2-wrapper {
+            display: flex;
+            border-radius: 30px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .opt2-content {
+            flex: 1;
+            padding: 35px;
+            background: linear-gradient(180deg, #fafafa 0%, #fff 100%);
+        }
+
+        .opt2-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .opt2-header .icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gold), var(--sunset-orange));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .opt2-header h3 {
+            font-size: 22px;
+            color: #1a1a2e;
+        }
+
+        .opt2-header .count {
+            margin-left: auto;
+            background: linear-gradient(135deg, var(--gold), var(--sunset-orange));
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .opt2-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .opt2-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            transition: all 0.3s;
+        }
+
+        .opt2-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-color: var(--gold);
+        }
+
+        .opt2-card .photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+        }
+
+        .opt2-card .info {
+            flex: 1;
+        }
+
+        .opt2-card .name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .opt2-card .thesis {
+            font-size: 11px;
+            color: #888;
+        }
+
+        .opt2-card .year {
+            font-size: 14px;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .opt2-card .logo {
+            height: 18px;
+            width: auto;
+            max-width: 60px;
+        }
+
+        .opt2-image {
+            width: 350px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .opt2-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ============================================ */
+        /* OPTION 3: Floating Cards on Image           */
+        /* ============================================ */
+        .opt3-wrapper {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        .opt3-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .opt3-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .opt3-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                rgba(0,0,0,0.3) 0%,
+                rgba(0,0,0,0.5) 100%);
+        }
+
+        .opt3-content {
+            position: relative;
+            z-index: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .opt3-header {
+            margin-bottom: 40px;
+        }
+
+        .opt3-header h3 {
+            font-size: 36px;
+            color: #fff;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .opt3-header p {
+            color: var(--warm-gold);
+            font-size: 16px;
+            text-shadow: 0 1px 10px rgba(0,0,0,0.3);
+        }
+
+        .opt3-cards {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .opt3-card {
+            width: 170px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .opt3-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+
+        .opt3-card .photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--gold);
+            margin: 0 auto 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .opt3-card .name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 3px;
+        }
+
+        .opt3-card .year {
+            font-size: 12px;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .opt3-card .thesis {
+            font-size: 10px;
+            color: #888;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .opt3-card .logo {
+            height: 16px;
+            width: auto;
+            max-width: 55px;
+        }
+
+        /* ============================================ */
+        /* OPTION 4: Warm Gradient Integration         */
+        /* ============================================ */
+        .opt4-wrapper {
+            background: linear-gradient(135deg, #2d2418 0%, #1a1a2e 50%, #1a1a2e 100%);
+            border-radius: 30px;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .opt4-left {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .opt4-header {
+            margin-bottom: 30px;
+        }
+
+        .opt4-header h3 {
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .opt4-header p {
+            font-size: 13px;
+            color: var(--warm-gold);
+        }
+
+        .opt4-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .opt4-card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 18px 12px;
+            text-align: center;
+            border: 1px solid rgba(232,184,74,0.2);
+            transition: all 0.3s;
+        }
+
+        .opt4-card:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: var(--warm-gold);
+            transform: scale(1.03);
+        }
+
+        .opt4-card .photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--warm-gold);
+            margin: 0 auto 10px;
+        }
+
+        .opt4-card .name {
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .opt4-card .year {
+            font-size: 11px;
+            color: var(--warm-gold);
+            margin-bottom: 8px;
+        }
+
+        .opt4-card .logo {
+            height: 14px;
+            width: auto;
+            max-width: 45px;
+            filter: brightness(0) invert(1);
+            opacity: 0.7;
+        }
+
+        .opt4-right {
+            width: 320px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .opt4-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .opt4-right::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, #1a1a2e 0%, transparent 30%);
+        }
+
+        /* ============================================ */
+        /* OPTION 5: Celebration Style                 */
+        /* ============================================ */
+        .opt5-wrapper {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .opt5-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .opt5-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(3px);
+        }
+
+        .opt5-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,
+                rgba(45,36,24,0.92) 0%,
+                rgba(26,26,46,0.88) 100%);
+        }
+
+        .opt5-content {
+            position: relative;
+            z-index: 1;
+            padding: 50px;
+        }
+
+        .opt5-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .opt5-cap {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .opt5-header h3 {
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .opt5-header .line {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--warm-gold), transparent);
+            margin: 0 auto 10px;
+        }
+
+        .opt5-header p {
+            color: var(--warm-gold);
+            font-size: 14px;
+        }
+
+        .opt5-cards {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .opt5-card {
+            width: 180px;
+            text-align: center;
+        }
+
+        .opt5-card .photo-frame {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
+            position: relative;
+        }
+
+        .opt5-card .photo-frame::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border: 2px solid var(--warm-gold);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        .opt5-card .photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--warm-gold);
+        }
+
+        .opt5-card .name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+
+        .opt5-card .year {
+            font-size: 13px;
+            color: var(--warm-gold);
+            margin-bottom: 8px;
+        }
+
+        .opt5-card .thesis {
+            font-size: 10px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .opt5-card .company {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .opt5-card .logo {
+            height: 16px;
+            width: auto;
+            max-width: 50px;
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+        }
+
+        .opt5-card .job {
+            font-size: 10px;
+            color: rgba(255,255,255,0.7);
+        }
+    </style>
+</head>
+<body>
+    <h1>PhD Committee - Golden Graduation Theme</h1>
+    <p class="subtitle">Designs inspired by the graduation cap sunset image</p>
+
+    <!-- OPTION 1: Full Width Banner -->
+    <div class="option-section">
+        <div class="option-title">Option 1: <span>Full Banner with Overlay Cards</span></div>
+        <div class="opt1-wrapper">
+            <div class="opt1-bg"><img src="../assets/images/PhD2.jpeg" alt="Graduation"></div>
+            <div class="opt1-overlay"></div>
+            <div class="opt1-content">
+                <div class="opt1-header">
+                    <h3>PhD Dissertation Committee</h3>
+                    <p>Celebrating Academic Excellence</p>
+                </div>
+                <div class="opt1-cards">
+                    <div class="opt1-card">
+                        <img src="../assets/students/Xiali_nobg.png" class="photo">
+                        <div class="name">Xiaoli Duan</div>
+                        <div class="year">2021</div>
+                        <img src="../assets/logos/AstraZeneca_logo.svg" class="logo">
+                    </div>
+                    <div class="opt1-card">
+                        <img src="../assets/students/Basma_nobg.png" class="photo">
+                        <div class="name">Basma Bargal</div>
+                        <div class="year">2022</div>
+                        <img src="../assets/logos/Lifespan-logo.png" class="logo">
+                    </div>
+                    <div class="opt1-card">
+                        <img src="../assets/students/Leren_nobg.png" class="photo">
+                        <div class="name">Leren Qian</div>
+                        <div class="year">2023</div>
+                        <img src="../assets/logos/Amazon-Logo-2000.png" class="logo">
+                    </div>
+                    <div class="opt1-card">
+                        <img src="../assets/students/Nathan_nobg.png" class="photo">
+                        <div class="name">Nathan Adeyemi</div>
+                        <div class="year">2024</div>
+                        <img src="../assets/logos/Amazon-Logo-2000.png" class="logo">
+                    </div>
+                    <div class="opt1-card">
+                        <img src="../assets/students/Peiqi_nobg.png" class="photo">
+                        <div class="name">Peiqi Wang</div>
+                        <div class="year">2024</div>
+                        <img src="../assets/logos/CSX-logo.svg" class="logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPTION 2: Split Design -->
+    <div class="option-section">
+        <div class="option-title">Option 2: <span>Split Layout - List & Image</span></div>
+        <div class="opt2-wrapper">
+            <div class="opt2-content">
+                <div class="opt2-header">
+                    <div class="icon">🎓</div>
+                    <h3>PhD Dissertation Committee</h3>
+                    <span class="count">5 Graduates</span>
+                </div>
+                <div class="opt2-cards">
+                    <div class="opt2-card">
+                        <img src="../assets/students/Xiali_nobg.png" class="photo">
+                        <div class="info"><div class="name">Xiaoli Duan</div><div class="thesis">Likelihood-Based Methods for Epidemics</div></div>
+                        <div class="year">2021</div>
+                        <img src="../assets/logos/AstraZeneca_logo.svg" class="logo">
+                    </div>
+                    <div class="opt2-card">
+                        <img src="../assets/students/Basma_nobg.png" class="photo">
+                        <div class="info"><div class="name">Basma Bargal</div><div class="thesis">Computer Vision & Deep Learning</div></div>
+                        <div class="year">2022</div>
+                        <img src="../assets/logos/Lifespan-logo.png" class="logo">
+                    </div>
+                    <div class="opt2-card">
+                        <img src="../assets/students/Leren_nobg.png" class="photo">
+                        <div class="info"><div class="name">Leren Qian</div><div class="thesis">School Bus Routing Optimization</div></div>
+                        <div class="year">2023</div>
+                        <img src="../assets/logos/Amazon-Logo-2000.png" class="logo">
+                    </div>
+                    <div class="opt2-card">
+                        <img src="../assets/students/Nathan_nobg.png" class="photo">
+                        <div class="info"><div class="name">Nathan Adeyemi</div><div class="thesis">Inpatient Mental Healthcare</div></div>
+                        <div class="year">2024</div>
+                        <img src="../assets/logos/Amazon-Logo-2000.png" class="logo">
+                    </div>
+                    <div class="opt2-card">
+                        <img src="../assets/students/Peiqi_nobg.png" class="photo">
+                        <div class="info"><div class="name">Peiqi Wang</div><div class="thesis">Geometric Optimization in Logistics</div></div>
+                        <div class="year">2024</div>
+                        <img src="../assets/logos/CSX-logo.svg" class="logo">
+                    </div>
+                </div>
+            </div>
+            <div class="opt2-image">
+                <img src="../assets/images/PhD2.jpeg" alt="Graduation">
+            </div>
+        </div>
+    </div>
+
+    <!-- OPTION 3: Floating Cards -->
+    <div class="option-section">
+        <div class="option-title">Option 3: <span>Floating White Cards on Image</span></div>
+        <div class="opt3-wrapper">
+            <div class="opt3-bg"><img src="../assets/images/PhD2.jpeg" alt="Graduation"></div>
+            <div class="opt3-overlay"></div>
+            <div class="opt3-content">
+                <div class="opt3-header">
+                    <h3>PhD Dissertation Committee</h3>
+                    <p>Guiding Tomorrow's Researchers</p>
+                </div>
+                <div class="opt3-cards">
+                    <div class="opt3-card">
+                        <img src="../assets/students/Xiali_nobg.png" class="photo">
+                        <div class="name">Xiaoli Duan</div>
+                        <div class="year">2021</div>
+                        <div class="thesis">Likelihood-Based Methods for Epidemics</div>
+                        <img src="../assets/logos/AstraZeneca_logo.svg" class="logo">
+                    </div>
+                    <div class="opt3-card">
+                        <img src="../assets/students/Basma_nobg.png" class="photo">
+                        <div class="name">Basma Bargal</div>
+                        <div class="year">2022</div>
+                        <div class="thesis">Computer Vision & Deep Learning</div>
+                        <img src="../assets/logos/Lifespan-logo.png" class="logo">
+                    </div>
+                    <div class="opt3-card">
+                        <img src="../assets/students/Leren_nobg.png" class="photo">
+                        <div class="name">Leren Qian</div>
+                        <div class="year">2023</div>
+                        <div class="thesis">School Bus Routing Optimization</div>
+                        <img src="../assets/logos/Amazon-Logo-2000.png" class="logo">
+                    </div>
+                    <div class="opt3-card">
+                        <img src="../assets/students/Nathan_nobg.png" class="photo">
+                        <div class="name">Nathan Adeyemi</div>
+                        <div class="year">2024</div>
+                        <div class="thesis">Inpatient Mental Healthcare</div>
+                        <img src="../assets/logos/Amazon-Logo-2000.png" class="logo">
+                    </div>
+                    <div class="opt3-card">
+                        <img src="../assets/students/Peiqi_nobg.png" class="photo">
+                        <div class="name">Peiqi Wang</div>
+                        <div class="year">2024</div>
+                        <div class="thesis">Geometric Optimization</div>
+                        <img src="../assets/logos/CSX-logo.svg" class="logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPTION 4: Warm Integration -->
+    <div class="option-section">
+        <div class="option-title">Option 4: <span>Warm Dark Theme + Side Image</span></div>
+        <div class="opt4-wrapper">
+            <div class="opt4-left">
+                <div class="opt4-header">
+                    <h3>PhD Dissertation Committee</h3>
+                    <p>5 Successful Graduates · Industry Leaders</p>
+                </div>
+                <div class="opt4-grid">
+                    <div class="opt4-card">
+                        <img src="../assets/students/Xiali_nobg.png" class="photo">
+                        <div class="name">Xiaoli Duan</div>
+                        <div class="year">2021</div>
+                        <img src="../assets/logos/AstraZeneca_logo.svg" class="logo">
+                    </div>
+                    <div class="opt4-card">
+                        <img src="../assets/students/Basma_nobg.png" class="photo">
+                        <div class="name">Basma Bargal</div>
+                        <div class="year">2022</div>
+                        <img src="../assets/logos/Lifespan-logo.png" class="logo">
+                    </div>
+                    <div class="opt4-card">
+                        <img src="../assets/students/Leren_nobg.png" class="photo">
+                        <div class="name">Leren Qian</div>
+                        <div class="year">2023</div>
+                        <img src="../assets/logos/Amazon-Logo-2000.png" class="logo">
+                    </div>
+                    <div class="opt4-card">
+                        <img src="../assets/students/Nathan_nobg.png" class="photo">
+                        <div class="name">Nathan Adeyemi</div>
+                        <div class="year">2024</div>
+                        <img src="../assets/logos/Amazon-Logo-2000.png" class="logo">
+                    </div>
+                    <div class="opt4-card">
+                        <img src="../assets/students/Peiqi_nobg.png" class="photo">
+                        <div class="name">Peiqi Wang</div>
+                        <div class="year">2024</div>
+                        <img src="../assets/logos/CSX-logo.svg" class="logo">
+                    </div>
+                </div>
+            </div>
+            <div class="opt4-right">
+                <img src="../assets/images/PhD2.jpeg" alt="Graduation">
+            </div>
+        </div>
+    </div>
+
+    <!-- OPTION 5: Celebration Style -->
+    <div class="option-section">
+        <div class="option-title">Option 5: <span>Celebration Theme with Blurred BG</span></div>
+        <div class="opt5-wrapper">
+            <div class="opt5-bg"><img src="../assets/images/PhD2.jpeg" alt="Graduation"></div>
+            <div class="opt5-overlay"></div>
+            <div class="opt5-content">
+                <div class="opt5-header">
+                    <div class="opt5-cap">🎓</div>
+                    <h3>PhD Dissertation Committee</h3>
+                    <div class="line"></div>
+                    <p>Celebrating Academic Achievement</p>
+                </div>
+                <div class="opt5-cards">
+                    <div class="opt5-card">
+                        <div class="photo-frame"><img src="../assets/students/Xiali_nobg.png" class="photo"></div>
+                        <div class="name">Xiaoli Duan</div>
+                        <div class="year">Class of 2021</div>
+                        <div class="thesis">Likelihood-Based Methods for Epidemics</div>
+                        <div class="company"><img src="../assets/logos/AstraZeneca_logo.svg" class="logo"><span class="job">Data Scientist</span></div>
+                    </div>
+                    <div class="opt5-card">
+                        <div class="photo-frame"><img src="../assets/students/Basma_nobg.png" class="photo"></div>
+                        <div class="name">Basma Bargal</div>
+                        <div class="year">Class of 2022</div>
+                        <div class="thesis">Computer Vision & Deep Learning</div>
+                        <div class="company"><img src="../assets/logos/Lifespan-logo.png" class="logo"><span class="job">Data Scientist</span></div>
+                    </div>
+                    <div class="opt5-card">
+                        <div class="photo-frame"><img src="../assets/students/Leren_nobg.png" class="photo"></div>
+                        <div class="name">Leren Qian</div>
+                        <div class="year">Class of 2023</div>
+                        <div class="thesis">School Bus Routing Optimization</div>
+                        <div class="company"><img src="../assets/logos/Amazon-Logo-2000.png" class="logo"><span class="job">Data Scientist</span></div>
+                    </div>
+                    <div class="opt5-card">
+                        <div class="photo-frame"><img src="../assets/students/Nathan_nobg.png" class="photo"></div>
+                        <div class="name">Nathan Adeyemi</div>
+                        <div class="year">Class of 2024</div>
+                        <div class="thesis">Inpatient Mental Healthcare</div>
+                        <div class="company"><img src="../assets/logos/Amazon-Logo-2000.png" class="logo"><span class="job">Applied Scientist</span></div>
+                    </div>
+                    <div class="opt5-card">
+                        <div class="photo-frame"><img src="../assets/students/Peiqi_nobg.png" class="photo"></div>
+                        <div class="name">Peiqi Wang</div>
+                        <div class="year">Class of 2024</div>
+                        <div class="thesis">Geometric Optimization</div>
+                        <div class="company"><img src="../assets/logos/CSX-logo.svg" class="logo"><span class="job">Sr. OR Scientist</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

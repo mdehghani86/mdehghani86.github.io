@@ -1,0 +1,15 @@
+========================================
+TITLE: Iterative Optimization-Based Simulation: A Decision Support Tool for Job Release
+========================================
+YEAR: 2018
+TYPE: Conference
+VENUE: WorldCIST 2018
+AUTHORS: N.O. Fernandes, M. Dehghanimohammadabadi, S.C. Silva
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides:
+- Code: code/ ✓ (MATLAB + Simio)
+
+LINKS:
+- DOI:

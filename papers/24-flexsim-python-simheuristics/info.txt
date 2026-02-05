@@ -1,0 +1,15 @@
+========================================
+TITLE: Tutorial: Combining Flexsim with Python for Discrete-Event Simheuristics
+========================================
+YEAR: 2022
+TYPE: Conference
+VENUE: Winter Simulation Conference (WSC)
+AUTHORS: J. Fuentes Leon, M. Peyman, et al.
+
+FILES:
+- PDF:
+- Slides:
+- Code:
+
+LINKS:
+- DOI:

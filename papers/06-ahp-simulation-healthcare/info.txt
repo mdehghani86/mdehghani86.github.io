@@ -1,0 +1,15 @@
+========================================
+TITLE: A Two-Stage AHP Multi-Objective Simulation Optimization in Healthcare
+========================================
+YEAR: 2020
+TYPE: Journal
+VENUE: International Journal of the Analytic Hierarchy Process
+AUTHORS: M. Dehghanimohammadabadi, N. Kabadayi
+
+FILES:
+- PDF:
+- Slides:
+- Code:
+
+LINKS:
+- DOI: https://doi.org/10.13033/ijahp.v12i1.701

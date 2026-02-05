@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni vs TA Card Background Colors - Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .option-section {
+            margin-bottom: 60px;
+            padding: 30px;
+            border: 2px solid #333;
+            border-radius: 16px;
+        }
+
+        .option-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #1a1a1a;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .cards-row {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card-group {
+            text-align: center;
+        }
+
+        .card-label {
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .alumni-card {
+            width: 220px;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .photo-area {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .photo-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .major {
+            font-size: 11px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 8px;
+        }
+
+        .job-title {
+            font-size: 12px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Option 1: Current (Same) - Dark Gray for both */
+        .opt1-alumni { background: linear-gradient(135deg, #1e1e24 0%, #141418 100%); }
+        .opt1-ta { background: linear-gradient(135deg, #1e1e24 0%, #141418 100%); }
+
+        /* Option 2: Blue Alumni / Teal TA */
+        .opt2-alumni { background: linear-gradient(135deg, #1a3a5c 0%, #0d1f33 100%); }
+        .opt2-ta { background: linear-gradient(135deg, #1a4a4a 0%, #0d2626 100%); }
+
+        /* Option 3: Navy Alumni / Teal TA */
+        .opt3-alumni { background: linear-gradient(135deg, #1a2a4a 0%, #0d1526 100%); }
+        .opt3-ta { background: linear-gradient(135deg, #1a4a4a 0%, #0d2626 100%); }
+
+        /* Option 4: Dark Gray Alumni / Teal TA */
+        .opt4-alumni { background: linear-gradient(135deg, #1e1e24 0%, #141418 100%); }
+        .opt4-ta { background: linear-gradient(135deg, #1a4a4a 0%, #0d2626 100%); }
+
+        /* Option 5: Slate Alumni / Teal TA */
+        .opt5-alumni { background: linear-gradient(135deg, #252830 0%, #12141a 100%); }
+        .opt5-ta { background: linear-gradient(135deg, #1a4a4a 0%, #0d2626 100%); }
+
+        /* Option 6: Deep Blue Alumni / Bright Teal TA */
+        .opt6-alumni { background: linear-gradient(135deg, #0f2744 0%, #071322 100%); }
+        .opt6-ta { background: linear-gradient(135deg, #0f4a4a 0%, #072828 100%); }
+
+        /* Option 7: Indigo Alumni / Teal TA */
+        .opt7-alumni { background: linear-gradient(135deg, #2d2a5a 0%, #16152d 100%); }
+        .opt7-ta { background: linear-gradient(135deg, #1a4a4a 0%, #0d2626 100%); }
+
+        /* Option 8: Charcoal Alumni / Emerald Teal TA */
+        .opt8-alumni { background: linear-gradient(135deg, #2a2a2a 0%, #151515 100%); }
+        .opt8-ta { background: linear-gradient(135deg, #0f4434 0%, #07221a 100%); }
+
+        .color-codes {
+            margin-top: 15px;
+            font-size: 11px;
+            color: #666;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Alumni vs TA Card Background Colors</h1>
+    <p class="subtitle">All TA cards use Teal background. Pick the Alumni color you like!</p>
+
+    <!-- Option 1: Current -->
+    <div class="option-section">
+        <div class="option-title">Option 1: Current Design (Same for both)</div>
+        <div class="cards-row">
+            <div class="card-group">
+                <div class="card-label">ALUMNI</div>
+                <div class="alumni-card opt1-alumni">
+                    <div class="photo-area">
+                        <img src="../assets/students/Jeff_nobg.png" alt="Jeff Goldkamp">
+                    </div>
+                    <div class="name">Jeff Goldkamp</div>
+                    <div class="major">M.S. Industrial Engineering</div>
+                    <div class="job-title">Sr. Data Scientist @ Roku</div>
+                </div>
+            </div>
+            <div class="card-group">
+                <div class="card-label">TEACHING ASSISTANT</div>
+                <div class="alumni-card opt1-ta">
+                    <div class="photo-area">
+                        <img src="../assets/students/Mrugendra_Manerikar_nobg.png" alt="Mrugendra Manerikar">
+                    </div>
+                    <div class="name">Mrugendra Manerikar</div>
+                    <div class="major">M.S. Engineering Management</div>
+                    <div class="job-title">Product Manager @ Amazon</div>
+                </div>
+            </div>
+        </div>
+        <div class="color-codes">Same dark gray for both</div>
+    </div>
+
+    <!-- Option 2: Blue Alumni / Teal TA -->
+    <div class="option-section">
+        <div class="option-title">Option 2: Blue Alumni / Teal TA</div>
+        <div class="cards-row">
+            <div class="card-group">
+                <div class="card-label">ALUMNI</div>
+                <div class="alumni-card opt2-alumni">
+                    <div class="photo-area">
+                        <img src="../assets/students/Sahil_Belsare_nobg.png" alt="Sahil Belsare">
+                    </div>
+                    <div class="name">Sahil Belsare</div>
+                    <div class="major">M.S. Industrial Engineering</div>
+                    <div class="job-title">Sr. Data Scientist @ Walmart</div>
+                </div>
+            </div>
+            <div class="card-group">
+                <div class="card-label">TEACHING ASSISTANT</div>
+                <div class="alumni-card opt2-ta">
+                    <div class="photo-area">
+                        <img src="../assets/students/Manvika_Tuteja_nobg.png" alt="Manvika Tuteja">
+                    </div>
+                    <div class="name">Manvika Tuteja</div>
+                    <div class="major">M.S. Data Analytics Engineering</div>
+                    <div class="job-title">Technical PM @ AWS</div>
+                </div>
+            </div>
+        </div>
+        <div class="color-codes">Alumni: Blue #1a3a5c | TA: Teal #1a4a4a</div>
+    </div>
+
+    <!-- Option 3: Navy Alumni / Teal TA -->
+    <div class="option-section">
+        <div class="option-title">Option 3: Navy Alumni / Teal TA</div>
+        <div class="cards-row">
+            <div class="card-group">
+                <div class="card-label">ALUMNI</div>
+                <div class="alumni-card opt3-alumni">
+                    <div class="photo-area">
+                        <img src="../assets/students/Yash_Nema_nobg.png" alt="Yash Nema">
+                    </div>
+                    <div class="name">Yash Nema</div>
+                    <div class="major">M.S. Data Analytics Engineering</div>
+                    <div class="job-title">Sr. Data Scientist @ CarGurus</div>
+                </div>
+            </div>
+            <div class="card-group">
+                <div class="card-label">TEACHING ASSISTANT</div>
+                <div class="alumni-card opt3-ta">
+                    <div class="photo-area">
+                        <img src="../assets/students/Archi_nobg.png" alt="Archi Mitra">
+                    </div>
+                    <div class="name">Archi Mitra</div>
+                    <div class="major">M.S. Data Analytics</div>
+                    <div class="job-title">Engineering Manager @ Meta</div>
+                </div>
+            </div>
+        </div>
+        <div class="color-codes">Alumni: Navy #1a2a4a | TA: Teal #1a4a4a</div>
+    </div>
+
+    <!-- Option 4: Dark Gray Alumni / Teal TA -->
+    <div class="option-section">
+        <div class="option-title">Option 4: Dark Gray Alumni / Teal TA (Recommended)</div>
+        <div class="cards-row">
+            <div class="card-group">
+                <div class="card-label">ALUMNI</div>
+                <div class="alumni-card opt4-alumni">
+                    <div class="photo-area">
+                        <img src="../assets/students/Mia_nobg.png" alt="Mia Ferrante">
+                    </div>
+                    <div class="name">Mia Ferrante</div>
+                    <div class="major">B.S. Industrial Engineering</div>
+                    <div class="job-title">Consultant @ McKinsey</div>
+                </div>
+            </div>
+            <div class="card-group">
+                <div class="card-label">TEACHING ASSISTANT</div>
+                <div class="alumni-card opt4-ta">
+                    <div class="photo-area">
+                        <img src="../assets/students/Bea_nobg.png" alt="Beatriz F. Gomez">
+                    </div>
+                    <div class="name">Beatriz F. Gomez</div>
+                    <div class="major">M.S. Engineering Management</div>
+                    <div class="job-title">Senior Associate @ Axtria</div>
+                </div>
+            </div>
+        </div>
+        <div class="color-codes">Alumni: Dark Gray #1e1e24 | TA: Teal #1a4a4a</div>
+    </div>
+
+    <!-- Option 5: Slate Alumni / Teal TA -->
+    <div class="option-section">
+        <div class="option-title">Option 5: Slate Alumni / Teal TA</div>
+        <div class="cards-row">
+            <div class="card-group">
+                <div class="card-label">ALUMNI</div>
+                <div class="alumni-card opt5-alumni">
+                    <div class="photo-area">
+                        <img src="../assets/students/Frances_nobg.png" alt="Frances Gakman">
+                    </div>
+                    <div class="name">Frances Gakman</div>
+                    <div class="major">B.S. Industrial Engineering</div>
+                    <div class="job-title">Supply Chain Analyst @ GoGo squeeZ</div>
+                </div>
+            </div>
+            <div class="card-group">
+                <div class="card-label">TEACHING ASSISTANT</div>
+                <div class="alumni-card opt5-ta">
+                    <div class="photo-area">
+                        <img src="../assets/students/Zaha_nobg.png" alt="Zaha Alzaabi">
+                    </div>
+                    <div class="name">Zaha Alzaabi</div>
+                    <div class="major">M.S. Engineering Management</div>
+                    <div class="job-title">Project Manager @ Veolia</div>
+                </div>
+            </div>
+        </div>
+        <div class="color-codes">Alumni: Slate #252830 | TA: Teal #1a4a4a</div>
+    </div>
+
+    <!-- Option 6: Deep Blue Alumni / Bright Teal TA -->
+    <div class="option-section">
+        <div class="option-title">Option 6: Deep Blue Alumni / Bright Teal TA</div>
+        <div class="cards-row">
+            <div class="card-group">
+                <div class="card-label">ALUMNI</div>
+                <div class="alumni-card opt6-alumni">
+                    <div class="photo-area">
+                        <img src="../assets/students/Soeb_Hussain_nobg.png" alt="Soeb Hussain">
+                    </div>
+                    <div class="name">Soeb Hussain</div>
+                    <div class="major">M.S. Data Analytics Engineering</div>
+                    <div class="job-title">ML Engineer @ Aryn</div>
+                </div>
+            </div>
+            <div class="card-group">
+                <div class="card-label">TEACHING ASSISTANT</div>
+                <div class="alumni-card opt6-ta">
+                    <div class="photo-area">
+                        <img src="../assets/students/Shweta_nobg.png" alt="Shweta Singh">
+                    </div>
+                    <div class="name">Shweta Singh</div>
+                    <div class="major">M.S. Engineering Management</div>
+                    <div class="job-title">Program Manager @ Amazon</div>
+                </div>
+            </div>
+        </div>
+        <div class="color-codes">Alumni: Deep Blue #0f2744 | TA: Bright Teal #0f4a4a</div>
+    </div>
+
+    <!-- Option 7: Indigo Alumni / Teal TA -->
+    <div class="option-section">
+        <div class="option-title">Option 7: Indigo Alumni / Teal TA</div>
+        <div class="cards-row">
+            <div class="card-group">
+                <div class="card-label">ALUMNI</div>
+                <div class="alumni-card opt7-alumni">
+                    <div class="photo-area">
+                        <img src="../assets/students/Emily_nobg.png" alt="Emily Diaz Badilla">
+                    </div>
+                    <div class="name">Emily Diaz Badilla</div>
+                    <div class="major">M.S. Data Analytics Engineering</div>
+                    <div class="job-title">Data Scientist @ McKinsey</div>
+                </div>
+            </div>
+            <div class="card-group">
+                <div class="card-label">TEACHING ASSISTANT</div>
+                <div class="alumni-card opt7-ta">
+                    <div class="photo-area">
+                        <img src="../assets/students/Ansh Tejani_nobg.png" alt="Ansh Tejani">
+                    </div>
+                    <div class="name">Ansh Tejani</div>
+                    <div class="major">M.S. Engineering Management</div>
+                    <div class="job-title">Product Marketing Manager @ ABB</div>
+                </div>
+            </div>
+        </div>
+        <div class="color-codes">Alumni: Indigo #2d2a5a | TA: Teal #1a4a4a</div>
+    </div>
+
+    <!-- Option 8: Charcoal Alumni / Emerald Teal TA -->
+    <div class="option-section">
+        <div class="option-title">Option 8: Charcoal Alumni / Emerald Teal TA</div>
+        <div class="cards-row">
+            <div class="card-group">
+                <div class="card-label">ALUMNI</div>
+                <div class="alumni-card opt8-alumni">
+                    <div class="photo-area">
+                        <img src="../assets/students/Ashwin_Devanga_nobg.png" alt="Ashwin Devanga">
+                    </div>
+                    <div class="name">Ashwin Devanga</div>
+                    <div class="major">M.S. Data Analytics Engineering</div>
+                    <div class="job-title">PhD Student @ UND</div>
+                </div>
+            </div>
+            <div class="card-group">
+                <div class="card-label">TEACHING ASSISTANT</div>
+                <div class="alumni-card opt8-ta">
+                    <div class="photo-area">
+                        <img src="../assets/students/Sheetal_Naik_nobg.png" alt="Sheetal Naik">
+                    </div>
+                    <div class="name">Sheetal Naik</div>
+                    <div class="major">M.S. Data Analytics Engineering</div>
+                    <div class="job-title">Alumni 2025</div>
+                </div>
+            </div>
+        </div>
+        <div class="color-codes">Alumni: Charcoal #2a2a2a | TA: Emerald Teal #0f4434</div>
+    </div>
+
+</body>
+</html>

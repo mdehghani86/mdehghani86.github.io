@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Section - Design Options</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neu-red: #C41230;
+            --gold: #d4a843;
+            --dark: #1a1a2e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #f5f5f7;
+            color: #1a1a2e;
+            padding: 40px;
+            line-height: 1.5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 50px;
+            font-size: 14px;
+        }
+
+        .design-label {
+            background: var(--neu-red);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .design-section {
+            margin-bottom: 80px;
+        }
+
+        /* ============================================ */
+        /* DESIGN 1: Background Image + Glass Overlay  */
+        /* ============================================ */
+        .design1-container {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            padding: 40px 30px;
+        }
+
+        .design1-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .design1-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .design1-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,
+                rgba(26,26,46,0.85) 0%,
+                rgba(26,26,46,0.7) 50%,
+                rgba(26,26,46,0.85) 100%);
+            backdrop-filter: blur(2px);
+        }
+
+        .design1-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .design1-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .design1-header h3 {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .design1-header .count {
+            background: var(--gold);
+            color: #000;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .design1-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .design1-card {
+            width: 200px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .design1-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+
+        .design1-card .photo {
+            height: 80px;
+            background: radial-gradient(ellipse at center, #ffffff 0%, #e4e8ec 60%, #d0d6dc 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .design1-card .photo img {
+            height: 90%;
+            object-fit: contain;
+        }
+
+        .design1-card .info {
+            padding: 12px;
+            text-align: center;
+        }
+
+        .design1-card .name {
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .design1-card .year {
+            font-size: 0.6rem;
+            color: var(--neu-red);
+            font-weight: 600;
+        }
+
+        /* ============================================ */
+        /* DESIGN 2: Timeline Layout                   */
+        /* ============================================ */
+        .design2-container {
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 24px;
+            padding: 40px 30px;
+        }
+
+        .design2-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .design2-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .design2-header .count {
+            background: var(--neu-red);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .design2-timeline {
+            position: relative;
+            padding-left: 80px;
+        }
+
+        .design2-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--neu-red), var(--gold));
+            border-radius: 3px;
+        }
+
+        .design2-year-group {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .design2-year-marker {
+            position: absolute;
+            left: -80px;
+            width: 60px;
+            text-align: center;
+            background: white;
+            padding: 8px 0;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--neu-red);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 2px solid var(--neu-red);
+        }
+
+        .design2-year-marker::after {
+            content: '';
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 3px;
+            background: var(--neu-red);
+        }
+
+        .design2-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .design2-card {
+            width: 180px;
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+        }
+
+        .design2-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transform: translateX(5px);
+        }
+
+        .design2-card .avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at center, #ffffff 0%, #e4e8ec 60%, #d0d6dc 100%);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .design2-card .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .design2-card .details .name {
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .design2-card .details .job {
+            font-size: 0.6rem;
+            color: #64748b;
+        }
+
+        /* ============================================ */
+        /* DESIGN 3: Stats Banner + Gradient           */
+        /* ============================================ */
+        .design3-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 24px;
+            padding: 40px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .design3-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: rgba(255,255,255,0.05);
+            transform: rotate(30deg);
+        }
+
+        .design3-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .design3-header h3 {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .design3-stats {
+            display: flex;
+            gap: 20px;
+        }
+
+        .design3-stat {
+            text-align: center;
+            color: white;
+        }
+
+        .design3-stat .number {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .design3-stat .label {
+            font-size: 0.6rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        .design3-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .design3-card {
+            width: 150px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .design3-card:hover {
+            transform: scale(1.05);
+        }
+
+        .design3-card .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at center, #ffffff 0%, #e4e8ec 60%, #d0d6dc 100%);
+            margin: 0 auto 10px;
+            overflow: hidden;
+        }
+
+        .design3-card .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .design3-card .name {
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .design3-card .year {
+            font-size: 0.6rem;
+            color: #764ba2;
+            font-weight: 600;
+        }
+
+        /* ============================================ */
+        /* DESIGN 4: Horizontal Carousel               */
+        /* ============================================ */
+        .design4-container {
+            background: #1a1a2e;
+            border-radius: 24px;
+            padding: 40px 0;
+            overflow: hidden;
+        }
+
+        .design4-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            margin-bottom: 25px;
+        }
+
+        .design4-header h3 {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .design4-nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .design4-nav button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .design4-nav button:hover {
+            background: var(--neu-red);
+            border-color: var(--neu-red);
+        }
+
+        .design4-scroll {
+            display: flex;
+            gap: 20px;
+            padding: 10px 30px 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+        }
+
+        .design4-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .design4-scroll::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+        }
+
+        .design4-scroll::-webkit-scrollbar-thumb {
+            background: var(--neu-red);
+            border-radius: 3px;
+        }
+
+        .design4-card {
+            min-width: 220px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+        }
+
+        .design4-card:hover {
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.1) 100%);
+            transform: translateY(-3px);
+        }
+
+        .design4-card .avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at center, #ffffff 0%, #e4e8ec 60%, #d0d6dc 100%);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .design4-card .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .design4-card .info .name {
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .design4-card .info .job {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.65rem;
+        }
+
+        .design4-card .info .year {
+            color: var(--gold);
+            font-size: 0.6rem;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* ============================================ */
+        /* DESIGN 5: Company Logo Cloud Background     */
+        /* ============================================ */
+        .design5-container {
+            position: relative;
+            background: #f0f4f8;
+            border-radius: 24px;
+            padding: 40px 30px;
+            overflow: hidden;
+        }
+
+        .design5-logos {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            padding: 30px;
+            opacity: 0.08;
+        }
+
+        .design5-logos img {
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .design5-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .design5-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .design5-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .design5-header .count {
+            background: var(--neu-red);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .design5-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .design5-card {
+            width: 200px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .design5-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .design5-card .photo {
+            height: 80px;
+            background: radial-gradient(ellipse at center, #ffffff 0%, #e4e8ec 60%, #d0d6dc 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+        }
+
+        .design5-card .photo img {
+            height: 90%;
+            object-fit: contain;
+        }
+
+        .design5-card .photo .company-badge {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: white;
+            padding: 4px 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .design5-card .photo .company-badge img {
+            height: 14px;
+            width: auto;
+        }
+
+        .design5-card .info {
+            padding: 12px;
+            text-align: center;
+        }
+
+        .design5-card .name {
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .design5-card .job {
+            font-size: 0.6rem;
+            color: #64748b;
+        }
+
+        /* ============================================ */
+        /* DESIGN 6: Hexagon/Honeycomb Style           */
+        /* ============================================ */
+        .design6-container {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+            border-radius: 24px;
+            padding: 40px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .design6-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%23ffffff' stroke-opacity='0.03' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 60px 60px;
+        }
+
+        .design6-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .design6-header h3 {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .design6-header .count {
+            background: var(--gold);
+            color: #000;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .design6-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .design6-card {
+            width: 130px;
+            height: 150px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px 10px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .design6-card::before {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: linear-gradient(180deg, #2a2a40 0%, #1a1a2e 100%);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            z-index: -1;
+        }
+
+        .design6-card:hover {
+            transform: scale(1.1);
+        }
+
+        .design6-card:hover::before {
+            background: linear-gradient(180deg, #3a3a50 0%, #2a2a40 100%);
+        }
+
+        .design6-card .avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at center, #ffffff 0%, #e4e8ec 60%, #d0d6dc 100%);
+            overflow: hidden;
+            margin-bottom: 8px;
+            border: 2px solid var(--gold);
+        }
+
+        .design6-card .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .design6-card .name {
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+        }
+
+        .design6-card .year {
+            color: var(--gold);
+            font-size: 0.55rem;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Alumni Section - Design Options</h1>
+    <p class="subtitle">Choose your favorite design style</p>
+
+    <!-- DESIGN 1 -->
+    <div class="design-section">
+        <span class="design-label">Design 1: Background Image + Glass</span>
+        <div class="design1-container">
+            <div class="design1-bg">
+                <img src="../assets/images/PhD2.jpeg" alt="Background">
+            </div>
+            <div class="design1-content">
+                <div class="design1-header">
+                    <h3>Alumni</h3>
+                    <span class="count">?</span>
+                </div>
+                <div class="design1-grid">
+                    <div class="design1-card">
+                        <div class="photo"><img src="../assets/students/Jeff_nobg.png" alt=""></div>
+                        <div class="info">
+                            <div class="name">Jeff Goldkamp</div>
+                            <div class="year">Class of 2018</div>
+                        </div>
+                    </div>
+                    <div class="design1-card">
+                        <div class="photo"><img src="../assets/students/Mohit_nobg.png" alt=""></div>
+                        <div class="info">
+                            <div class="name">Mohit Bansal</div>
+                            <div class="year">Class of 2019</div>
+                        </div>
+                    </div>
+                    <div class="design1-card">
+                        <div class="photo"><img src="../assets/students/Tong Zhang_nobg.png" alt=""></div>
+                        <div class="info">
+                            <div class="name">Tong Zhang</div>
+                            <div class="year">Class of 2019</div>
+                        </div>
+                    </div>
+                    <div class="design1-card">
+                        <div class="photo"><img src="../assets/students/Samuel_Benford_nobg.png" alt=""></div>
+                        <div class="info">
+                            <div class="name">Samuel Benford</div>
+                            <div class="year">Class of 2020</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DESIGN 2 -->
+    <div class="design-section">
+        <span class="design-label">Design 2: Timeline Layout</span>
+        <div class="design2-container">
+            <div class="design2-header">
+                <h3>Alumni</h3>
+                <span class="count">?</span>
+            </div>
+            <div class="design2-timeline">
+                <div class="design2-year-group">
+                    <div class="design2-year-marker">2020</div>
+                    <div class="design2-cards">
+                        <div class="design2-card">
+                            <div class="avatar"><img src="../assets/students/Samuel_Benford_nobg.png" alt=""></div>
+                            <div class="details">
+                                <div class="name">Samuel Benford</div>
+                                <div class="job">Sr. Consultant @ PA Consulting</div>
+                            </div>
+                        </div>
+                        <div class="design2-card">
+                            <div class="avatar"><img src="../assets/students/Peiqi_nobg.png" alt=""></div>
+                            <div class="details">
+                                <div class="name">Peiqi Wang</div>
+                                <div class="job">Sr. OR Scientist @ CSX</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="design2-year-group">
+                    <div class="design2-year-marker">2019</div>
+                    <div class="design2-cards">
+                        <div class="design2-card">
+                            <div class="avatar"><img src="../assets/students/Tong Zhang_nobg.png" alt=""></div>
+                            <div class="details">
+                                <div class="name">Tong Zhang</div>
+                                <div class="job">PhD Student @ Clemson</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="design2-year-group">
+                    <div class="design2-year-marker">2019</div>
+                    <div class="design2-cards">
+                        <div class="design2-card">
+                            <div class="avatar"><img src="../assets/students/Mohit_nobg.png" alt=""></div>
+                            <div class="details">
+                                <div class="name">Mohit Bansal</div>
+                                <div class="job">Data Scientist @ Google</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DESIGN 3 -->
+    <div class="design-section">
+        <span class="design-label">Design 3: Stats Banner + Gradient</span>
+        <div class="design3-container">
+            <div class="design3-header">
+                <h3>Alumni</h3>
+                <div class="design3-stats">
+                    <div class="design3-stat">
+                        <div class="number">12</div>
+                        <div class="label">Alumni</div>
+                    </div>
+                    <div class="design3-stat">
+                        <div class="number">8</div>
+                        <div class="label">Companies</div>
+                    </div>
+                    <div class="design3-stat">
+                        <div class="number">5</div>
+                        <div class="label">Countries</div>
+                    </div>
+                </div>
+            </div>
+            <div class="design3-grid">
+                <div class="design3-card">
+                    <div class="avatar"><img src="../assets/students/Jeff_nobg.png" alt=""></div>
+                    <div class="name">Jeff Goldkamp</div>
+                    <div class="year">2018</div>
+                </div>
+                <div class="design3-card">
+                    <div class="avatar"><img src="../assets/students/Mohit_nobg.png" alt=""></div>
+                    <div class="name">Mohit Bansal</div>
+                    <div class="year">2019</div>
+                </div>
+                <div class="design3-card">
+                    <div class="avatar"><img src="../assets/students/Tong Zhang_nobg.png" alt=""></div>
+                    <div class="name">Tong Zhang</div>
+                    <div class="year">2019</div>
+                </div>
+                <div class="design3-card">
+                    <div class="avatar"><img src="../assets/students/Samuel_Benford_nobg.png" alt=""></div>
+                    <div class="name">Samuel Benford</div>
+                    <div class="year">2020</div>
+                </div>
+                <div class="design3-card">
+                    <div class="avatar"><img src="../assets/students/Peiqi_nobg.png" alt=""></div>
+                    <div class="name">Peiqi Wang</div>
+                    <div class="year">2020</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DESIGN 4 -->
+    <div class="design-section">
+        <span class="design-label">Design 4: Horizontal Carousel</span>
+        <div class="design4-container">
+            <div class="design4-header">
+                <h3>Alumni</h3>
+                <div class="design4-nav">
+                    <button>&larr;</button>
+                    <button>&rarr;</button>
+                </div>
+            </div>
+            <div class="design4-scroll">
+                <div class="design4-card">
+                    <div class="avatar"><img src="../assets/students/Jeff_nobg.png" alt=""></div>
+                    <div class="info">
+                        <div class="name">Jeff Goldkamp</div>
+                        <div class="job">Sr. Data Scientist @ Roku</div>
+                        <div class="year">Class of 2018</div>
+                    </div>
+                </div>
+                <div class="design4-card">
+                    <div class="avatar"><img src="../assets/students/Mohit_nobg.png" alt=""></div>
+                    <div class="info">
+                        <div class="name">Mohit Bansal</div>
+                        <div class="job">Data Scientist @ Google</div>
+                        <div class="year">Class of 2019</div>
+                    </div>
+                </div>
+                <div class="design4-card">
+                    <div class="avatar"><img src="../assets/students/Tong Zhang_nobg.png" alt=""></div>
+                    <div class="info">
+                        <div class="name">Tong Zhang</div>
+                        <div class="job">PhD Student @ Clemson</div>
+                        <div class="year">Class of 2019</div>
+                    </div>
+                </div>
+                <div class="design4-card">
+                    <div class="avatar"><img src="../assets/students/Samuel_Benford_nobg.png" alt=""></div>
+                    <div class="info">
+                        <div class="name">Samuel Benford</div>
+                        <div class="job">Sr. Consultant @ PA Consulting</div>
+                        <div class="year">Class of 2020</div>
+                    </div>
+                </div>
+                <div class="design4-card">
+                    <div class="avatar"><img src="../assets/students/Peiqi_nobg.png" alt=""></div>
+                    <div class="info">
+                        <div class="name">Peiqi Wang</div>
+                        <div class="job">Sr. OR Scientist @ CSX</div>
+                        <div class="year">Class of 2020</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DESIGN 5 -->
+    <div class="design-section">
+        <span class="design-label">Design 5: Company Logo Cloud</span>
+        <div class="design5-container">
+            <div class="design5-logos">
+                <img src="../assets/logos/Amazon-Logo-2000.png" alt="">
+                <img src="../assets/logos/AstraZeneca_logo.svg" alt="">
+                <img src="../assets/logos/CSX-logo.svg" alt="">
+                <img src="../assets/logos/Amazon-Logo-2000.png" alt="">
+                <img src="../assets/logos/Lifespan-logo.png" alt="">
+                <img src="../assets/logos/Amazon-Logo-2000.png" alt="">
+                <img src="../assets/logos/AstraZeneca_logo.svg" alt="">
+                <img src="../assets/logos/CSX-logo.svg" alt="">
+            </div>
+            <div class="design5-content">
+                <div class="design5-header">
+                    <h3>Alumni</h3>
+                    <span class="count">?</span>
+                </div>
+                <div class="design5-grid">
+                    <div class="design5-card">
+                        <div class="photo">
+                            <img src="../assets/students/Jeff_nobg.png" alt="">
+                            <div class="company-badge"><img src="../assets/logos/AstraZeneca_logo.svg" alt=""></div>
+                        </div>
+                        <div class="info">
+                            <div class="name">Jeff Goldkamp</div>
+                            <div class="job">Data Scientist</div>
+                        </div>
+                    </div>
+                    <div class="design5-card">
+                        <div class="photo">
+                            <img src="../assets/students/Mohit_nobg.png" alt="">
+                            <div class="company-badge"><img src="../assets/logos/Lifespan-logo.png" alt=""></div>
+                        </div>
+                        <div class="info">
+                            <div class="name">Mohit Bansal</div>
+                            <div class="job">Data Scientist</div>
+                        </div>
+                    </div>
+                    <div class="design5-card">
+                        <div class="photo">
+                            <img src="../assets/students/Tong Zhang_nobg.png" alt="">
+                            <div class="company-badge"><img src="../assets/logos/Amazon-Logo-2000.png" alt=""></div>
+                        </div>
+                        <div class="info">
+                            <div class="name">Tong Zhang</div>
+                            <div class="job">Data Scientist</div>
+                        </div>
+                    </div>
+                    <div class="design5-card">
+                        <div class="photo">
+                            <img src="../assets/students/Samuel_Benford_nobg.png" alt="">
+                            <div class="company-badge"><img src="../assets/logos/Amazon-Logo-2000.png" alt=""></div>
+                        </div>
+                        <div class="info">
+                            <div class="name">Samuel Benford</div>
+                            <div class="job">Applied Scientist</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DESIGN 6 -->
+    <div class="design-section">
+        <span class="design-label">Design 6: Hexagon/Honeycomb</span>
+        <div class="design6-container">
+            <div class="design6-header">
+                <h3>Alumni</h3>
+                <span class="count">?</span>
+            </div>
+            <div class="design6-grid">
+                <div class="design6-card">
+                    <div class="avatar"><img src="../assets/students/Jeff_nobg.png" alt=""></div>
+                    <div class="name">Jeff Goldkamp</div>
+                    <div class="year">2018</div>
+                </div>
+                <div class="design6-card">
+                    <div class="avatar"><img src="../assets/students/Mohit_nobg.png" alt=""></div>
+                    <div class="name">Mohit Bansal</div>
+                    <div class="year">2019</div>
+                </div>
+                <div class="design6-card">
+                    <div class="avatar"><img src="../assets/students/Tong Zhang_nobg.png" alt=""></div>
+                    <div class="name">Tong Zhang</div>
+                    <div class="year">2019</div>
+                </div>
+                <div class="design6-card">
+                    <div class="avatar"><img src="../assets/students/Samuel_Benford_nobg.png" alt=""></div>
+                    <div class="name">Samuel Benford</div>
+                    <div class="year">2020</div>
+                </div>
+                <div class="design6-card">
+                    <div class="avatar"><img src="../assets/students/Peiqi_nobg.png" alt=""></div>
+                    <div class="name">Peiqi Wang</div>
+                    <div class="year">2020</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

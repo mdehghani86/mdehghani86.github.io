@@ -1,0 +1,15 @@
+========================================
+TITLE: An AI-Enabled Simulation: Neural Network in Flexible Flow Shop
+========================================
+YEAR: 2023
+TYPE: Conference
+VENUE: EUROSIM Congress
+AUTHORS: S. Hussein, Y. Nema, M. Dehghanimohammadabadi
+
+FILES:
+- PDF:
+- Slides:
+- Code:
+
+LINKS:
+- DOI:

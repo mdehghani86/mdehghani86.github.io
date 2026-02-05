@@ -1,0 +1,15 @@
+========================================
+TITLE: Multi-Objective Patient Appointment Scheduling Framework (MO-PASS)
+========================================
+YEAR: 2023
+TYPE: Journal
+VENUE: SIMULATION
+AUTHORS: M. Dehghanimohammadabadi, M. Rezaeiahari, J. Seif
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides:
+- Code: code/ ✓ (MATLAB MOPSO + Simio)
+
+LINKS:
+- DOI: https://doi.org/10.1177/00375497221132574

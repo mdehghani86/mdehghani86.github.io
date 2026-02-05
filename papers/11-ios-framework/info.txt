@@ -1,0 +1,15 @@
+========================================
+TITLE: A Novel Iterative Optimization-Based Simulation (IOS) Framework
+========================================
+YEAR: 2017
+TYPE: Journal
+VENUE: Computers & Industrial Engineering
+AUTHORS: M. Dehghanimohammadabadi, T. Keyser, S. Cheraghi
+
+FILES:
+- PDF:
+- Slides:
+- Code:
+
+LINKS:
+- DOI: https://doi.org/10.1016/j.cie.2017.06.037

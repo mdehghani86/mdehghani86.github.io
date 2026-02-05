@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhD Committee - Final Design</title>
+    <style>
+        :root {
+            --neu-red: #c8102e;
+            --gold: #d4a843;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+            color: #1a1a2e;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 50px;
+        }
+
+        /* ============================================ */
+        /* PhD Banner - Image as Background, Fades Left */
+        /* ============================================ */
+        .phd-banner {
+            border-radius: 20px;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            /* PhD image as background - positioned right, not cut off */
+            background:
+                /* Smooth gradient overlay: solid on left, gradually fades to transparent on right */
+                linear-gradient(90deg,
+                    rgba(248,250,252,1) 0%,
+                    rgba(248,250,252,1) 30%,
+                    rgba(248,250,252,0.95) 40%,
+                    rgba(248,250,252,0.85) 50%,
+                    rgba(248,250,252,0.7) 60%,
+                    rgba(248,250,252,0.5) 70%,
+                    rgba(248,250,252,0.3) 80%,
+                    rgba(248,250,252,0.1) 90%,
+                    rgba(248,250,252,0) 100%
+                ),
+                /* PhD image - full height, positioned right, no crop */
+                url('../assets/images/PhD.jpeg') right center / auto 100% no-repeat;
+            background-color: #f8fafc;
+        }
+
+        .phd-content {
+            padding: 25px 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .phd-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .phd-header .gold-bar {
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(180deg, var(--gold), #b8922e);
+            border-radius: 2px;
+        }
+
+        .phd-header h3 {
+            color: #1a1a2e;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .phd-header .count {
+            background: var(--gold);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .phd-cards-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* ============================================ */
+        /* Alumni Card Style (Gold Photo BG)           */
+        /* ============================================ */
+        .alumni-card {
+            width: 290px;
+            height: 130px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: flex;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .alumni-card .photo-area {
+            width: 100px;
+            min-height: 120px;
+            background: radial-gradient(ellipse at center, #fffdf5 0%, #f5e6c8 60%, #e8d4a8 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .alumni-card .photo-area.avatar-area {
+            align-items: center;
+        }
+
+        .alumni-card .photo-area .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #b8922e, #d4a843);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .alumni-card .photo-area .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .alumni-card .info {
+            padding: 12px;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .alumni-card .name-row .name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 140px;
+        }
+
+        .alumni-card .year-inline {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: white;
+            color: var(--neu-red);
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 5px 7px;
+            border-radius: 0 0 0 10px;
+            box-shadow: -2px 2px 8px rgba(0,0,0,0.1);
+            z-index: 10;
+            width: 1.2em;
+            word-break: break-all;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .alumni-card .major {
+            font-size: 0.6rem;
+            color: #64748b;
+            margin-bottom: 6px;
+        }
+
+        .alumni-card .thesis {
+            font-size: 0.55rem;
+            color: #475569;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .alumni-card .thesis strong {
+            color: var(--neu-red);
+        }
+
+        .alumni-card .job-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .alumni-card .job-row .logo {
+            height: 14px;
+            width: auto;
+            max-width: 45px;
+            object-fit: contain;
+            opacity: 0.85;
+        }
+
+        .alumni-card .job-row .job-title {
+            font-size: 0.55rem;
+            color: #64748b;
+        }
+
+        .alumni-card .job-row .logo.astrazeneca-logo {
+            height: 20px;
+            max-width: 70px;
+        }
+
+        .alumni-card .linkedin-job {
+            position: absolute;
+            bottom: 6px;
+            right: 6px;
+            color: #0077b5;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .alumni-card .linkedin-job:hover {
+            opacity: 1;
+        }
+
+        .alumni-card .linkedin-job svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .description {
+            margin-top: 25px;
+            padding: 15px 20px;
+            background: white;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: #64748b;
+            border: 1px solid #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>PhD Committee - Final Design</h1>
+    <p class="subtitle">Image on right, gradient background, sorted oldest → newest</p>
+
+    <!-- PhD Banner - Image on RIGHT, Gradient to White, Sorted Oldest to Newest -->
+    <div class="phd-banner">
+        <div class="phd-content">
+            <div class="phd-header">
+                <div class="gold-bar"></div>
+                <h3>PhD Dissertation Committee Member</h3>
+                <span class="count">5</span>
+            </div>
+            <div class="phd-cards-wrap">
+                <!-- 2021 - Xiaoli Duan (Oldest) -->
+                <div class="alumni-card">
+                    <div class="photo-area"><img src="../assets/students/Xiali_nobg.png" class="photo"></div>
+                    <div class="info">
+                        <div class="name-row"><div class="name">Xiaoli Duan</div><div class="year-inline">2021</div></div>
+                        <div class="major">Ph.D. Industrial Engineering</div>
+                        <div class="thesis"><strong>Thesis:</strong> Likelihood-Based Methods for Epidemics</div>
+                        <div class="job-row"><img src="../assets/logos/AstraZeneca_logo.svg" class="logo astrazeneca-logo"><div class="job-title">Data Scientist</div></div>
+                    </div>
+                    <a href="https://www.linkedin.com/in/xiaoli-duan-451284127/" target="_blank" class="linkedin-job">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
+                <!-- 2022 - Basma Bargal -->
+                <div class="alumni-card">
+                    <div class="photo-area"><img src="../assets/students/Basma_nobg.png" class="photo"></div>
+                    <div class="info">
+                        <div class="name-row"><div class="name">Basma Bargal</div><div class="year-inline">2022</div></div>
+                        <div class="major">Ph.D. Computer Engineering</div>
+                        <div class="thesis"><strong>Thesis:</strong> Computer Vision & Deep Learning</div>
+                        <div class="job-row"><img src="../assets/logos/Lifespan-logo.png" class="logo"><div class="job-title">Data Scientist</div></div>
+                    </div>
+                    <a href="https://www.linkedin.com/in/basma-bargal-5688a14b/" target="_blank" class="linkedin-job">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
+                <!-- 2023 - Leren Qian -->
+                <div class="alumni-card">
+                    <div class="photo-area"><img src="../assets/students/Leren_nobg.png" class="photo"></div>
+                    <div class="info">
+                        <div class="name-row"><div class="name">Leren Qian</div><div class="year-inline">2023</div></div>
+                        <div class="major">Ph.D. Industrial Engineering</div>
+                        <div class="thesis"><strong>Thesis:</strong> School Bus Routing Optimization</div>
+                        <div class="job-row"><img src="../assets/logos/Amazon-Logo-2000.png" class="logo"><div class="job-title">Data Scientist</div></div>
+                    </div>
+                    <a href="https://www.linkedin.com/in/leren-qian/" target="_blank" class="linkedin-job">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
+                <!-- 2024 - Nathan Adeyemi -->
+                <div class="alumni-card">
+                    <div class="photo-area"><img src="../assets/students/Nathan_nobg.png" class="photo"></div>
+                    <div class="info">
+                        <div class="name-row"><div class="name">Nathan Adeyemi</div><div class="year-inline">2024</div></div>
+                        <div class="major">Ph.D. Industrial Engineering</div>
+                        <div class="thesis"><strong>Thesis:</strong> Inpatient Mental Healthcare Access</div>
+                        <div class="job-row"><img src="../assets/logos/Amazon-Logo-2000.png" class="logo"><div class="job-title">Applied Scientist</div></div>
+                    </div>
+                    <a href="https://www.linkedin.com/in/nathan-adeyemi/" target="_blank" class="linkedin-job">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
+                <!-- 2024 - Peiqi Wang (Newest) -->
+                <div class="alumni-card">
+                    <div class="photo-area"><img src="../assets/students/Peiqi_nobg.png" class="photo"></div>
+                    <div class="info">
+                        <div class="name-row"><div class="name">Peiqi Wang</div><div class="year-inline">2024</div></div>
+                        <div class="major">Ph.D. Industrial Engineering</div>
+                        <div class="thesis"><strong>Thesis:</strong> Geometric Optimization in Logistics</div>
+                        <div class="job-row"><img src="../assets/logos/CSX-logo.svg" class="logo"><div class="job-title">Sr. OR Scientist</div></div>
+                    </div>
+                    <a href="https://www.linkedin.com/in/peiqi-wang-53b39314a/" target="_blank" class="linkedin-job">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="description">
+        <strong>Design Features:</strong><br>
+        • PhD image is the BACKGROUND of the entire box - fully visible on right, not cut off<br>
+        • Image gradually fades to transparent from right to left (half visible, half faded)<br>
+        • Cards sorted from oldest (2021) to newest (2024)<br>
+        • LinkedIn icons added to each card<br>
+        • Same standard alumni card style with gold photo backgrounds
+    </div>
+
+</body>
+</html>

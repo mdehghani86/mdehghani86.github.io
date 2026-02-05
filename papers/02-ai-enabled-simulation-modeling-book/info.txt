@@ -1,0 +1,15 @@
+========================================
+TITLE: AI-Enabled Simulation Modeling
+========================================
+YEAR: 2024
+TYPE: Book Chapter
+VENUE: Simio and Simulation: Modeling, Analysis, Applications
+AUTHORS: M. Dehghanimohammadabadi, J. Smith, R. Carney
+
+FILES:
+- PDF:
+- Slides:
+- Code:
+
+LINKS:
+- Online: https://textbook.simio.com/SASMAA7/ch-ai-nn.html

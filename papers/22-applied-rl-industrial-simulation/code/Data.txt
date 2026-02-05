@@ -1,0 +1,75 @@
+Tabular:
+
+	NumJobs:30
+	
+	###Parameters	
+
+
+	########
+
+	###Results	
+
+	NumEpisodes:800
+	Final_Value: 
+	Runtime: 
+
+
+	Test_Value: 
+	Num_test_episodes:25
+
+DDQN:
+
+	NumJobs:30
+	
+	###Parameters	
+
+
+	########
+
+	###Results	
+
+	NumEpisodes:800
+	Final_Value: 
+	Runtime: 
+
+
+	Test_Value: 
+	Num_test_episodes:25
+
+SAC:
+
+	NumJobs:30
+	
+	###Parameters	
+
+
+	########
+
+	###Results	
+
+	NumEpisodes:800
+	Final_Value: 
+	Runtime: 
+
+
+	Test_Value: 
+	Num_test_episodes:25
+
+ActorCritic:
+
+	NumJobs:30
+	
+	###Parameters	
+
+
+	########
+
+	###Results	
+
+	NumEpisodes:800
+	Final_Value: 
+	Runtime: 
+
+
+	Test_Value: 
+	Num_test_episodes:25

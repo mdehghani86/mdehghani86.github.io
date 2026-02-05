@@ -1,0 +1,16 @@
+========================================
+TITLE: A Tutorial on Generative AI and Simulation Modeling Integration
+========================================
+YEAR: 2025
+TYPE: Conference
+VENUE: Winter Simulation Conference (WSC)
+AUTHORS: M. Dehghanimohammadabadi, S. Belsare, N. Sadeghi
+STATUS: Accepted
+
+FILES:
+- PDF: paper.pdf ✓
+- Slides:
+- Code:
+
+LINKS:
+- DOI:
