@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Mohammad Dehghani | Northeastern University</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         * {
             margin: 0;
@@ -21,6 +22,7 @@
             --bg-light: #fafbfc;
             --card-bg: #ffffff;
             --border-color: #e2e8f0;
+            --gold: #d4a84b;
         }
 
         html {
@@ -312,133 +314,165 @@
             color: #C41230;
         }
 
-        /* Quick Nav Cards - iOS Liquid Glass */
-        .quick-nav {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-            margin: 40px 0;
+        /* SparkHub Section */
+        .sparkhub-section {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 30px 0;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
+        }
+        .sparkhub-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(168,85,247,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(59,130,246,0.12) 0%, transparent 50%);
+        }
+        .sparkhub-inner {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px;
+            gap: 30px;
+        }
+        .sparkhub-text { flex: 1; }
+        .sparkhub-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(34,197,94,0.15);
+            border: 1px solid rgba(34,197,94,0.3);
+            color: #4ade80;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+        .sparkhub-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .sparkhub-logo svg { width: 28px; height: 28px; }
+        .sparkhub-logo h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+        .sparkhub-desc {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.6;
+            max-width: 420px;
+        }
+        .sparkhub-tags {
+            display: flex;
+            gap: 8px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+        .sparkhub-tags span {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.6);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 9px;
+            font-weight: 600;
+        }
+        .sparkhub-illustration {
+            width: 200px;
+            height: 200px;
+            flex-shrink: 0;
+        }
+        .sparkhub-illustration img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 20px rgba(168,85,247,0.3));
         }
 
-        .quick-nav-card {
-            background: linear-gradient(135deg,
-                rgba(245, 247, 250, 0.98) 0%,
-                rgba(235, 238, 242, 0.95) 100%);
+        /* Sidebar Timeline Scroll-Spy Navigator */
+        .scroll-nav {
+            position: fixed;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+        .scroll-nav-inner {
+            background: rgba(255,255,255,0.8);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow:
-                0 4px 24px rgba(0, 0, 0, 0.06),
-                0 1px 3px rgba(0, 0, 0, 0.04),
-                inset 0 1px 0 rgba(255, 255, 255, 1),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.02);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .quick-nav-card:hover {
-            transform: translateY(-4px);
-            box-shadow:
-                0 8px 32px rgba(0, 0, 0, 0.1),
-                0 2px 6px rgba(0, 0, 0, 0.06),
-                inset 0 1px 0 rgba(255, 255, 255, 1),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.02);
-        }
-
-        .quick-nav-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, #C41230 0%, #a00f28 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 14px;
-            box-shadow: 0 4px 12px rgba(196, 18, 48, 0.25);
-        }
-
-        .quick-nav-icon svg {
-            width: 24px;
-            height: 24px;
-            color: white;
-        }
-
-        .quick-nav-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #1a1a2e;
-            margin-bottom: 6px;
-        }
-
-        .quick-nav-count {
-            font-size: 12px;
-            color: #64748b;
-        }
-
-        /* GenAI Card Special Styling */
-        .quick-nav-card.genai-card {
-            background: linear-gradient(135deg, #1e1b4b, #312e81);
-            color: white;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 16px;
+            padding: 16px 14px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
             position: relative;
         }
-
-        .quick-nav-card.genai-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(30, 27, 75, 0.3);
-        }
-
-        .quick-nav-card.genai-card .quick-nav-icon {
-            background: rgba(255,255,255,0.15);
-            color: white;
-        }
-
-        .quick-nav-card.genai-card .quick-nav-title,
-        .quick-nav-card.genai-card .quick-nav-count {
-            color: white;
-        }
-
-        .quick-nav-card.genai-card .quick-nav-count {
-            opacity: 0.8;
-        }
-
-        .new-badge {
+        /* Timeline vertical line */
+        .scroll-nav-inner::before {
+            content: '';
             position: absolute;
-            top: 8px;
-            right: 8px;
-            background: #22c55e;
-            color: white;
-            font-size: 0.6rem;
-            font-weight: 700;
-            padding: 2px 6px;
-            border-radius: 4px;
+            left: 19px;
+            top: 28px;
+            bottom: 28px;
+            width: 1.5px;
+            background: linear-gradient(180deg, transparent, #e2e8f0 10%, #e2e8f0 90%, transparent);
+            border-radius: 1px;
         }
-
-        .genai-card-btn {
+        .scroll-nav-item {
             display: flex;
             align-items: center;
-            gap: 4px;
-            background: rgba(255,255,255,0.2);
-            padding: 5px 10px;
-            border-radius: 12px;
-            font-size: 0.65rem;
+            gap: 10px;
+            padding: 7px 12px 7px 0;
+            text-decoration: none;
+            transition: all 0.25s;
+            cursor: pointer;
+            position: relative;
+        }
+        .scroll-nav-item:hover .scroll-nav-label {
+            color: var(--text-primary);
+        }
+        .scroll-nav-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #cbd5e1;
+            transition: all 0.3s;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+            margin: 0 1px;
+        }
+        .scroll-nav-item.active .scroll-nav-dot {
+            width: 11px;
+            height: 11px;
+            background: var(--neu-red);
+            border-color: var(--neu-red);
+            box-shadow: 0 0 0 3px rgba(196,18,48,0.15), 0 0 8px rgba(196,18,48,0.2);
+            margin: 0;
+        }
+        .scroll-nav-label {
+            font-size: 11px;
             font-weight: 600;
-            margin-top: 8px;
-            transition: background 0.2s;
+            color: #94a3b8;
+            white-space: nowrap;
+            transition: all 0.3s;
+            letter-spacing: 0.2px;
         }
-
-        .genai-card-btn svg {
-            width: 10px;
-            height: 10px;
-        }
-
-        .quick-nav-card.genai-card:hover .genai-card-btn {
-            background: rgba(255,255,255,0.35);
+        .scroll-nav-item.active .scroll-nav-label {
+            color: var(--neu-red);
+            font-weight: 700;
         }
 
         /* Director Card - Full Width with Background Image */
@@ -1352,6 +1386,159 @@
             margin-left: 4px;
             font-size: 7px;
         }
+
+        /* Publication Impact Chart — Liquid Glass */
+        .pub-impact {
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(250,251,252,0.75));
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 18px;
+            padding: 24px 28px 24px;
+            border: 1px solid rgba(255,255,255,0.7);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.9);
+            position: relative;
+            overflow: hidden;
+        }
+        .pub-impact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(196,18,48,0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .pub-impact-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+        .pub-impact-title {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-secondary);
+        }
+        .pub-impact-total {
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+        }
+        .pub-impact-total .pit-num {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+        .pub-impact-total .pit-label {
+            font-size: 10px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .pub-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 0;
+            height: 90px;
+            position: relative;
+        }
+        .pub-chart::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,0,0,0.06), transparent);
+        }
+        .pub-bar-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            padding: 0 3px;
+        }
+        .pub-bar-stack {
+            width: 100%;
+            max-width: 36px;
+            display: flex;
+            flex-direction: column-reverse;
+            border-radius: 6px 6px 1px 1px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-bottom: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+        .pub-bar-seg {
+            width: 100%;
+            transition: height 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+            height: 0;
+        }
+        .pub-bar-seg.seg-journal {
+            background: linear-gradient(180deg, rgba(196,18,48,0.7), rgba(196,18,48,0.45));
+        }
+        .pub-bar-seg.seg-conference {
+            background: linear-gradient(180deg, rgba(37,99,235,0.6), rgba(37,99,235,0.35));
+        }
+        .pub-bar-seg.seg-book {
+            background: linear-gradient(180deg, rgba(212,168,75,0.7), rgba(212,168,75,0.4));
+        }
+        .pub-bar-group:hover .pub-bar-stack {
+            border-color: rgba(196,18,48,0.2);
+            box-shadow: 0 4px 16px rgba(196,18,48,0.1), inset 0 1px 0 rgba(255,255,255,0.8);
+            transform: translateY(-2px);
+            transition: all 0.25s ease;
+        }
+        .pub-bar-count {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            opacity: 0;
+            transform: translateY(4px);
+            transition: all 0.3s;
+        }
+        .pub-bar-group:hover .pub-bar-count {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .pub-bar-year {
+            font-size: 9px;
+            font-weight: 600;
+            color: #94a3b8;
+            margin-top: 8px;
+        }
+        .pub-chart-legend {
+            display: flex;
+            gap: 18px;
+            margin-top: 16px;
+            justify-content: center;
+        }
+        .pub-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 9px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        .pub-legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 3px;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .pub-legend-dot.leg-journal { background: linear-gradient(135deg, rgba(196,18,48,0.7), rgba(196,18,48,0.45)); }
+        .pub-legend-dot.leg-conference { background: linear-gradient(135deg, rgba(37,99,235,0.6), rgba(37,99,235,0.35)); }
+        .pub-legend-dot.leg-book { background: linear-gradient(135deg, rgba(212,168,75,0.7), rgba(212,168,75,0.4)); }
 
         .pub-content {
             flex: 1;
@@ -2804,75 +2991,7 @@
             line-height: 1.3;
         }
 
-        /* GenAI Section - Banner Style */
-        .genai-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: linear-gradient(135deg, #1e1b4b, #312e81);
-            border-radius: 14px;
-            padding: 30px 30px;
-            min-height: 200px;
-            margin: 20px 0;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .genai-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 70%;
-            height: 100%;
-            background: url('assets/images/GenAI.jpeg') right center/cover no-repeat;
-            opacity: 0.4;
-            mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,1) 100%);
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,1) 100%);
-        }
-
-        .genai-section::after {
-            display: none;
-        }
-
-        .genai-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .genai-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 6px;
-        }
-
-        .genai-header svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .genai-header h2 {
-            font-size: 1rem;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .genai-header .badge {
-            background: #22c55e;
-            padding: 2px 8px;
-            border-radius: 8px;
-            font-size: 9px;
-            font-weight: 600;
-        }
-
-        .genai-subtitle {
-            font-size: 12px;
-            opacity: 0.8;
-            margin: 0;
-            max-width: 450px;
-        }
+        /* (GenAI section removed — replaced by SparkHub) */
 
         .genai-cta {
             display: flex;
@@ -2904,80 +3023,136 @@
         .awards-list {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            gap: 16px;
         }
 
         .award-card {
             background: white;
-            border-radius: 12px;
-            padding: 18px;
-            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 22px 20px;
+            border: 1px solid rgba(212,168,75,0.12);
             display: flex;
-            gap: 15px;
-            align-items: flex-start;
+            gap: 16px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .award-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--gold), #c4932a);
+        }
+        .award-card:hover {
+            border-color: rgba(212,168,75,0.25);
+            box-shadow: 0 8px 28px rgba(212,168,75,0.1);
+            transform: translateY(-2px);
+        }
+        .award-card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(212,168,75,0.12), rgba(212,168,75,0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .award-card-icon i {
+            width: 22px;
+            height: 22px;
+            color: var(--gold);
         }
 
         .award-year-badge {
-            background: var(--neu-red);
+            background: linear-gradient(135deg, var(--gold), #c4932a);
             color: white;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 12px;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 10px;
             font-weight: 700;
             flex-shrink: 0;
-        }
-
-        .award-card h4 {
-            font-size: 0.9rem;
+            display: inline-block;
             margin-bottom: 4px;
         }
 
-        .award-card p {
-            font-size: 12px;
-            color: var(--text-secondary);
+        .award-card-info h4 {
+            font-size: 0.88rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+            color: var(--text-primary);
         }
 
-        /* Contact - Compact */
-        .contact-bar {
+        .award-card-info p {
+            font-size: 11px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Contact - Card Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+            gap: 14px;
+        }
+        .contact-card {
             background: white;
             border-radius: 14px;
-            padding: 20px 30px;
+            padding: 22px 18px;
             border: 1px solid var(--border-color);
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            text-align: center;
+            gap: 10px;
+            transition: all 0.3s ease;
         }
-
-        .contact-item {
+        .contact-card:hover {
+            border-color: rgba(196,18,48,0.15);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+            transform: translateY(-3px);
+        }
+        .contact-card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(196,18,48,0.08), rgba(196,18,48,0.03));
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
         }
-
-        .contact-item svg {
-            width: 18px;
-            height: 18px;
+        .contact-card-icon svg {
+            width: 20px;
+            height: 20px;
             color: var(--neu-red);
         }
-
-        .contact-item span {
-            font-size: 13px;
+        .contact-card-label {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
             color: var(--text-secondary);
         }
-
-        .contact-item a {
+        .contact-card-value {
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+        .contact-card-value a {
             color: var(--text-primary);
             text-decoration: none;
-            font-weight: 500;
+            transition: color 0.2s;
         }
-
-        .contact-item a:hover {
+        .contact-card-value a:hover {
             color: var(--neu-red);
         }
 
-        /* Courses Section - Chalkboard Background */
+        /* Courses Section - Frosted Glass Polaroid Wall */
         .courses-section {
             position: relative;
             overflow: hidden;
@@ -2985,40 +3160,46 @@
             padding: 0;
         }
 
-        .courses-section .courses-bg {
+        .courses-section .board-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .courses-section .board-bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
+            inset: 0;
+            background: url('assets/images/Course2.jpeg') center/cover no-repeat;
         }
 
-        .courses-section .courses-bg img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center bottom;
-        }
-
-        .courses-section .courses-bg::after {
+        .courses-section .board-bg::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.15);
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 15% 10%, rgba(196,18,48,0.18) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, transparent 20%, rgba(0,0,0,0.35) 70%),
+                radial-gradient(ellipse at 85% 90%, rgba(26,26,46,0.4) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.6) 100%);
+            z-index: 1;
         }
 
-        .courses-section .courses-content {
+        .courses-section .board-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 15%, transparent 85%, rgba(0,0,0,0.2) 100%);
+            z-index: 2;
+        }
+
+        .courses-section .board-content {
             position: relative;
-            z-index: 1;
-            padding: 30px;
+            z-index: 3;
+            padding: 30px 40px 50px;
         }
 
         .courses-section .section-header {
-            margin-bottom: 15px;
+            margin-bottom: 5px;
         }
 
         .courses-section .section-title {
@@ -3036,151 +3217,371 @@
             stroke: white;
         }
 
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+        .board-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
         }
 
-        .course-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.75) 100%);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 12px;
-            padding: 16px;
-            border: 1px solid rgba(255,255,255,0.5);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.8);
-            transition: all 0.3s ease;
+        .board-stats .bs-item { text-align: center; }
+
+        .board-stats .bs-val {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+        }
+
+        .board-stats .bs-label {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.65);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 2px;
+        }
+
+        .board-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .board-tags span {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            color: rgba(255,255,255,0.8);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        /* Course Cards Wrap */
+        .course-cards-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Frosted Glass Polaroid */
+        .polaroid {
+            width: 155px;
+            padding: 10px 10px 22px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.25);
+            border: 1px solid rgba(255,255,255,0.25);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25,0.8,0.25,1);
             position: relative;
+            z-index: 4;
         }
 
-        .course-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%);
+        .polaroid:hover {
+            transform: scale(1.1) rotate(0deg) !important;
+            z-index: 20;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+            background: rgba(255,255,255,0.25);
         }
 
-        .course-card .award-badge {
+        .polaroid .pin {
             position: absolute;
-            top: -1px;
-            right: -1px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 90%, rgba(30,30,30,0.3) 100%);
-            color: #1a1a2e;
-            padding: 5px 10px;
-            border-radius: 0 12px 0 10px;
-            font-size: 0.6rem;
-            font-weight: 700;
+            top: -8px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4), inset 0 -1px 2px rgba(0,0,0,0.2);
+            z-index: 5;
+            border: 2px solid rgba(255,255,255,0.5);
+            transform: translateX(-50%);
+        }
+
+        .polaroid .pol-img {
+            height: 105px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
-            gap: 4px;
-            box-shadow: -2px 2px 8px rgba(0,0,0,0.1);
-            cursor: pointer;
-            border-left: 1px solid rgba(0,0,0,0.08);
-            border-bottom: 1px solid rgba(0,0,0,0.08);
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.15);
         }
 
-        .course-card .award-badge svg {
-            width: 14px;
-            height: 14px;
-            fill: #d4a84b;
-            filter: drop-shadow(0 1px 2px rgba(180,140,50,0.4));
+        .polaroid .pol-img img {
+            width: 88%;
+            height: 88%;
+            object-fit: contain;
+            position: relative;
+            z-index: 2;
         }
 
-        .course-card .award-badge .award-tooltip {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            margin-top: 8px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
-            color: white;
-            padding: 10px 14px;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            font-weight: 400;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.2s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            z-index: 100;
-        }
-
-        .course-card .award-badge .award-tooltip::before {
-            content: '';
-            position: absolute;
-            top: -6px;
-            right: 15px;
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-bottom: 6px solid #1a1a2e;
-        }
-
-        .course-card .award-badge:hover .award-tooltip {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .course-code {
+        .polaroid .pol-title {
             font-size: 11px;
             font-weight: 700;
-            color: var(--neu-red);
-            margin-bottom: 5px;
-        }
-
-        .course-card h4 {
-            color: #1a1a2e;
-            font-size: 0.85rem;
-            margin-bottom: 4px;
             line-height: 1.3;
+            margin-top: 8px;
+            color: white;
         }
 
-        .course-card .course-subtitle {
-            font-size: 0.65rem;
-            color: #64748b;
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .course-badges {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            margin-bottom: 10px;
-        }
-
-        .course-badge {
+        .polaroid .pol-code {
             font-size: 9px;
-            padding: 3px 8px;
-            border-radius: 10px;
-            background: #fef3c7;
-            color: #92400e;
+            margin-top: 2px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.6);
         }
 
-        .course-badge.new {
-            background: #dcfce7;
-            color: #166534;
-        }
-
-        .syllabus-link {
+        .polaroid .pol-chip {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            font-size: 11px;
-            color: var(--neu-red);
+            gap: 4px;
+            margin-top: 6px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+            padding: 4px 10px;
+            border-radius: 10px;
             text-decoration: none;
             transition: all 0.2s;
-            font-weight: 500;
+            background: rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.85);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        .syllabus-link:hover {
-            color: #a00020;
+        .polaroid .pol-chip:hover {
+            background: rgba(255,255,255,0.25);
+            color: white;
         }
 
-        .syllabus-link svg {
-            width: 12px;
-            height: 12px;
-            stroke: currentColor;
+        .polaroid .pol-chip i {
+            width: 8px;
+            height: 8px;
+            flex-shrink: 0;
         }
+
+        .polaroid .tape {
+            position: absolute;
+            width: 50px;
+            height: 14px;
+            background: rgba(255,255,200,0.35);
+            transform: rotate(-2deg);
+            top: -4px;
+            right: 8px;
+            z-index: 4;
+            border-radius: 1px;
+        }
+
+        /* Award: Medal with Ribbon + Label */
+        .pol-award-badge {
+            position: absolute;
+            top: -4px;
+            left: 8px;
+            z-index: 6;
+            display: flex;
+            align-items: flex-start;
+            gap: 4px;
+        }
+
+        .pol-award-badge .ab-medal-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pol-award-badge .ab-ribbons {
+            display: flex;
+            gap: 0;
+        }
+
+        .pol-award-badge .ab-rib-l,
+        .pol-award-badge .ab-rib-r {
+            width: 8px;
+            height: 14px;
+        }
+
+        .pol-award-badge .ab-rib-l {
+            background: var(--neu-red);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+        }
+
+        .pol-award-badge .ab-rib-r {
+            background: var(--gold);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+        }
+
+        .pol-award-badge .ab-medal {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            margin-top: -4px;
+            background: linear-gradient(145deg, #f5d97a, var(--gold), #b8860b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(212,168,75,0.5);
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+
+        .pol-award-badge .ab-medal i {
+            width: 11px;
+            height: 11px;
+            color: white;
+        }
+
+        .pol-award-badge .ab-label {
+            margin-top: 12px;
+            font-size: 6.5px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            background: linear-gradient(135deg, var(--gold), #b8860b);
+            padding: 2px 6px;
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+            text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+        }
+
+        @keyframes awardSwing {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        .polaroid:hover .pol-award-badge {
+            animation: awardSwing 0.8s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        /* Course Modal — Frosted Glass */
+        .course-modal-overlay {
+            position:fixed; inset:0; z-index:9999;
+            background:rgba(10,10,20,0.6);
+            backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+            display:flex; align-items:center; justify-content:center;
+            opacity:0; visibility:hidden;
+            transition:all 0.3s ease;
+            padding:20px;
+        }
+        .course-modal-overlay.active {
+            opacity:1; visibility:visible;
+        }
+        .course-modal {
+            background:rgba(255,255,255,0.12);
+            backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+            border:1px solid rgba(255,255,255,0.2);
+            border-radius:22px;
+            width:100%; max-width:480px;
+            max-height:90vh;
+            overflow-y:auto;
+            box-shadow:0 25px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+            transform:translateY(30px) scale(0.95);
+            transition:all 0.35s cubic-bezier(0.25,0.8,0.25,1);
+            position:relative;
+        }
+        .course-modal::-webkit-scrollbar { width:4px; }
+        .course-modal::-webkit-scrollbar-track { background:transparent; }
+        .course-modal::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.2); border-radius:4px; }
+        .course-modal-overlay.active .course-modal {
+            transform:translateY(0) scale(1);
+        }
+        .cm-close {
+            position:absolute; top:14px; right:14px; z-index:10;
+            width:30px; height:30px; border-radius:50%;
+            background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15);
+            display:flex; align-items:center; justify-content:center;
+            cursor:pointer; transition:all 0.2s;
+        }
+        .cm-close:hover { background:rgba(255,255,255,0.2); }
+        .cm-close i { width:14px; height:14px; color:rgba(255,255,255,0.7); }
+        .cm-illustration {
+            height:170px;
+            background:rgba(255,255,255,0.92);
+            border-bottom:1px solid rgba(255,255,255,0.15);
+            display:flex; align-items:center; justify-content:center;
+            position:relative; overflow:hidden;
+        }
+        .cm-illustration img {
+            width:60%; height:85%; object-fit:contain;
+            position:relative; z-index:1;
+            filter:drop-shadow(0 4px 16px rgba(0,0,0,0.08));
+        }
+        .cm-content {
+            padding:16px 24px 20px;
+            text-align:center;
+        }
+        .cm-award {
+            display:inline-flex; align-items:center; gap:4px;
+            background:linear-gradient(135deg, rgba(212,168,75,0.2), rgba(212,168,75,0.1));
+            border:1px solid rgba(212,168,75,0.3);
+            padding:3px 10px; border-radius:6px;
+            margin-bottom:8px;
+        }
+        .cm-award i { width:11px; height:11px; color:var(--gold); }
+        .cm-award span { font-size:9px; font-weight:700; color:var(--gold); }
+        .cm-code {
+            display:inline-block;
+            font-size:9px; font-weight:700; color:rgba(255,255,255,0.5);
+            letter-spacing:1px; margin-bottom:4px;
+        }
+        .cm-title {
+            font-size:1.05rem; font-weight:800; line-height:1.3;
+            margin-bottom:5px; color:white;
+        }
+        .cm-desc {
+            font-size:0.72rem; color:rgba(255,255,255,0.6);
+            line-height:1.6; margin-bottom:12px;
+            text-align:left;
+        }
+        /* Course Goals */
+        .cm-goals-title {
+            font-size:9px; font-weight:700; color:rgba(255,255,255,0.45);
+            text-transform:uppercase; letter-spacing:1px;
+            margin-bottom:6px; text-align:left;
+        }
+        .cm-goals {
+            list-style:none; margin:0 0 14px; padding:0;
+            text-align:left;
+        }
+        .cm-goals li {
+            display:flex; align-items:flex-start; gap:6px;
+            font-size:0.68rem; color:rgba(255,255,255,0.6);
+            line-height:1.4; margin-bottom:4px;
+        }
+        .cm-goals li i {
+            width:12px; height:12px; flex-shrink:0;
+            color:var(--gold); margin-top:1px;
+        }
+        .cm-download {
+            display:inline-flex; align-items:center; gap:5px;
+            background:rgba(255,255,255,0.12);
+            border:1px solid rgba(255,255,255,0.2);
+            color:rgba(255,255,255,0.85); text-decoration:none;
+            padding:7px 16px; border-radius:8px;
+            font-size:10px; font-weight:600; letter-spacing:0.2px;
+            transition:all 0.25s;
+        }
+        .cm-download:hover {
+            background:rgba(255,255,255,0.22);
+            color:white;
+            border-color:rgba(255,255,255,0.35);
+        }
+        .cm-download i { width:13px; height:13px; }
+        .cm-no-download {
+            display:inline-flex; align-items:center; gap:5px;
+            color:rgba(255,255,255,0.35);
+            font-size:10px; font-weight:600;
+            padding:7px 14px; border-radius:8px;
+            background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08);
+        }
+        .cm-no-download i { width:12px; height:12px; }
 
         /* View All Link */
         .view-all-link {
@@ -3212,17 +3613,62 @@
 
         /* Footer */
         .footer-gradient {
-            height: 120px;
-            background: linear-gradient(to bottom, transparent 0%, rgba(196, 18, 48, 0.03) 50%, rgba(10, 10, 10, 0.08) 100%);
+            height: 100px;
+            background: linear-gradient(to bottom, transparent 0%, rgba(26,26,46,0.04) 100%);
         }
 
         footer {
-            background: var(--text-primary);
-            color: white;
-            padding: 30px;
-            text-align: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: rgba(255,255,255,0.7);
+            padding: 40px 30px 30px;
+        }
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-brand-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(196,18,48,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 11px;
+            color: var(--neu-red);
+        }
+        .footer-brand-text {
             font-size: 12px;
-            opacity: 0.7;
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+        }
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+        .footer-links a {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: rgba(255,255,255,0.8);
+        }
+        .footer-copy {
+            font-size: 11px;
+            color: rgba(255,255,255,0.3);
         }
 
         /* Responsive */
@@ -3234,7 +3680,11 @@
             .hero-gradient-line { margin: 0 auto 24px; }
             .hero-slogan { text-align: center; }
             .hero-description { max-width: 100%; text-align: center; }
-            .quick-nav { grid-template-columns: repeat(2, 1fr); }
+            .sparkhub-inner { padding: 25px; gap: 20px; }
+            .sparkhub-illustration { width: 150px; height: 150px; }
+            .sparkhub-logo h2 { font-size: 1.3rem; }
+            .sparkhub-desc { font-size: 0.8rem; }
+            .scroll-nav { display: none; }
             .director-card { flex-direction: column; text-align: center; padding: 0; padding-bottom: 20px; }
             .director-card::before, .director-card::after { width: 100%; height: 50%; top: auto; bottom: 0; }
             .director-photo-box { width: 100%; height: 200px; }
@@ -3252,16 +3702,27 @@
             .research-image svg { width: 36px; height: 36px; }
             .team-grid { grid-template-columns: repeat(2, 1fr); }
             .student-card { width: auto; }
-            .genai-section { flex-direction: column; text-align: center; gap: 15px; }
+            .sparkhub-inner { flex-direction: column; text-align: center; }
+            .sparkhub-desc { max-width: 100%; }
+            .sparkhub-tags { justify-content: center; }
             .genai-subtitle { max-width: 100%; }
             .awards-list { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .footer-links { flex-wrap: wrap; justify-content: center; }
+            .courses-section .board-content { padding: 20px 15px 35px; }
+            .polaroid { width: 135px; padding: 8px 8px 18px; }
+            .polaroid .pol-img { height: 85px; }
+            .course-cards-wrap { gap: 14px; }
+            .board-stats { gap: 25px; }
+            .board-stats .bs-val { font-size: 1.4rem; }
             .contact-grid { grid-template-columns: 1fr; }
             .pub-content { padding-right: 0; }
             .pub-actions { position: static; margin-top: 6px; }
         }
 
         @media (max-width: 600px) {
-            .quick-nav { grid-template-columns: 1fr; }
+            .sparkhub-illustration { width: 120px; height: 120px; }
             .hero-lab-logo { padding: 14px 24px; }
             .hero-lab-logo .bracket { font-size: 42px; }
             .hero-lab-logo .logo-text { font-size: 36px; }
@@ -3269,6 +3730,12 @@
             .hero-lab-logo .divider { height: 32px; margin: 0 16px; }
             .hero-lab-logo .lab-text { font-size: 14px; letter-spacing: 3px; }
             .hero-slogan { font-size: 22px; }
+            .polaroid { width: 120px; padding: 7px 7px 16px; }
+            .polaroid .pol-img { height: 75px; }
+            .polaroid .pol-title { font-size: 10px; }
+            .polaroid .pol-code { font-size: 8px; }
+            .polaroid .pol-chip { font-size: 9px; padding: 3px 8px; }
+            .course-cards-wrap { gap: 10px; }
             nav { gap: 2px; }
             nav a { padding: 6px 10px; font-size: 11px; }
         }
@@ -3471,52 +3938,30 @@
         </div>
 
         <!-- Quick Navigation Cards -->
-        <div class="quick-nav">
-            <a href="#" class="quick-nav-card genai-card" style="pointer-events: none; opacity: 0.7;">
-                <span class="new-badge">Coming Soon</span>
-                <div class="quick-nav-icon">
-                    <svg viewBox="0 0 24 24" fill="url(#sparkGradient)">
-                        <defs>
-                            <linearGradient id="sparkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#a855f7"/>
-                                <stop offset="100%" style="stop-color:#3b82f6"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M12 0 Q13 10 24 12 Q13 14 12 24 Q11 14 0 12 Q11 10 12 0Z"/>
-                    </svg>
+        <!-- SparkHub Section -->
+        <div class="sparkhub-section" id="sparkhub">
+            <div class="sparkhub-inner">
+                <div class="sparkhub-text">
+                    <div class="sparkhub-badge">Coming Soon</div>
+                    <div class="sparkhub-logo">
+                        <svg viewBox="0 0 24 24" fill="url(#sparkGrad)">
+                            <defs><linearGradient id="sparkGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#a855f7"/><stop offset="100%" style="stop-color:#3b82f6"/></linearGradient></defs>
+                            <path d="M12 0 Q13 10 24 12 Q13 14 12 24 Q11 14 0 12 Q11 10 12 0Z"/>
+                        </svg>
+                        <h2>SparkHub</h2>
+                    </div>
+                    <p class="sparkhub-desc">A curated student repository for LLMs, Agentic AI, and applied generative intelligence. Showcasing the best student projects, experiments, and research from AI courses.</p>
+                    <div class="sparkhub-tags">
+                        <span>LLMs</span>
+                        <span>Agentic AI</span>
+                        <span>Student Projects</span>
+                        <span>Generative AI</span>
+                    </div>
                 </div>
-                <div class="quick-nav-title">SparkHub</div>
-                <div class="quick-nav-count">Student Repo | LLMs & Agentic AI</div>
-                <div class="genai-card-btn">Coming Soon <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-            </a>
-            <a href="#research" class="quick-nav-card">
-                <div class="quick-nav-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/></svg>
+                <div class="sparkhub-illustration">
+                    <img src="assets/images/storyset/IE5354_gen_ai.svg" alt="SparkHub">
                 </div>
-                <div class="quick-nav-title">Research</div>
-                <div class="quick-nav-count">Research Focus</div>
-            </a>
-            <a href="#team" class="quick-nav-card">
-                <div class="quick-nav-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <div class="quick-nav-title">Team</div>
-                <div class="quick-nav-count">Current Members</div>
-            </a>
-            <a href="#publications" class="quick-nav-card">
-                <div class="quick-nav-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                </div>
-                <div class="quick-nav-title">Publications</div>
-                <div class="quick-nav-count">Papers & Books</div>
-            </a>
-            <a href="#courses" class="quick-nav-card">
-                <div class="quick-nav-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                </div>
-                <div class="quick-nav-title">Courses</div>
-                <div class="quick-nav-count">Graduate & Undergrad</div>
-            </a>
+            </div>
         </div>
 
         <!-- Research -->
@@ -3793,11 +4238,11 @@
                         <div class="student-modal-body">
                             <div class="student-modal-section">
                                 <div class="student-modal-section-title">Research Topic</div>
-                                <div class="student-modal-section-content">Simulation Optimization of CAR T-cell Therapy Supply Chain</div>
+                                <div class="student-modal-section-content">Simulation, Optimization, and AI-Enabled Models for CAR T-Cell Therapy Supply Chain</div>
                             </div>
                             <div class="student-modal-section">
                                 <div class="student-modal-section-title">About the Research</div>
-                                <div class="student-modal-section-content">This research focuses on optimizing the complex supply chain involved in CAR T-cell therapy manufacturing and delivery. Using simulation optimization techniques, the work aims to improve efficiency, reduce costs, and ensure timely delivery of personalized cancer treatments to patients.</div>
+                                <div class="student-modal-section-content">CAR-T cell therapy is an advanced form of personalized cancer treatment in which a patient's own immune cells are engineered to recognize and destroy cancer cells. Because each treatment is uniquely produced for an individual patient, the supply chain is highly complex and time sensitive, involving patient scheduling, manufacturing, and delivery coordination. Negar's research aims to develop and evaluate multiple solution approaches, based on simulation, optimization, and AI-enabled models, to better manage uncertainties in patient demand, processing time, and transportation. Her work seeks to identify cost-effective and reliable strategies for improving the overall efficiency and resilience of CAR-T cell therapy delivery.</div>
                             </div>
                         </div>
                     </div>
@@ -4247,6 +4692,23 @@
                 <h2 class="section-title">Publications</h2>
             </div>
 
+            <!-- Publication Impact Chart -->
+            <div class="pub-impact" id="pubImpact">
+                <div class="pub-impact-header">
+                    <div class="pub-impact-title">Publication Timeline</div>
+                    <div class="pub-impact-total">
+                        <span class="pit-num" id="pubTotalNum">0</span>
+                        <span class="pit-label">publications</span>
+                    </div>
+                </div>
+                <div class="pub-chart" id="pubChart"></div>
+                <div class="pub-chart-legend">
+                    <div class="pub-legend-item"><div class="pub-legend-dot leg-journal"></div>Journals</div>
+                    <div class="pub-legend-item"><div class="pub-legend-dot leg-conference"></div>Conferences</div>
+                    <div class="pub-legend-item"><div class="pub-legend-dot leg-book"></div>Books</div>
+                </div>
+            </div>
+
             <!-- Search & Filter Controls -->
             <div class="pub-controls">
                 <div class="pub-search">
@@ -4620,191 +5082,74 @@
             </div>
             <div class="awards-list">
                 <div class="award-card">
-                    <div class="award-year-badge">2025</div>
-                    <div><h4>DAIS Teaching Award</h4><p>IISE Data Analytics Division</p></div>
+                    <div class="award-card-icon"><i data-lucide="graduation-cap"></i></div>
+                    <div class="award-card-info">
+                        <div class="award-year-badge">2025</div>
+                        <h4>Data Analytics and Information Systems (DAIS) Teaching Award</h4>
+                        <p>Institute of Industrial and Systems Engineers (IISE)</p>
+                    </div>
                 </div>
                 <div class="award-card">
-                    <div class="award-year-badge">2025</div>
-                    <div><h4>Galante Service Award</h4><p>Northeastern University</p></div>
+                    <div class="award-card-icon"><i data-lucide="heart-handshake"></i></div>
+                    <div class="award-card-info">
+                        <div class="award-year-badge">2025</div>
+                        <h4>Galante Exemplary Service Award</h4>
+                        <p>Northeastern University</p>
+                    </div>
                 </div>
                 <div class="award-card">
-                    <div class="award-year-badge">2020</div>
-                    <div><h4>Engineering Innovation Award</h4><p>NEU College of Engineering</p></div>
+                    <div class="award-card-icon"><i data-lucide="lightbulb"></i></div>
+                    <div class="award-card-info">
+                        <div class="award-year-badge">2020</div>
+                        <h4>Fostering Engineering Innovation in Education Award</h4>
+                        <p>Northeastern University, College of Engineering</p>
+                    </div>
                 </div>
                 <div class="award-card">
-                    <div class="award-year-badge">2015</div>
-                    <div><h4>Best PhD Paper Award</h4><p>Winter Simulation Conference</p></div>
+                    <div class="award-card-icon"><i data-lucide="trophy"></i></div>
+                    <div class="award-card-info">
+                        <div class="award-year-badge">2015</div>
+                        <h4>Best PhD Student Paper Award</h4>
+                        <p>Winter Simulation Conference (WSC)</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Courses -->
+        <!-- Courses - Frosted Glass Polaroid Wall -->
         <section class="section courses-section" id="courses">
-            <!-- Background Image -->
-            <div class="courses-bg">
-                <img src="assets/images/Course2.jpeg" alt="Teaching">
-            </div>
-            <!-- Content Overlay -->
-            <div class="courses-content">
-                <div class="section-header">
-                    <div class="section-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                    </div>
-                    <h2 class="section-title">Courses</h2>
-                </div>
-                <p class="teaching-slogan" style="color: rgba(255,255,255,0.9); font-size: 1.1rem; font-style: italic; text-align: center; margin-bottom: 20px; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">"Inspiring the next generation of engineers and innovators"</p>
-                <div class="teaching-stats" style="display: flex; justify-content: center; gap: 40px; margin-bottom: 30px; flex-wrap: wrap;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 2rem; font-weight: 800; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">10</div>
-                        <div style="font-size: 0.75rem; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 1px;">Courses</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2rem; font-weight: 800; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">2,500+</div>
-                        <div style="font-size: 0.75rem; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 1px;">Students</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 2rem; font-weight: 800; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">17+</div>
-                        <div style="font-size: 0.75rem; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 1px;">Years Teaching</div>
-                    </div>
-                </div>
-                <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 25px; flex-wrap: wrap;">
-                    <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.3);">Industrial Engineering</span>
-                    <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.3);">Engineering Management</span>
-                    <span style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; border: 1px solid rgba(255,255,255,0.3);">Data Analytics Engineering</span>
-                </div>
-                <div class="courses-grid">
-                    <!-- Applied Generative AI - FIRST -->
-                    <a href="courses/applied-generative-ai.html" class="course-card" style="text-decoration: none;">
-                        <div class="course-code">IE5354</div>
-                        <h4>Applied Generative AI</h4>
-                        <p class="course-subtitle">LLMs, prompting, and AI applications</p>
-                        <div class="course-badges">
-                            <span class="course-badge new">New Course</span>
+            <div class="board-wrapper">
+                <div class="board-bg"></div>
+                <div class="board-content">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                         </div>
-                        <span class="syllabus-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                            View Details
-                        </span>
-                    </a>
-                    <!-- Computation and Data Visualization - DAIS Award -->
-                    <a href="courses/computation-data-visualization.html" class="course-card" style="text-decoration: none;">
-                        <div class="award-badge">
-                            <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-                            Award
-                            <div class="award-tooltip">DAIS Teaching Award 2025 - IISE</div>
-                        </div>
-                        <div class="course-code">IE6600</div>
-                        <h4>Computation and Data Visualization</h4>
-                        <p class="course-subtitle">Data storytelling with R and Python</p>
-                        <div class="course-badges">
-                            <span class="course-badge new">New Course</span>
-                        </div>
-                        <span class="syllabus-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                            View Details
-                        </span>
-                    </a>
-                    <!-- Reinforcement Learning - Innovation Award -->
-                    <a href="courses/reinforcement-learning.html" class="course-card" style="text-decoration: none;">
-                        <div class="award-badge">
-                            <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-                            Award
-                            <div class="award-tooltip">Engineering Innovation Award 2020 - NEU</div>
-                        </div>
-                        <div class="course-code">IE7295</div>
-                        <h4>Reinforcement Learning for Engineers</h4>
-                        <p class="course-subtitle">AI-driven sequential decision making</p>
-                        <div class="course-badges">
-                            <span class="course-badge new">New Course</span>
-                        </div>
-                        <span class="syllabus-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                            View Details
-                        </span>
-                    </a>
-                    <!-- Storytelling with Data -->
-                    <a href="courses/storytelling-with-data.html" class="course-card" style="text-decoration: none;">
-                        <div class="course-code">IE5353</div>
-                        <h4>Storytelling with Data</h4>
-                        <p class="course-subtitle">Data visualization and narrative techniques</p>
-                        <div class="course-badges">
-                            <span class="course-badge new">New Course</span>
-                        </div>
-                        <span class="syllabus-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                            View Details
-                        </span>
-                    </a>
-                    <!-- Metaheuristics -->
-                    <a href="courses/metaheuristics.html" class="course-card" style="text-decoration: none;">
-                        <div class="course-code">OR6500</div>
-                        <h4>Metaheuristics and Applications</h4>
-                        <p class="course-subtitle">Optimization algorithms for complex problems</p>
-                        <div class="course-badges">
-                            <span class="course-badge new">New Course</span>
-                        </div>
-                        <span class="syllabus-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                            View Details
-                        </span>
-                    </a>
-                    <!-- Foundations of Data Analytics -->
-                    <a href="courses/foundations-data-analytics.html" class="course-card" style="text-decoration: none;">
-                        <div class="course-code">IE7354</div>
-                        <h4>Foundations of Data Analytics</h4>
-                        <p class="course-subtitle">Core concepts in data analytics engineering</p>
-                        <div class="course-badges">
-                            <span class="course-badge new">New Course</span>
-                        </div>
-                        <span class="syllabus-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                            View Details
-                        </span>
-                    </a>
-                    <!-- Simulation Analysis -->
-                    <div class="course-card">
-                        <div class="course-code">IE7215</div>
-                        <h4>Simulation Analysis</h4>
-                        <p class="course-subtitle">Advanced simulation techniques and output analysis</p>
-                        <div class="course-badges"></div>
-                        <a href="https://www.dropbox.com/scl/fi/96cro4o1lbugdtzpsdp52/IE7215_Simulation_Analysis.pdf?rlkey=u02gl175ct8t5g3mghnhjm9bz&dl=0" target="_blank" class="syllabus-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                            Syllabus
-                        </a>
+                        <h2 class="section-title">Courses</h2>
                     </div>
-                    <!-- Engineering Probability and Statistics -->
-                    <div class="course-card">
-                        <div class="course-code">IE6200</div>
-                        <h4>Engineering Probability and Statistics</h4>
-                        <p class="course-subtitle">Statistical foundations for engineers</p>
-                        <div class="course-badges"></div>
-                        <a href="https://www.dropbox.com/scl/fi/o6t10ratg1b9g9qbc0gly/IE_6200__Engineering_Probability_and_Statistics_Syllabus.pdf?rlkey=6s52747j1b6qf0icm0fuvt8ly&dl=0" target="_blank" class="syllabus-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                            Syllabus
-                        </a>
+                    <div class="board-stats">
+                        <div class="bs-item"><div class="bs-val">10</div><div class="bs-label">Courses</div></div>
+                        <div class="bs-item"><div class="bs-val">2,500+</div><div class="bs-label">Students</div></div>
+                        <div class="bs-item"><div class="bs-val">17+</div><div class="bs-label">Years Teaching</div></div>
                     </div>
-                    <!-- Economic Decision Making -->
-                    <div class="course-card">
-                        <div class="course-code">EMGT6225</div>
-                        <h4>Economic Decision Making</h4>
-                        <p class="course-subtitle">Engineering economy and financial analysis</p>
-                        <div class="course-badges"></div>
-                        <a href="https://www.dropbox.com/scl/fi/3zpduzs1oe48849nlkyx2/EMGT_6225_EDM.pdf?rlkey=jx813v6zdx2g1vbl7v6rsnmql&dl=0" target="_blank" class="syllabus-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                            Syllabus
-                        </a>
+                    <div class="board-tags">
+                        <span>Industrial Engineering</span>
+                        <span>Engineering Management</span>
+                        <span>Data Analytics Engineering</span>
                     </div>
-                    <!-- Engineering Project Management -->
-                    <div class="course-card">
-                        <div class="course-code">IE5200</div>
-                        <h4>Engineering Project Management</h4>
-                        <p class="course-subtitle">Project planning, scheduling, and execution</p>
-                        <div class="course-badges"></div>
-                        <span class="syllabus-link" style="color: rgba(100,100,100,0.9);">Core Course</span>
-                    </div>
+                    <div class="course-cards-wrap" id="courseCards"></div>
                 </div>
             </div>
         </section>
+
+        <!-- Course Modal -->
+        <div class="course-modal-overlay" id="courseOverlay" onclick="if(event.target===this)closeCourseModal()">
+            <div class="course-modal">
+                <button class="cm-close" onclick="closeCourseModal()"><i data-lucide="x"></i></button>
+                <div class="cm-illustration" id="cmIllust"></div>
+                <div class="cm-content" id="cmContent"></div>
+            </div>
+        </div>
 
         <!-- Notable TAs -->
         <section class="section" id="notable-tas">
@@ -5162,33 +5507,101 @@
                 </div>
                 <h2 class="section-title">Contact</h2>
             </div>
-            <div class="contact-bar">
-                <div class="contact-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    <a href="mailto:m.dehghani@northeastern.edu">m.dehghani@northeastern.edu</a>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <i data-lucide="mail"></i>
+                    </div>
+                    <div class="contact-card-label">Email</div>
+                    <div class="contact-card-value"><a href="mailto:m.dehghani@northeastern.edu">m.dehghani@northeastern.edu</a></div>
                 </div>
-                <div class="contact-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    <span>617.373.4722</span>
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <i data-lucide="phone"></i>
+                    </div>
+                    <div class="contact-card-label">Phone</div>
+                    <div class="contact-card-value">617.373.4722</div>
                 </div>
-                <div class="contact-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    <span>360 Huntington Ave, Boston, MA</span>
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <i data-lucide="map-pin"></i>
+                    </div>
+                    <div class="contact-card-label">Office</div>
+                    <div class="contact-card-value">360 Huntington Ave, Boston, MA</div>
                 </div>
-                <div class="contact-item">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                    <a href="https://www.linkedin.com/in/mdehghani86/" target="_blank">LinkedIn</a>
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;color:var(--neu-red)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </div>
+                    <div class="contact-card-label">LinkedIn</div>
+                    <div class="contact-card-value"><a href="https://www.linkedin.com/in/mdehghani86/" target="_blank">mdehghani86</a></div>
                 </div>
-                <div class="contact-item">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
-                    <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Google Scholar</a>
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <i data-lucide="book-open"></i>
+                    </div>
+                    <div class="contact-card-label">Google Scholar</div>
+                    <div class="contact-card-value"><a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Publications</a></div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Sidebar Scroll-Spy Navigator -->
+    <nav class="scroll-nav" id="scrollNav">
+        <div class="scroll-nav-inner">
+            <a class="scroll-nav-item" href="#sparkhub" data-section="sparkhub">
+                <span class="scroll-nav-dot"></span>
+                <span class="scroll-nav-label">SparkHub</span>
+            </a>
+            <a class="scroll-nav-item" href="#research" data-section="research">
+                <span class="scroll-nav-dot"></span>
+                <span class="scroll-nav-label">Research</span>
+            </a>
+            <a class="scroll-nav-item" href="#team" data-section="team">
+                <span class="scroll-nav-dot"></span>
+                <span class="scroll-nav-label">Team</span>
+            </a>
+            <a class="scroll-nav-item" href="#publications" data-section="publications">
+                <span class="scroll-nav-dot"></span>
+                <span class="scroll-nav-label">Papers</span>
+            </a>
+            <a class="scroll-nav-item" href="#awards" data-section="awards">
+                <span class="scroll-nav-dot"></span>
+                <span class="scroll-nav-label">Awards</span>
+            </a>
+            <a class="scroll-nav-item" href="#courses" data-section="courses">
+                <span class="scroll-nav-dot"></span>
+                <span class="scroll-nav-label">Courses</span>
+            </a>
+            <a class="scroll-nav-item" href="#notable-tas" data-section="notable-tas">
+                <span class="scroll-nav-dot"></span>
+                <span class="scroll-nav-label">TAs</span>
+            </a>
+            <a class="scroll-nav-item" href="#contact" data-section="contact">
+                <span class="scroll-nav-dot"></span>
+                <span class="scroll-nav-label">Contact</span>
+            </a>
+        </div>
+    </nav>
+
     <div class="footer-gradient"></div>
-    <footer>&copy; <script>document.write(new Date().getFullYear())</script> AI² Lab | Northeastern University</footer>
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-brand-logo">AI²</div>
+                <div class="footer-brand-text">Artificial Intelligence &<br>Applied Innovation Lab</div>
+            </div>
+            <div class="footer-links">
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#courses">Courses</a>
+                <a href="https://mie.northeastern.edu/" target="_blank">MIE Department</a>
+                <a href="https://www.northeastern.edu/" target="_blank">Northeastern</a>
+            </div>
+            <div class="footer-copy">&copy; <script>document.write(new Date().getFullYear())</script> AI² Lab | Northeastern University</div>
+        </div>
+    </footer>
 
     <script>
         // Scroll effects
@@ -5227,12 +5640,13 @@
             }
         }
 
-        // Close modal on Escape key
+        // Close modals on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 document.querySelectorAll('.student-modal.active').forEach(modal => {
                     modal.classList.remove('active');
                 });
+                closeCourseModal();
                 document.body.style.overflow = '';
             }
         });
@@ -5318,6 +5732,224 @@
 
         // Sort on page load
         sortPubsByYear();
+
+        // ========== Publication Impact Chart ==========
+        (function buildPubChart() {
+            var cards = document.querySelectorAll('.pub-card');
+            var yearData = {};
+            var total = 0;
+            cards.forEach(function(card) {
+                var year = parseInt(card.querySelector('.pub-year')?.textContent) || 0;
+                var type = card.dataset.type || 'other';
+                if (year < 2010) return;
+                if (!yearData[year]) yearData[year] = { journal: 0, conference: 0, book: 0 };
+                if (type === 'journal') yearData[year].journal++;
+                else if (type === 'conference') yearData[year].conference++;
+                else if (type === 'book') yearData[year].book++;
+                total++;
+            });
+
+            document.getElementById('pubTotalNum').textContent = total;
+
+            // Find year range
+            var years = Object.keys(yearData).map(Number).sort();
+            var minYear = years[0] || 2015;
+            var maxYear = years[years.length - 1] || 2025;
+            var maxCount = 0;
+            for (var y = minYear; y <= maxYear; y++) {
+                if (yearData[y]) {
+                    var cnt = yearData[y].journal + yearData[y].conference + yearData[y].book;
+                    if (cnt > maxCount) maxCount = cnt;
+                }
+            }
+
+            var chartEl = document.getElementById('pubChart');
+            var chartHeight = 80;
+            var html = '';
+            for (var y = minYear; y <= maxYear; y++) {
+                var d = yearData[y] || { journal: 0, conference: 0, book: 0 };
+                var cnt = d.journal + d.conference + d.book;
+                var totalH = maxCount > 0 ? (cnt / maxCount) * chartHeight : 0;
+                var jH = cnt > 0 ? (d.journal / cnt) * totalH : 0;
+                var cH = cnt > 0 ? (d.conference / cnt) * totalH : 0;
+                var bH = cnt > 0 ? (d.book / cnt) * totalH : 0;
+
+                html += '<div class="pub-bar-group">';
+                html += '<div class="pub-bar-count">' + (cnt > 0 ? cnt : '') + '</div>';
+                html += '<div class="pub-bar-stack" style="height:' + totalH + 'px">';
+                if (d.book > 0) html += '<div class="pub-bar-seg seg-book" data-h="' + bH + '"></div>';
+                if (d.conference > 0) html += '<div class="pub-bar-seg seg-conference" data-h="' + cH + '"></div>';
+                if (d.journal > 0) html += '<div class="pub-bar-seg seg-journal" data-h="' + jH + '"></div>';
+                html += '</div>';
+                html += '<div class="pub-bar-year">' + (y % 100 < 10 ? "'" + '0' + y % 100 : "'" + y % 100) + '</div>';
+                html += '</div>';
+            }
+            chartEl.innerHTML = html;
+
+            // Animate bars on scroll into view
+            var animated = false;
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting && !animated) {
+                        animated = true;
+                        document.querySelectorAll('.pub-bar-seg').forEach(function(seg) {
+                            var h = seg.getAttribute('data-h');
+                            setTimeout(function() {
+                                seg.style.height = h + 'px';
+                            }, 100);
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+            observer.observe(document.getElementById('pubImpact'));
+        })();
+
+        // ========== Courses - Frosted Glass Polaroid Wall ==========
+        const courseData = [
+            { code:'IE5354', title:'Applied Generative AI',
+              desc:'Examines how Generative AI and autonomous Agentic AI systems leverage large language models to extract insights, generate solutions, and tackle complex problems. Emphasizes hands-on exploration of AI-driven approaches across healthcare, supply chain, finance, and strategic planning.',
+              goals:['Explore fundamentals of Generative AI and its impact on engineering workflows','Gain hands-on experience solving real-world problems with GenAI tools','Develop proficiency in prompt engineering and Retrieval-Augmented Generation (RAG)','Progress from GenAI-assisted models to building Agentic AI systems','Build familiarity with LangChain, LangGraph, n8n, Streamlit, and Gradio'],
+              img:'IE5354_gen_ai.svg', pdf:'https://www.dropbox.com/scl/fi/kdphggvnrnshtwq73w5vd/IE_5354_ST__Applied_Generative_AI.pdf?rlkey=qqyg67d2kimg8cibd30dvyl8c&dl=1', pin:'var(--neu-red)', rot:-3, tape:false, award:false, pinX:35 },
+            { code:'IE6600', title:'Computation & Data Viz',
+              desc:'Teaches visualization tools and techniques for data exploration, knowledge discovery, data storytelling, and decision-making. Covers Python and R for data mining and visualization, including static, interactive, and dashboard-based techniques.',
+              goals:['Learn techniques for analyzing, cleaning, and summarizing data','Gain proficiency in static, dynamic, and interactive data visualization','Develop skills in creating dashboards and business intelligence techniques','Understand principles of data storytelling and persuasive presentation','Explore Generative AI\u2019s role in enhancing data visualization and storytelling'],
+              img:'IE6600_data_viz.svg', pdf:'https://www.dropbox.com/scl/fi/x1ttfnbae5owre7tq8jyr/IE600_Computation_and_Data_Visualization.pdf?rlkey=zkhbgvqi8ky41vshd77u1dn10&dl=1', pin:'var(--gold)', rot:2.5, tape:true, award:'DAIS Teaching Award 2025', pinX:62 },
+            { code:'IE7295', title:'Reinforcement Learning',
+              desc:'Introduces reinforcement learning, a machine learning approach that formulates optimal policies through trial-and-error. Covers mathematical foundations, tabular and approximate solution methods, and applications in manufacturing, robotics, healthcare, and game playing.',
+              goals:['Identify core concepts, theories, and models in reinforcement learning','Develop and test basic reinforcement learning methods systematically','Evaluate learning algorithms experimentally and interpret results','Apply reinforcement learning to real-life engineering problems','Implement, analyze, and evaluate systems based on reinforcement learning'],
+              img:'IE7295_reinforcement.svg', pdf:'https://www.dropbox.com/scl/fi/hjn434ith68f83vykgylh/Syllabus_IE-7295-RL.pdf?rlkey=xhc0ykh53c47lvslnkuwl6atr&dl=1', pin:'var(--gold)', rot:-1.5, tape:false, award:'Innovation in Education 2020', pinX:58 },
+            { code:'IE5353', title:'Storytelling with Data',
+              desc:'Equips students with tools and techniques to effectively present and communicate data-driven insights through storytelling. Covers data analysis, dynamic and interactive charts, dashboards, and presentation skills using Excel, Flourish, Power BI, and Generative AI.',
+              goals:['Develop understanding of the importance of storytelling with data','Learn techniques for analyzing, cleaning, and summarizing data','Gain proficiency in creating interactive charts and dashboards','Understand Generative AI\u2019s role in data analysis and visualization','Apply best practices in design to present compelling data-driven stories'],
+              img:'IE5353_storytelling.svg', pdf:'https://www.dropbox.com/scl/fi/jwk5zudu4skc4nmqiaufd/IE_5374_ST__Storytelling_with_Data.pdf?rlkey=uifvhrzjufvydqiqh3hdtu3ds&dl=1', pin:'#16a34a', rot:3.5, tape:false, award:false, pinX:68 },
+            { code:'OR6500', title:'Metaheuristics & Apps',
+              desc:'Covers metaheuristic search algorithms for solving large combinatorial optimization problems. Includes Simulated Annealing, Genetic Algorithms, Particle Swarm Optimization, Tabu Search, and multi-objective methods applied to scheduling, TSP, clustering, and more.',
+              goals:['Understand metaheuristic methods for solving global optimization problems','Implement algorithms in a programming environment for various variable types','Apply metaheuristics to engineering problems like scheduling and TSP','Understand multi-objective optimization and its metaheuristic methods','Improve algorithm robustness through experimental analysis and parameter tuning'],
+              img:'OR6500_metaheuristics.svg', pdf:'https://www.dropbox.com/scl/fi/h7dp81d2alz1xceu77s0n/OR6500-Syllabus_Metaheuristics-and-Applications.pdf?rlkey=xvdjfrhjxpfkk358zuln5a99f&dl=1', pin:'#2563eb', rot:-2.5, tape:true, award:false, pinX:30 },
+            { code:'IE7354', title:'Data Analytics',
+              desc:'Teaches fundamentals of computation required to understand and analyze real-world data. Covers modern data structures, data cleaning and wrangling, probability and distributions, cluster analysis, text analysis, and time series analysis using R.',
+              goals:['Work with modern data structures and multidimensional data','Apply data cleaning, wrangling, and manipulation operations','Apply probability and distribution concepts for analytics','Build procedures for cluster analysis and text analysis','Conduct descriptive and predictive time series analysis'],
+              img:'IE7354_data_analytics.svg', pdf:'https://www.dropbox.com/scl/fi/6o49d74cu937l10r25exa/IE_5374_Foundations_for_Data_Analytics_Engineering.pdf?rlkey=nspk6fa46h12xavj1htl6c711&dl=1', pin:'var(--neu-red)', rot:1.5, tape:false, award:false, pinX:45 },
+            { code:'IE7215', title:'Simulation Analysis',
+              desc:'An introductory course to simulation using numerical approaches to model complex stochastic systems. Covers Monte Carlo simulation, queuing theory, and discrete-event simulation using @Risk and Simio software, with emphasis on output analysis and validation.',
+              goals:['Learn system theory and basic concepts in discrete-event simulation','Create simulation models using Simio for industrial and business systems','Develop critical thinking through project and design of experiments','Improve communication skills through reports, teamwork, and presentations','Analyze and interpret simulation output with statistical validation techniques'],
+              img:'IE7215_simulation.svg', pdf:'https://www.dropbox.com/scl/fi/96cro4o1lbugdtzpsdp52/IE7215_Simulation_Analysis.pdf?rlkey=u02gl175ct8t5g3mghnhjm9bz&dl=1', pin:'#7c3aed', rot:-4, tape:false, award:false, pinX:72 },
+            { code:'IE6200', title:'Probability & Statistics',
+              desc:'Introduces basic rules of probability and statistical models with various mathematical techniques for analyzing data. Covers probability distributions, statistical inference, confidence intervals, hypothesis testing, and computational statistics using R.',
+              goals:['Determine measures of central tendency and variation from data','Identify distributions of random variables and calculate probabilities','Construct confidence intervals and conduct hypothesis testing','Interpret modeling results in the context of real-world problems','Interact with data using R and RStudio'],
+              img:'IE6200_probability.svg', pdf:'https://www.dropbox.com/scl/fi/o6t10ratg1b9g9qbc0gly/IE_6200__Engineering_Probability_and_Statistics_Syllabus.pdf?rlkey=6s52747j1b6qf0icm0fuvt8ly&dl=1', pin:'#0891b2', rot:2, tape:true, award:false, pinX:28 },
+            { code:'EMGT6225', title:'Economic Decision Making',
+              desc:'Explores economic modeling and analysis techniques for selecting alternatives in engineering problems. Covers time value of money, present/annual/future worth, rate of return, depreciation, taxes, and decisions under uncertainty through sensitivity and risk analysis.',
+              goals:['Understand the time value of money for engineering projects','Compare competing projects under certainty and uncertainty','Manipulate cash flows to make economic projections','Evaluate projects using depreciation, taxes, and breakeven analysis','Apply decision trees, risk analysis, and multi-attribute decision-making'],
+              img:'EMGT6225_economics.svg', pdf:'https://www.dropbox.com/scl/fi/3zpduzs1oe48849nlkyx2/EMGT_6225_EDM.pdf?rlkey=jx813v6zdx2g1vbl7v6rsnmql&dl=1', pin:'#b91c1c', rot:-1, tape:false, award:false, pinX:55 },
+            { code:'IE5200', title:'Project Management',
+              desc:'Project planning, scheduling, resource allocation, and execution strategies for engineering teams. Covers work breakdown structures, critical path methods, and risk management.',
+              goals:['Understand project lifecycle and planning methodologies','Apply scheduling techniques including CPM and PERT','Manage resources, budgets, and project constraints','Assess and mitigate project risks effectively','Lead engineering teams through structured project execution'],
+              img:'IE5200_project_mgmt.svg', pdf:null, pin:'#475569', rot:3, tape:false, award:false, pinX:40 }
+        ];
+
+        function buildCourseCards() {
+            const container = document.getElementById('courseCards');
+            let html = '';
+
+            courseData.forEach(function(c, i) {
+                const badge = c.award
+                    ? '<div class="pol-award-badge">'
+                        + '<div class="ab-medal-group">'
+                            + '<div class="ab-ribbons"><div class="ab-rib-l"></div><div class="ab-rib-r"></div></div>'
+                            + '<div class="ab-medal"><i data-lucide="award"></i></div>'
+                        + '</div>'
+                        + '<div class="ab-label">' + c.award + '</div>'
+                    + '</div>'
+                    : '';
+                const tape = c.tape ? '<div class="tape"></div>' : '';
+                const chip = '<span class="pol-chip" onclick="event.stopPropagation();openCourseModal(' + i + ')"><i data-lucide="arrow-up-right"></i> Syllabus</span>';
+
+                html += '<div class="polaroid" style="transform:rotate(' + c.rot + 'deg)" onclick="openCourseModal(' + i + ')">'
+                    + '<div class="pin" style="background:' + c.pin + ';left:' + c.pinX + '%"></div>'
+                    + badge + tape
+                    + '<div class="pol-img"><img src="assets/images/storyset/' + c.img + '" alt="' + c.title + '"></div>'
+                    + '<div class="pol-title">' + c.title + '</div>'
+                    + '<div class="pol-code">' + c.code + '</div>'
+                    + chip
+                    + '</div>';
+            });
+
+            container.innerHTML = html;
+            lucide.createIcons();
+        }
+
+        function openCourseModal(idx) {
+            var c = courseData[idx];
+            var illust = document.getElementById('cmIllust');
+            var content = document.getElementById('cmContent');
+
+            illust.innerHTML = '<img src="assets/images/storyset/' + c.img + '" alt="' + c.title + '">';
+
+            var html = '';
+            if (c.award) {
+                html += '<div class="cm-award"><i data-lucide="award"></i><span>' + c.award + '</span></div><br>';
+            }
+            html += '<div class="cm-code">' + c.code + '</div>';
+            html += '<div class="cm-title">' + c.title + '</div>';
+            html += '<div class="cm-desc">' + c.desc + '</div>';
+
+            if (c.goals && c.goals.length > 0) {
+                html += '<div class="cm-goals-title">Course Goals</div>';
+                html += '<ul class="cm-goals">';
+                c.goals.forEach(function(goal) {
+                    html += '<li><i data-lucide="check-circle"></i>' + goal + '</li>';
+                });
+                html += '</ul>';
+            }
+
+            if (c.pdf) {
+                html += '<a class="cm-download" href="' + c.pdf + '" target="_blank"><i data-lucide="download"></i> Download Syllabus</a>';
+            } else {
+                html += '<div class="cm-no-download"><i data-lucide="lock"></i> Core Course</div>';
+            }
+
+            content.innerHTML = html;
+            document.getElementById('courseOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeCourseModal() {
+            document.getElementById('courseOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Build course cards
+        buildCourseCards();
+
+        // Sidebar Scroll-Spy
+        const scrollNavItems = document.querySelectorAll('.scroll-nav-item');
+        const spySections = [];
+        scrollNavItems.forEach(function(item) {
+            var id = item.dataset.section;
+            var el = document.getElementById(id);
+            if (el) spySections.push({ id: id, el: el, nav: item });
+        });
+
+        function updateScrollSpy() {
+            var scrollTop = window.scrollY + window.innerHeight / 3;
+            var activeId = '';
+            spySections.forEach(function(s) {
+                if (s.el.offsetTop <= scrollTop) {
+                    activeId = s.id;
+                }
+            });
+            scrollNavItems.forEach(function(item) {
+                item.classList.toggle('active', item.dataset.section === activeId);
+            });
+        }
+
+        window.addEventListener('scroll', updateScrollSpy);
+        updateScrollSpy();
+
+        // Initialize all Lucide icons (awards, contact, etc.)
+        lucide.createIcons();
     </script>
 </body>
 </html>
