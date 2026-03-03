@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Publication Slide — 4 Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Inter', sans-serif;
+        background: #f1f5f9;
+        padding: 40px;
+    }
+    h1 {
+        text-align: center;
+        font-size: 28px;
+        color: #1a1a2e;
+        margin-bottom: 10px;
+    }
+    .subtitle {
+        text-align: center;
+        color: #64748b;
+        font-size: 14px;
+        margin-bottom: 40px;
+    }
+    .option-label {
+        font-size: 13px;
+        font-weight: 700;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .option-label span {
+        background: #C41230;
+        color: white;
+        padding: 2px 10px;
+        border-radius: 4px;
+        font-size: 11px;
+    }
+    .slide-wrapper {
+        max-width: 750px;
+        margin: 0 auto 50px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+        border: 1px solid rgba(0,0,0,0.08);
+    }
+
+    /* ============================================ */
+    /* OPTION A — Split Layout: Framework Left + Info Right */
+    /* ============================================ */
+    .slide-a {
+        height: 400px;
+        display: flex;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    .slide-a .left {
+        width: 45%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .slide-a .left::after {
+        content: '';
+        position: absolute;
+        top: 0; right: 0; width: 60px; height: 100%;
+        background: linear-gradient(to right, transparent, #0f172a);
+        z-index: 1;
+    }
+    .slide-a .left img {
+        width: 130%;
+        max-height: 90%;
+        object-fit: contain;
+        filter: brightness(1.1) saturate(1.1);
+        margin-left: 20px;
+    }
+    .slide-a .right {
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 30px 35px 30px 20px;
+    }
+    .slide-a .badge {
+        display: inline-block;
+        width: fit-content;
+        background: linear-gradient(135deg, #d4a84b, #f59e0b);
+        color: #1a2744;
+        padding: 5px 14px;
+        border-radius: 6px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        margin-bottom: 14px;
+    }
+    .slide-a .title {
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 700;
+        line-height: 1.35;
+        margin-bottom: 6px;
+    }
+    .slide-a .sub {
+        color: rgba(255,255,255,0.65);
+        font-size: 0.82rem;
+        margin-bottom: 16px;
+    }
+    .slide-a .authors {
+        color: rgba(255,255,255,0.5);
+        font-size: 0.7rem;
+        margin-bottom: 4px;
+    }
+    .slide-a .venue {
+        color: #d4a84b;
+        font-size: 0.68rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+    .slide-a .btn {
+        display: inline-block;
+        width: fit-content;
+        padding: 9px 22px;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 8px;
+        color: white;
+        font-size: 0.73rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s;
+    }
+    .slide-a .btn:hover {
+        background: rgba(212,168,75,0.15);
+        border-color: #d4a84b;
+        color: #d4a84b;
+    }
+
+    /* ============================================ */
+    /* OPTION B — Full Bleed Image BG with Glass Card Overlay */
+    /* ============================================ */
+    .slide-b {
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+    }
+    .slide-b .bg {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .slide-b .bg img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 20px;
+    }
+    .slide-b .bg::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(15,23,42,0.5) 0%, rgba(30,41,59,0.3) 100%);
+        z-index: 1;
+    }
+    .slide-b .glass-card {
+        position: absolute;
+        bottom: 24px;
+        left: 24px;
+        right: 24px;
+        z-index: 2;
+        background: rgba(15,23,42,0.75);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 14px;
+        padding: 22px 28px;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+    .slide-b .glass-left {
+        flex: 1;
+    }
+    .slide-b .badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #d4a84b, #f59e0b);
+        color: #1a2744;
+        padding: 4px 12px;
+        border-radius: 5px;
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        margin-bottom: 10px;
+    }
+    .slide-b .title {
+        color: white;
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 4px;
+    }
+    .slide-b .sub {
+        color: rgba(255,255,255,0.6);
+        font-size: 0.75rem;
+        margin-bottom: 8px;
+    }
+    .slide-b .meta-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+    .slide-b .authors {
+        color: rgba(255,255,255,0.45);
+        font-size: 0.65rem;
+    }
+    .slide-b .venue {
+        color: #d4a84b;
+        font-size: 0.65rem;
+        font-weight: 600;
+    }
+    .slide-b .glass-right {
+        flex-shrink: 0;
+    }
+    .slide-b .btn {
+        display: inline-block;
+        padding: 10px 24px;
+        background: linear-gradient(135deg, #d4a84b, #f59e0b);
+        color: #1a2744;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: all 0.2s;
+        white-space: nowrap;
+    }
+    .slide-b .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 18px rgba(212,168,75,0.35);
+    }
+
+    /* ============================================ */
+    /* OPTION C — Magazine / Editorial Style */
+    /* ============================================ */
+    .slide-c {
+        height: 400px;
+        display: flex;
+        background: #fafbfc;
+        position: relative;
+        overflow: hidden;
+    }
+    .slide-c .accent-bar {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 5px;
+        background: linear-gradient(90deg, #C41230 0%, #d4a84b 50%, #1a2744 100%);
+    }
+    .slide-c .left {
+        width: 50%;
+        padding: 40px 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+    }
+    .slide-c .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        margin-bottom: 16px;
+    }
+    .slide-c .badge-new {
+        background: #C41230;
+        color: white;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .slide-c .badge-year {
+        color: #64748b;
+        font-size: 0.7rem;
+        font-weight: 600;
+    }
+    .slide-c .title {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: #1a1a2e;
+        line-height: 1.3;
+        margin-bottom: 8px;
+    }
+    .slide-c .sub {
+        font-size: 0.85rem;
+        color: #64748b;
+        margin-bottom: 18px;
+        line-height: 1.4;
+    }
+    .slide-c .authors {
+        font-size: 0.72rem;
+        color: #94a3b8;
+        margin-bottom: 3px;
+    }
+    .slide-c .venue {
+        font-size: 0.72rem;
+        color: #C41230;
+        font-weight: 600;
+        margin-bottom: 22px;
+    }
+    .slide-c .venue em {
+        font-style: normal;
+        color: #94a3b8;
+        font-weight: 400;
+    }
+    .slide-c .btn {
+        display: inline-block;
+        width: fit-content;
+        padding: 10px 24px;
+        background: #1a1a2e;
+        color: white;
+        font-size: 0.73rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: all 0.2s;
+    }
+    .slide-c .btn:hover {
+        background: #C41230;
+    }
+    .slide-c .right {
+        width: 50%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+        overflow: hidden;
+    }
+    .slide-c .right::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(circle at 30% 40%, rgba(196,18,48,0.06) 0%, transparent 50%),
+            radial-gradient(circle at 70% 60%, rgba(26,26,46,0.05) 0%, transparent 50%);
+    }
+    .slide-c .right img {
+        width: 95%;
+        max-height: 85%;
+        object-fit: contain;
+        position: relative;
+        z-index: 1;
+        filter: drop-shadow(0 4px 20px rgba(0,0,0,0.08));
+    }
+
+    /* ============================================ */
+    /* OPTION D — Centered Hero with Framework as BG Pattern */
+    /* ============================================ */
+    .slide-d {
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(160deg, #1a1a2e 0%, #16213e 40%, #0f172a 100%);
+    }
+    .slide-d .bg-pattern {
+        position: absolute;
+        inset: 0;
+        opacity: 0.06;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .slide-d .bg-pattern img {
+        width: 120%;
+        object-fit: contain;
+        filter: brightness(2) grayscale(1);
+    }
+    .slide-d .bg-glow {
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse at 30% 50%, rgba(196,18,48,0.12) 0%, transparent 50%),
+            radial-gradient(ellipse at 70% 50%, rgba(212,168,75,0.08) 0%, transparent 50%);
+    }
+    .slide-d .content {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 30px 50px;
+    }
+    .slide-d .top-line {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+    .slide-d .badge {
+        background: linear-gradient(135deg, #d4a84b, #f59e0b);
+        color: #1a2744;
+        padding: 5px 16px;
+        border-radius: 20px;
+        font-size: 0.62rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .slide-d .venue-pill {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.12);
+        color: rgba(255,255,255,0.6);
+        padding: 5px 16px;
+        border-radius: 20px;
+        font-size: 0.62rem;
+        font-weight: 600;
+    }
+    .slide-d .title {
+        color: white;
+        font-size: 1.55rem;
+        font-weight: 800;
+        line-height: 1.3;
+        margin-bottom: 8px;
+        max-width: 600px;
+    }
+    .slide-d .title em {
+        font-style: normal;
+        color: #d4a84b;
+    }
+    .slide-d .sub {
+        color: rgba(255,255,255,0.5);
+        font-size: 0.82rem;
+        margin-bottom: 22px;
+        max-width: 500px;
+    }
+    .slide-d .authors {
+        color: rgba(255,255,255,0.4);
+        font-size: 0.7rem;
+        margin-bottom: 24px;
+        letter-spacing: 0.3px;
+    }
+    .slide-d .btn-row {
+        display: flex;
+        gap: 12px;
+    }
+    .slide-d .btn-primary {
+        display: inline-block;
+        padding: 10px 26px;
+        background: linear-gradient(135deg, #C41230, #e85a6b);
+        color: white;
+        font-size: 0.73rem;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: all 0.2s;
+    }
+    .slide-d .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 18px rgba(196,18,48,0.4);
+    }
+    .slide-d .btn-secondary {
+        display: inline-block;
+        padding: 10px 26px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.15);
+        color: rgba(255,255,255,0.7);
+        font-size: 0.73rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: all 0.2s;
+    }
+    .slide-d .btn-secondary:hover {
+        background: rgba(255,255,255,0.12);
+        color: white;
+    }
+</style>
+</head>
+<body>
+
+<h1>New Publication Slide — Pick Your Favorite</h1>
+<p class="subtitle">4 different designs for the AIDM Framework publication slide. All are 400px height to match the existing slider.</p>
+
+<!-- OPTION A -->
+<div class="option-label"><span>A</span> Split Layout — Framework Left, Info Right</div>
+<div class="slide-wrapper">
+    <div class="slide-a">
+        <div class="left">
+            <img src="../assets/images/AIDM_Framework.png" alt="AIDM Framework">
+        </div>
+        <div class="right">
+            <div class="badge">New Publication — 2026</div>
+            <div class="title">The AI-driven Decision-Making (AIDM) Framework</div>
+            <div class="sub">Integrating AHP and ChatGPT for Supplier Selection</div>
+            <div class="authors">N. Sadeghi, M. Dehghanimohammadabadi, N. Kabadayi</div>
+            <div class="venue">Annals of Operations Research • Accepted / In Press</div>
+            <a href="#" class="btn">Read Paper →</a>
+        </div>
+    </div>
+</div>
+
+<!-- OPTION B -->
+<div class="option-label"><span>B</span> Full Image Background + Glass Card Overlay</div>
+<div class="slide-wrapper">
+    <div class="slide-b">
+        <div class="bg">
+            <img src="../assets/images/AIDM_Framework.png" alt="AIDM Framework">
+        </div>
+        <div class="glass-card">
+            <div class="glass-left">
+                <div class="badge">New Publication — 2026</div>
+                <div class="title">The AI-driven Decision-Making (AIDM) Framework</div>
+                <div class="sub">Integrating AHP and ChatGPT for Supplier Selection</div>
+                <div class="meta-row">
+                    <div class="authors">N. Sadeghi, M. Dehghanimohammadabadi, N. Kabadayi</div>
+                    <div class="venue">Annals of Operations Research</div>
+                </div>
+            </div>
+            <div class="glass-right">
+                <a href="#" class="btn">Read Paper →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- OPTION C -->
+<div class="option-label"><span>C</span> Magazine / Editorial — Light Theme</div>
+<div class="slide-wrapper">
+    <div class="slide-c">
+        <div class="accent-bar"></div>
+        <div class="left">
+            <div class="badge">
+                <span class="badge-new">New Publication</span>
+                <span class="badge-year">2026</span>
+            </div>
+            <div class="title">The AI-driven Decision-Making (AIDM) Framework</div>
+            <div class="sub">Integrating AHP and ChatGPT for Supplier Selection</div>
+            <div class="authors">N. Sadeghi, M. Dehghanimohammadabadi, N. Kabadayi</div>
+            <div class="venue">Annals of Operations Research <em>• Accepted / In Press</em></div>
+            <a href="#" class="btn">Read Paper →</a>
+        </div>
+        <div class="right">
+            <img src="../assets/images/AIDM_Framework.png" alt="AIDM Framework">
+        </div>
+    </div>
+</div>
+
+<!-- OPTION D -->
+<div class="option-label"><span>D</span> Centered Hero — Dark with Glow</div>
+<div class="slide-wrapper">
+    <div class="slide-d">
+        <div class="bg-pattern">
+            <img src="../assets/images/AIDM_Framework.png" alt="AIDM Framework">
+        </div>
+        <div class="bg-glow"></div>
+        <div class="content">
+            <div class="top-line">
+                <span class="badge">New Publication — 2026</span>
+                <span class="venue-pill">Annals of Operations Research</span>
+            </div>
+            <div class="title">The <em>AI-driven</em> Decision-Making Framework</div>
+            <div class="sub">Integrating AHP and ChatGPT for Supplier Selection</div>
+            <div class="authors">N. Sadeghi &nbsp;·&nbsp; M. Dehghanimohammadabadi &nbsp;·&nbsp; N. Kabadayi</div>
+            <div class="btn-row">
+                <a href="#" class="btn-primary">Read Paper</a>
+                <a href="#" class="btn-secondary">View Framework</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

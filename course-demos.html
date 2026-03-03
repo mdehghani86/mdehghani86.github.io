@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Popup Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+:root {
+    --neu-red: #C41230;
+    --text-primary: #1a1a2e;
+    --text-secondary: #64748b;
+    --gold: #d4a84b;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:#fafbfc; color:var(--text-primary); }
+
+.demo-info {
+    text-align:center; padding:60px 20px 30px;
+}
+.demo-info h1 { font-size:1.8rem; font-weight:800; margin-bottom:8px; }
+.demo-info p { color:var(--text-secondary); font-size:0.95rem; }
+
+.card-grid {
+    display:flex; flex-wrap:wrap; gap:20px; justify-content:center;
+    max-width:900px; margin:0 auto; padding:20px 30px 60px;
+}
+.demo-card {
+    width:150px; padding:12px; background:white; border-radius:12px;
+    box-shadow:0 2px 12px rgba(0,0,0,0.08); cursor:pointer;
+    transition:all 0.3s; text-align:center; border:1px solid #e2e8f0;
+}
+.demo-card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,0.12); }
+.demo-card img { width:100%; height:100px; object-fit:contain; margin-bottom:8px; }
+.demo-card .dc-title { font-size:11px; font-weight:700; line-height:1.3; }
+.demo-card .dc-code { font-size:9px; color:var(--text-secondary); margin-top:3px; }
+
+/* ===== MODAL — Frosted Glass Style ===== */
+.course-modal-overlay {
+    position:fixed; inset:0; z-index:9999;
+    background:rgba(10,10,20,0.6);
+    backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; visibility:hidden;
+    transition:all 0.3s ease;
+    padding:20px;
+}
+.course-modal-overlay.active {
+    opacity:1; visibility:visible;
+}
+
+.course-modal {
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:20px;
+    width:100%; max-width:380px;
+    box-shadow:0 25px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+    overflow:hidden;
+    transform:translateY(30px) scale(0.95);
+    transition:all 0.35s cubic-bezier(0.25,0.8,0.25,1);
+    position:relative;
+}
+.course-modal-overlay.active .course-modal {
+    transform:translateY(0) scale(1);
+}
+
+/* Close button */
+.cm-close {
+    position:absolute; top:12px; right:12px; z-index:10;
+    width:28px; height:28px; border-radius:50%;
+    background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition:all 0.2s;
+}
+.cm-close:hover { background:rgba(255,255,255,0.2); }
+.cm-close i { width:14px; height:14px; color:rgba(255,255,255,0.7); }
+
+/* Illustration area */
+.cm-illustration {
+    height:200px;
+    background:rgba(255,255,255,0.08);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
+}
+.cm-illustration img {
+    width:70%; height:80%; object-fit:contain;
+    position:relative; z-index:1;
+    filter:drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+}
+
+/* Content */
+.cm-content {
+    padding:20px 24px 24px;
+    text-align:center;
+}
+
+/* Award chip */
+.cm-award {
+    display:inline-flex; align-items:center; gap:5px;
+    background:linear-gradient(135deg, rgba(212,168,75,0.2), rgba(212,168,75,0.1));
+    border:1px solid rgba(212,168,75,0.3);
+    padding:4px 12px; border-radius:8px;
+    margin-bottom:10px;
+}
+.cm-award i { width:12px; height:12px; color:var(--gold); }
+.cm-award span { font-size:10px; font-weight:700; color:var(--gold); }
+
+.cm-code {
+    display:inline-block;
+    font-size:10px; font-weight:700; color:rgba(255,255,255,0.5);
+    letter-spacing:1px; margin-bottom:6px;
+}
+.cm-title {
+    font-size:1.15rem; font-weight:800; line-height:1.3;
+    margin-bottom:6px; color:white;
+}
+.cm-desc {
+    font-size:0.78rem; color:rgba(255,255,255,0.55);
+    line-height:1.6; margin-bottom:18px;
+}
+
+/* Download button — compact */
+.cm-download {
+    display:inline-flex; align-items:center; gap:6px;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.2);
+    color:rgba(255,255,255,0.85); text-decoration:none;
+    padding:8px 18px; border-radius:10px;
+    font-size:11px; font-weight:600; letter-spacing:0.2px;
+    transition:all 0.25s;
+}
+.cm-download:hover {
+    background:rgba(255,255,255,0.22);
+    color:white;
+    border-color:rgba(255,255,255,0.35);
+}
+.cm-download i { width:13px; height:13px; }
+
+/* No-download state */
+.cm-no-download {
+    display:inline-flex; align-items:center; gap:5px;
+    color:rgba(255,255,255,0.35);
+    font-size:10px; font-weight:600;
+    padding:7px 14px; border-radius:8px;
+    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08);
+}
+.cm-no-download i { width:12px; height:12px; }
+</style>
+</head>
+<body>
+
+<div class="demo-info">
+    <h1>Course Popup Demo</h1>
+    <p>Click any card below to see the popup</p>
+</div>
+
+<div class="card-grid" id="cardGrid"></div>
+
+<!-- Single reusable modal -->
+<div class="course-modal-overlay" id="courseOverlay" onclick="if(event.target===this)closeModal()">
+    <div class="course-modal" id="courseModal">
+        <button class="cm-close" onclick="closeModal()"><i data-lucide="x"></i></button>
+        <div class="cm-illustration" id="cmIllust"></div>
+        <div class="cm-content" id="cmContent"></div>
+    </div>
+</div>
+
+<script>
+const courses = [
+    { code:'IE5354', title:'Applied Generative AI', desc:'Large language models, prompt engineering, and real-world AI applications for engineers.', img:'IE5354_gen_ai.svg', pdf:'https://www.dropbox.com/scl/fi/kdphggvnrnshtwq73w5vd/IE_5354_ST__Applied_Generative_AI.pdf?rlkey=qqyg67d2kimg8cibd30dvyl8c&dl=1', award:false },
+    { code:'IE6600', title:'Computation and Data Visualization', desc:'Data storytelling with R and Python \u2014 turning raw data into compelling visual narratives.', img:'IE6600_data_viz.svg', pdf:'https://www.dropbox.com/scl/fi/x1ttfnbae5owre7tq8jyr/IE600_Computation_and_Data_Visualization.pdf?rlkey=zkhbgvqi8ky41vshd77u1dn10&dl=1', award:'DAIS Teaching Award 2025' },
+    { code:'IE7295', title:'Reinforcement Learning', desc:'AI-driven sequential decision making \u2014 from Markov decision processes to deep RL.', img:'IE7295_reinforcement.svg', pdf:'https://www.dropbox.com/scl/fi/hjn434ith68f83vykgylh/Syllabus_IE-7295-RL.pdf?rlkey=xhc0ykh53c47lvslnkuwl6atr&dl=1', award:'Innovation Award 2020' },
+    { code:'IE5353', title:'Storytelling with Data', desc:'Data visualization and narrative techniques for impactful communication.', img:'IE5353_storytelling.svg', pdf:'https://www.dropbox.com/scl/fi/jwk5zudu4skc4nmqiaufd/IE_5374_ST__Storytelling_with_Data.pdf?rlkey=uifvhrzjufvydqiqh3hdtu3ds&dl=1', award:false },
+    { code:'OR6500', title:'Metaheuristics and Applications', desc:'Optimization algorithms for complex engineering problems \u2014 GA, PSO, SA, and beyond.', img:'OR6500_metaheuristics.svg', pdf:'https://www.dropbox.com/scl/fi/h7dp81d2alz1xceu77s0n/OR6500-Syllabus_Metaheuristics-and-Applications.pdf?rlkey=xvdjfrhjxpfkk358zuln5a99f&dl=1', award:false },
+    { code:'IE7354', title:'Foundations of Data Analytics', desc:'Core concepts in data analytics engineering \u2014 statistical modeling and machine learning.', img:'IE7354_data_analytics.svg', pdf:'https://www.dropbox.com/scl/fi/6o49d74cu937l10r25exa/IE_5374_Foundations_for_Data_Analytics_Engineering.pdf?rlkey=nspk6fa46h12xavj1htl6c711&dl=1', award:false },
+    { code:'IE7215', title:'Simulation Analysis', desc:'Advanced simulation techniques, output analysis, and discrete-event modeling.', img:'IE7215_simulation.svg', pdf:'https://www.dropbox.com/scl/fi/96cro4o1lbugdtzpsdp52/IE7215_Simulation_Analysis.pdf?rlkey=u02gl175ct8t5g3mghnhjm9bz&dl=1', award:false },
+    { code:'IE6200', title:'Engineering Probability and Statistics', desc:'Statistical foundations for engineers \u2014 probability theory, inference, and regression.', img:'IE6200_probability.svg', pdf:'https://www.dropbox.com/scl/fi/o6t10ratg1b9g9qbc0gly/IE_6200__Engineering_Probability_and_Statistics_Syllabus.pdf?rlkey=6s52747j1b6qf0icm0fuvt8ly&dl=1', award:false },
+    { code:'EMGT6225', title:'Economic Decision Making', desc:'Engineering economy and financial analysis for informed decision making.', img:'EMGT6225_economics.svg', pdf:'https://www.dropbox.com/scl/fi/3zpduzs1oe48849nlkyx2/EMGT_6225_EDM.pdf?rlkey=jx813v6zdx2g1vbl7v6rsnmql&dl=1', award:false },
+    { code:'IE5200', title:'Engineering Project Management', desc:'Project planning, scheduling, resource allocation, and execution strategies.', img:'IE5200_project_mgmt.svg', pdf:null, award:false }
+];
+
+const grid = document.getElementById('cardGrid');
+courses.forEach(function(c, i) {
+    grid.innerHTML += '<div class="demo-card" onclick="openModal(' + i + ')">'
+        + '<img src="assets/images/storyset/' + c.img + '" alt="' + c.title + '">'
+        + '<div class="dc-title">' + c.title + '</div>'
+        + '<div class="dc-code">' + c.code + '</div>'
+        + '</div>';
+});
+
+function openModal(idx) {
+    const c = courses[idx];
+    const overlay = document.getElementById('courseOverlay');
+    const illust = document.getElementById('cmIllust');
+    const content = document.getElementById('cmContent');
+
+    illust.innerHTML = '<img src="assets/images/storyset/' + c.img + '" alt="' + c.title + '">';
+
+    let html = '';
+
+    if (c.award) {
+        html += '<div class="cm-award"><i data-lucide="award"></i><span>' + c.award + '</span></div><br>';
+    }
+
+    html += '<div class="cm-code">' + c.code + '</div>';
+    html += '<div class="cm-title">' + c.title + '</div>';
+    html += '<div class="cm-desc">' + c.desc + '</div>';
+
+    if (c.pdf) {
+        html += '<a class="cm-download" href="' + c.pdf + '" target="_blank">'
+            + '<i data-lucide="download"></i> Download Syllabus</a>';
+    } else {
+        html += '<div class="cm-no-download"><i data-lucide="lock"></i> Core Course</div>';
+    }
+
+    content.innerHTML = html;
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    lucide.createIcons();
+}
+
+function closeModal() {
+    document.getElementById('courseOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+});
+
+lucide.createIcons();
+</script>
+</body>
+</html>

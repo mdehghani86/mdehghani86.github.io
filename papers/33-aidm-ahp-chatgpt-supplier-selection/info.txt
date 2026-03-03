@@ -1,0 +1,16 @@
+========================================
+TITLE: The AI-driven Decision-Making (AIDM) Framework: Integrating AHP and ChatGPT for Supplier Selection
+========================================
+YEAR: 2026
+TYPE: Journal
+VENUE: Annals of Operations Research
+AUTHORS: N. Sadeghi, M. Dehghanimohammadabadi, N. Kabadayi
+STATUS: Accepted / In Press
+
+FILES:
+- PDF: aidm-ahp-chatgpt-supplier-selection.pdf ✓
+- Slides:
+- Code:
+
+LINKS:
+- DOI: (forthcoming)
